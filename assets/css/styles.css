@@ -488,7 +488,6 @@ p {
 .overlay-logo img {
   height: 56px;
   filter: brightness(0) invert(1);
-  opacity: 0.6;
 }
 
 /* Animated X Close Button */
@@ -851,8 +850,6 @@ p {
   }
 
   .hero-bottom-content {
-    flex-direction: row;
-    align-items: flex-end;
     bottom: 6%;
   }
 
@@ -1029,8 +1026,9 @@ p {
   .overlay-info {
     flex: 0.8;
     border-top: none;
-    padding-top: 0;
+    padding-top: 0rem;
     padding-bottom: var(--space-lg);
+    align-content: flex-end;
   }
 
   .overlay-info-block {
@@ -1096,8 +1094,6 @@ p {
   }
 
   .hero-bottom-content {
-    flex-direction: row;
-    align-items: flex-end;
     bottom: 6%;
   }
 

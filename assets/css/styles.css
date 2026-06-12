@@ -13,10 +13,6 @@
 
   /* Typography Scale */
   --font-size-h1: clamp(2.5rem, 5vw, 4.5rem);
-  --font-size-h2: clamp(1.75rem, 4vw, 3rem);
-  --font-size-h3: clamp(1.25rem, 2.5vw, 2rem);
-  --font-size-h4: clamp(0.9rem, 1.25vw, 1.1rem);
-  --font-size-body-large: clamp(1rem, 1.25vw, 1.25rem);
   --font-size-body-reg: clamp(0.875rem, 1vw, 1.05rem);
   --font-size-small: clamp(0.75rem, 0.8vw, 0.85rem);
 
@@ -26,8 +22,6 @@
 
   /* Letter Spacing */
   --letter-spacing-heading: -1.5px;
-  --letter-spacing-subheading: -0.5px;
-  --letter-spacing-text: normal;
   --letter-spacing-label: 2px;
 
   /* Colors */
@@ -35,18 +29,10 @@
   --color-primary-dark: #003620;
   --color-dark: #000000;
   --color-dark-alt: #1a1a1a;
-  --color-dark-hover: #333333;
   --color-light: #ffffff;
-  --color-bg-light: #f6f8f5;
-  --color-text-gray: #444444;
   --glass-bg: rgba(0, 0, 0, 0.6);       
-  --Gold: #c6a76a;
-  --Champagne: #eae3d2;
-  --Cream: #f7f4ee;
-  --Text: #1a1a1a;
 
   /* Layout & Alignment System */
-  --container-max-width: 1000px;
   --border-radius: 4px;
   --transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -109,10 +95,7 @@ html.menu-open body {
    TYPOGRAPHY INHERITANCE / SYSTEM
    ========================================================================== */
 h1,
-h2,
-h3,
-.sans-title,
-.room-title {
+.sans-title {
   font-family: "Cormorant Garamond", serif;
 }
 
@@ -122,35 +105,6 @@ h1,
   font-weight: 500;
   line-height: var(--line-height-heading);
   letter-spacing: var(--letter-spacing-heading);
-}
-
-h2,
-.h2 {
-  font-size: var(--font-size-h2);
-  font-weight: 500;
-  line-height: var(--line-height-heading);
-  letter-spacing: var(--letter-spacing-subheading);
-}
-
-h3,
-.h3 {
-  font-size: var(--font-size-h3);
-  font-weight: 500;
-  line-height: var(--line-height-heading);
-  letter-spacing: var(--letter-spacing-subheading);
-}
-
-h4,
-.h4 {
-  font-size: var(--font-size-h4);
-  font-weight: 500;
-  line-height: var(--line-height-heading);
-  letter-spacing: var(--letter-spacing-text);
-}
-
-p.large {
-  font-size: var(--font-size-body-large);
-  line-height: var(--line-height-body);
 }
 
 p {
@@ -809,28 +763,7 @@ p {
   }
 }
 
-/* Scroll Reveal Classes */
-.reveal-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-  will-change: transform, opacity;
-}
 
-.reveal-up.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.delay-100 {
-  transition-delay: 0.1s;
-}
-.delay-200 {
-  transition-delay: 0.2s;
-}
-.delay-300 {
-  transition-delay: 0.3s;
-}
 
 /* ==========================================================================
    RESPONSIVE DESIGN SYSTEM (min-width Mobile-First)

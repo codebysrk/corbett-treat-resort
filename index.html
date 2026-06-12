@@ -257,26 +257,6 @@
         { passive: true },
       );
 
-      // Scroll Reveal Animation Observer
-      const revealElements = document.querySelectorAll(".reveal-up");
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-              observer.unobserve(entry.target); // Trigger only once
-            }
-          });
-        },
-        {
-          root: null,
-          threshold: 0.15,
-          rootMargin: "0px 0px -50px 0px",
-        },
-      );
-
-      revealElements.forEach((el) => revealObserver.observe(el));
-
       // Fetch Live Weather for Jim Corbett (Ramnagar, UK)
       async function fetchWeather() {
         try {

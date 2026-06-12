@@ -92,7 +92,7 @@ html.menu-open body {
 }
 
 /* ==========================================================================
-   TYPOGRAPHY INHERITANCE / SYSTEM
+   TYPOGRAPHY INHERITANCE / SYSTEM (Base for Mobiles < 375px)
    ========================================================================== */
 h1,
 .sans-title {
@@ -101,19 +101,19 @@ h1,
 
 h1,
 .h1 {
-  font-size: var(--font-size-h1);
+  font-size: 1.35rem; /* Base size for very small phones */
   font-weight: 500;
   line-height: var(--line-height-heading);
   letter-spacing: var(--letter-spacing-heading);
 }
 
 p {
-  font-size: var(--font-size-body-reg);
+  font-size: 0.8rem; /* Base size for very small phones */
   line-height: var(--line-height-body);
 }
 
 /* ==========================================================================
-   BUTTON SYSTEM
+   BUTTON SYSTEM (Base for Mobile)
    ========================================================================== */
 .book-now-btn,
 .nav-book-btn,
@@ -121,13 +121,13 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
-  padding: 0 var(--space-lg); /* 32px padding left/right */
+  height: 44px; /* Base mobile size */
+  padding: 0 var(--space-sm);
   background-color: var(--color-primary);
   color: var(--color-light);
   border: 1px solid transparent;
   border-radius: var(--border-radius);
-  font-size: var(--font-size-body-reg);
+  font-size: var(--font-size-small);
   font-weight: 500;
   letter-spacing: 0.5px;
   text-decoration: none;
@@ -145,7 +145,7 @@ p {
 }
 
 /* ==========================================================================
-   TOP NAVBAR (Mobile Default)
+   TOP NAVBAR (Base for Mobiles < 375px)
    ========================================================================== */
 .navbar {
   position: fixed;
@@ -155,7 +155,7 @@ p {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  padding: var(--space-xs) var(--space-md); /* 8px top/bottom, 24px left/right */
+  padding: 0.6rem 4%; /* Base mobile spacing */
   z-index: 50;
   background: linear-gradient(
     to bottom,
@@ -172,7 +172,7 @@ p {
 }
 
 .nav-left {
-  display: none; /* Desktop widget hidden on mobile */
+  display: none; /* Hidden on mobile */
 }
 
 .logo {
@@ -185,7 +185,7 @@ p {
 }
 
 .logo img {
-  height: 44px;
+  height: 36px; /* Base height for small phones */
   width: auto;
   filter: brightness(0) invert(1);
   transition:
@@ -194,7 +194,7 @@ p {
 }
 
 .navbar.scrolled .logo img {
-  height: 36px;
+  height: 28px;
   filter: brightness(0);
 }
 
@@ -209,22 +209,21 @@ p {
   gap: var(--space-xs); /* 8px */
 }
 
-/* Nav Book Button (Desktop only by default, hidden on mobile) */
 .nav-book-btn {
-  display: none !important;
+  display: none !important; /* Hidden on mobile */
 }
 
-/* Menu Pill Button (Mobile Default) */
+/* Menu Pill Button (Base for small mobile) */
 .menu-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 44px; /* Standard pill height on phone */
+  height: 44px;
   gap: var(--space-xs); /* 8px */
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0 var(--space-sm); /* 16px */
+  padding: 0 10px; /* Base padding for small mobile */
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: var(--transition-base);
@@ -259,17 +258,18 @@ p {
   font-size: var(--font-size-small);
   font-weight: 500;
   letter-spacing: 0.5px;
+  display: none; /* Hidden on very small mobile */
 }
 
 /* ==========================================================================
-   HERO SECTION (Mobile Default)
+   HERO SECTION (Base for Mobiles < 375px)
    ========================================================================== */
 .hero {
   position: relative;
   top: 0;
   height: 100vh;
   height: 100svh;
-  min-height: 480px;
+  min-height: 400px; /* Base for small screen */
   display: flex;
   flex-direction: column;
   background-color: var(--color-dark);
@@ -305,7 +305,7 @@ p {
   width: 100vw;
   height: 100vh;
   height: 100svh;
-  min-height: 480px;
+  min-height: 400px;
   object-fit: cover;
   position: absolute;
   top: 0;
@@ -324,12 +324,12 @@ p {
   font-weight: 600;
 }
 
-/* Bottom Anchored Content (Mobile default stacked) */
+/* Bottom Anchored Content (Base layout) */
 .hero-bottom-content {
   position: absolute;
-  bottom: 8%;
-  left: 5%;
-  right: 5%;
+  bottom: 6%; /* Base bottom gap */
+  left: 4%;
+  right: 4%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -346,7 +346,7 @@ p {
 }
 
 .sans-title {
-  font-size: clamp(1.5rem, 7vw, 2.2rem);
+  font-size: 1.35rem; /* Base title size */
   font-weight: 500;
   line-height: var(--line-height-heading);
   letter-spacing: -0.5px;
@@ -356,7 +356,7 @@ p {
 }
 
 .main-text p {
-  font-size: var(--font-size-body-reg);
+  font-size: 0.8rem; /* Base paragraph size */
   font-weight: 300;
   line-height: 1.5;
   opacity: 0.9;
@@ -381,7 +381,7 @@ p {
 }
 
 /* ==========================================================================
-   OVERLAY MENU (Mobile Default Stacked)
+   OVERLAY MENU (Base for Mobiles < 375px)
    ========================================================================== */
 .overlay-menu {
   position: fixed;
@@ -478,7 +478,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-xs) 5%; /* 8px top/bottom */
+  padding: 0.5rem 5%; /* Base mobile spacing */
   position: sticky;
   top: 0;
   background: var(--color-dark-alt);
@@ -530,7 +530,7 @@ p {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: var(--space-sm) 6% var(--space-lg); /* 16px top, 6% left/right, 32px bottom */
+  padding: 0.5rem 5% 1.5rem; /* Base padding for small mobile */
   gap: var(--space-md); /* 24px */
   overflow: visible; /* Allow scroll overflow */
 }
@@ -587,7 +587,7 @@ p {
 }
 
 .overlay-links a {
-  font-size: clamp(1.5rem, 8vw, 2.2rem);
+  font-size: 1.4rem; /* Base link size for small phones */
   font-weight: 500;
   letter-spacing: -1px;
   color: rgba(255, 255, 255, 0.4);
@@ -762,66 +762,73 @@ p {
   }
 }
 
-
-
 /* ==========================================================================
    RESPONSIVE DESIGN SYSTEM (min-width Mobile-First)
    ========================================================================== */
 
-/* === SMALL SCREEN / LOGO ONLY PHONE OVERRIDE === */
-@media (max-width: 374px) {
-  .navbar {
-    padding: 0.6rem 4%;
+/* === NORMAL & LARGE PHONES (min-width: 375px) === */
+@media (min-width: 375px) {
+  /* Typography Scale */
+  h1,
+  .h1 {
+    font-size: var(--font-size-h1);
   }
 
+  p {
+    font-size: var(--font-size-body-reg);
+  }
+
+  /* Navbar */
   .logo img {
-    height: 36px;
+    height: 44px;
   }
 
   .navbar.scrolled .logo img {
-    height: 28px;
+    height: 36px;
   }
 
   .menu-btn {
-    padding: 0 10px;
+    padding: 0 var(--space-sm);
   }
 
   .menu-text {
-    display: none;
+    display: inline;
   }
 
+  /* Hero */
   .hero {
-    height: 100vh;
-    height: 100svh;
-    min-height: 400px;
+    min-height: 480px;
   }
 
   .video-background video {
-    height: 100vh;
-    height: 100svh;
-    min-height: 400px;
-  }
-
-  .sans-title {
-    font-size: 1.35rem;
-  }
-
-  .main-text p {
-    font-size: 0.8rem;
+    min-height: 480px;
   }
 
   .hero-bottom-content {
-    bottom: 6%;
-    left: 4%;
-    right: 4%;
+    bottom: 8%;
+    left: 5%;
+    right: 5%;
   }
 
-  .overlay-links a {
-    font-size: 1.4rem;
+  .sans-title {
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
+  }
+
+  .main-text p {
+    font-size: var(--font-size-body-reg);
+  }
+
+  /* Overlay */
+  .overlay-header {
+    padding: var(--space-md) 4%;
   }
 
   .overlay-body {
-    padding: 0.5rem 5% 1.5rem;
+    padding: var(--space-sm) 6% var(--space-lg);
+  }
+
+  .overlay-links a {
+    font-size: clamp(1.5rem, 8vw, 2.2rem);
   }
 }
 
@@ -844,12 +851,15 @@ p {
     height: 42px;
   }
 
-  /* Hero */
+  /* Hero Layout Refinement: Stacks side-by-side (Text on left, Button on right) */
   .sans-title {
     font-size: clamp(2rem, 5vw, 2.8rem);
   }
 
   .hero-bottom-content {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
     bottom: 6%;
   }
 

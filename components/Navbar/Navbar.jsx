@@ -8,15 +8,6 @@ import "./Navbar.css";
 import Hamburger from "../Hamburger";
 import Button from "../Button";
 
-/**
- * Navbar — Fixed top navigation with weather widget and scroll behavior
- *
- * Kya: `<img>` → `next/image`, `href="#"` → `href="/"` fix kiya.
- * Kyun:
- *   - next/image: Automatic WebP conversion, lazy loading, size optimization.
- *   - href="#": SEO-unfriendly aur accessibility problem — screen readers confuse hote hain.
- * Benefit: Better performance, correct scroll-to-top behavior, SEO improvement.
- */
 export default function Navbar({ onMenuOpen }) {
   const [isNavbarScrolled, setIsNavbarScrolled] = useState(false);
   const [weatherText, setWeatherText] = useState("Loading...");
@@ -26,7 +17,7 @@ export default function Navbar({ onMenuOpen }) {
     const fetchWeather = async () => {
       try {
         const res = await fetch(
-          "https://api.open-meteo.com/v1/forecast?latitude=29.3948&longitude=79.1278&current_weather=true"
+          "https://api.open-meteo.com/v1/forecast?latitude=29.4066404&longitude=79.0045796&current_weather=true",
         );
         const data = await res.json();
         if (data?.current_weather) {
@@ -41,10 +32,10 @@ export default function Navbar({ onMenuOpen }) {
     fetchWeather();
   }, []);
 
-  // Navbar scroll listener — changes appearance after hero section
+  // Navbar scroll listener — changes appearance after a slight scroll
   useEffect(() => {
     const handleScroll = () => {
-      setIsNavbarScrolled(window.scrollY >= window.innerHeight - 80);
+      setIsNavbarScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });

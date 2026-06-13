@@ -193,11 +193,11 @@
 /* === DESKTOPS (min-width: 1024px) === */
 @media (min-width: 1024px) {
   .hero {
-    min-height: auto;
+    height: 100vh;
   }
 
   .video-background video {
-    min-height: auto;
+    height: 100vh;
   }
 
   .sans-title {

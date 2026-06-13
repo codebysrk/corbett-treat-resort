@@ -273,7 +273,7 @@ export default function Home() {
             poster="/assets/images/hero-image.png"
             preload="auto"
           >
-            <source src="/assets/videos/hero-vieo.mp4" type="video/mp4" />
+            <source src="" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="video-overlay" />

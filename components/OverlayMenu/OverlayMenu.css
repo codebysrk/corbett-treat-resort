@@ -7,6 +7,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   background: var(--color-dark-alt);
   z-index: 200;
   display: flex;
@@ -103,8 +104,9 @@
   z-index: 5;
 }
 
-.overlay-logo img {
+.overlay-logo-img {
   height: 56px;
+  width: auto !important;
   filter: brightness(0) invert(1);
 }
 
@@ -262,7 +264,7 @@
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   transition: var(--transition-base);
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .overlay-info-block p a:hover {
@@ -331,6 +333,8 @@
   .overlay-menu {
     overflow: hidden;
     clip-path: circle(0% at calc(100% - 60px) 40px);
+    height: 100vh;
+    height: 100dvh;
   }
 
   .overlay-menu.active {
@@ -341,8 +345,9 @@
     padding: var(--space-md) 4%;
   }
 
-  .overlay-logo img {
+  .overlay-logo-img {
     height: 80px;
+    width: auto !important;
   }
 
   .overlay-close {

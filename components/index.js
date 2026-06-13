@@ -4,3 +4,7 @@ export { default as OverlayMenu } from "./OverlayMenu";
 export { default as Hero } from "./Hero";
 export { default as Story } from "./Story";
 export { default as Hamburger } from "./Hamburger";
+export { default as Amenities } from "./Amenities";
+export { default as Button } from "./Button";
+export { default as FloatingContact } from "./FloatingContact";
+export { default as ClientShell } from "./ClientShell";

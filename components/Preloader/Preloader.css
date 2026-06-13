@@ -21,9 +21,10 @@
 
 .preloader-logo {
   height: 56px;
+  width: auto !important; /* next/image override */
   filter: brightness(0) invert(1);
   animation: pulseLogo 2s infinite ease-in-out;
-  margin-bottom: var(--space-md); /* 24px */
+  margin-bottom: var(--space-md);
 }
 
 .loader-line {

@@ -1,8 +1,25 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { RiArrowRightLine } from "react-icons/ri";
+import Button from "../Button";
+import { NAV_LINKS, CONTACT_PHONES, RESORT_ADDRESS } from "@/constants";
 import "./OverlayMenu.css";
 
+/**
+ * OverlayMenu — Full-screen navigation overlay
+ *
+ * Kya: Kai accessibility aur performance fixes kiye:
+ *   1. `<img>` → next/image
+ *   2. `.overlay-close` div → `<button>` semantic fix
+ *   3. `aria-modal`, `role="dialog"` add kiya
+ *   4. Escape key se close support add kiya
+ *   5. NAV_LINKS constants se render — hardcoding khatam
+ *   6. CONTACT_PHONES constants se phone numbers render
+ * Benefit: Screen reader users, keyboard-only users ke liye proper navigation.
+ */
 export default function OverlayMenu({ isOpen, onClose }) {
   const [menuScrolled, setMenuScrolled] = useState(false);
   const overlayNavRef = useRef(null);
@@ -20,15 +37,22 @@ export default function OverlayMenu({ isOpen, onClose }) {
     };
   }, [isOpen]);
 
-  // Handle scroll event inside overlay menu to hide the bounce arrow
+  // Escape key to close overlay — keyboard accessibility
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
+  // Hide scroll indicator when user scrolls
   const handleMenuScroll = () => {
-    const menuScroll = overlayMenuRef.current ? overlayMenuRef.current.scrollTop : 0;
-    const navScroll = overlayNavRef.current ? overlayNavRef.current.scrollTop : 0;
-    if (menuScroll > 40 || navScroll > 40) {
-      setMenuScrolled(true);
-    } else {
-      setMenuScrolled(false);
-    }
+    const menuScroll = overlayMenuRef.current?.scrollTop ?? 0;
+    const navScroll = overlayNavRef.current?.scrollTop ?? 0;
+    setMenuScrolled(menuScroll > 40 || navScroll > 40);
   };
 
   return (
@@ -36,97 +60,87 @@ export default function OverlayMenu({ isOpen, onClose }) {
       className={`overlay-menu ${isOpen ? "active" : ""}`}
       ref={overlayMenuRef}
       onScroll={handleMenuScroll}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigation Menu"
+      aria-hidden={!isOpen}
     >
       <div className="overlay-header">
-        <a href="#" className="overlay-logo" onClick={onClose}>
-          <img
+        <Link
+          href="/"
+          className="overlay-logo"
+          onClick={onClose}
+          aria-label="Corbett Treat Resort — Go to homepage"
+        >
+          <Image
             src="/assets/images/resort-logo.png"
-            alt="Logo"
+            alt="Corbett Treat Resort Logo"
+            width={120}
+            height={80}
+            style={{ width: "auto" }}
+            className="overlay-logo-img"
           />
-        </a>
-        <div
+        </Link>
+
+        {/* Accessible close button */}
+        <button
+          type="button"
           className="overlay-close"
           id="overlay-close"
           onClick={onClose}
+          aria-label="Close navigation menu"
         >
-          <span />
-          <span />
-        </div>
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
       </div>
 
       <div className="overlay-body">
-        <div
+        <nav
           className="overlay-nav"
           ref={overlayNavRef}
           onScroll={handleMenuScroll}
+          aria-label="Main navigation"
         >
           <ul className="overlay-links">
-            <li>
-              <span className="link-num">01</span>
-              <a href="#home" onClick={onClose}>Home</a>
-            </li>
-            <li>
-              <span className="link-num">02</span>
-              <a href="#about" onClick={onClose}>About</a>
-            </li>
-            <li>
-              <span className="link-num">03</span>
-              <a href="#accommodation" onClick={onClose}>Accommodation</a>
-            </li>
-            <li>
-              <span className="link-num">04</span>
-              <a href="#dining" onClick={onClose}>Dining</a>
-            </li>
-            <li>
-              <span className="link-num">05</span>
-              <a href="#experience" onClick={onClose}>Experience</a>
-            </li>
-            <li>
-              <span className="link-num">06</span>
-              <a href="#wedding" onClick={onClose}>Wedding</a>
-            </li>
-            <li>
-              <span className="link-num">07</span>
-              <a href="#meeting" onClick={onClose}>Meeting &amp; Event</a>
-            </li>
-            <li>
-              <span className="link-num">08</span>
-              <a href="#gallery" onClick={onClose}>Gallery</a>
-            </li>
-            <li>
-              <span className="link-num">09</span>
-              <a href="#blog" onClick={onClose}>Blog</a>
-            </li>
-            <li>
-              <span className="link-num">10</span>
-              <a href="#contact" onClick={onClose}>Contact</a>
-            </li>
+            {NAV_LINKS.map((link) => (
+              <li key={link.num}>
+                <span className="link-num">{link.num}</span>
+                <a href={link.href} onClick={onClose}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
-        </div>
+        </nav>
+
         <div className="overlay-info">
           <div className="overlay-info-block">
             <h4>Visit Us</h4>
-            <p>
-              Village Dhela, Jim Corbett National Park,
-              <br />
-              Ramnagar, Uttarakhand 244715
-            </p>
+            <p>{RESORT_ADDRESS}</p>
           </div>
+
           <div className="overlay-info-block">
             <h4>Reservations</h4>
             <p>
-              <a href="tel:+918057094258">+91 80570 94258</a>
-              <br />
-              <a href="tel:+919818922066">+91 98189 22066</a>
+              {CONTACT_PHONES.map((phone, index) => (
+                <span key={phone.href}>
+                  <a href={phone.href}>{phone.label}</a>
+                  {index < CONTACT_PHONES.length - 1 && <br />}
+                </span>
+              ))}
             </p>
           </div>
-          <a
+
+          <Button
             href="#book"
+            variant="primary"
             className="overlay-cta"
             onClick={onClose}
+            icon={<RiArrowRightLine />}
           >
-            Book Your Stay &rarr;
-          </a>
+            Book Your Stay
+          </Button>
         </div>
       </div>
 
@@ -134,6 +148,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
       <div
         className={`overlay-scroll-indicator ${menuScrolled ? "fade-out" : ""}`}
         id="overlay-scroll-indicator"
+        aria-hidden="true"
       >
         <svg
           className="scroll-arrow"

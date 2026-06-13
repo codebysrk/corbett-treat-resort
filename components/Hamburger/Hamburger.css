@@ -1,24 +1,29 @@
-/* ==========================================================================
-   HAMBURGER COMPONENT STYLES
-   ========================================================================== */
 .menu-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 2rem;
+  height: 38px;
   gap: var(--space-xs);
-  /* background: rgba(255, 255, 255, 0.151);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2); */
-  padding: 0 .5rem;
+  padding: 0 1rem;
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: var(--transition-base);
+  /* Button element reset */
+  border: none;
+  background: transparent;
+  outline: none;
+  -webkit-appearance: none;
+  font-family: var(--font-poppins), "Poppins", sans-serif;
 }
 
 .menu-btn.scrolled {
   background: var(--color-primary);
   border-color: transparent;
+}
+
+.menu-btn.scrolled:hover {
+  background: var(--color-primary-dark) !important;
+  box-shadow: 0 4px 12px rgba(0, 77, 46, 0.2);
 }
 
 .menu-btn:hover {
@@ -39,10 +44,12 @@
 }
 
 .menu-text {
-  font-size: var(--font-size-small);
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.5px;
-  display: none; /* Hidden on very small mobile */
+  text-transform: uppercase;
+  display: none;
+  color: var(--color-light);
 }
 
 /* ==========================================================================
@@ -54,7 +61,10 @@
   .menu-btn {
     padding: 0 var(--space-sm);
   }
+}
 
+/* === TABLETS (min-width: 768px) === */
+@media (min-width: 768px) {
   .menu-text {
     display: inline;
   }
@@ -63,8 +73,8 @@
 /* === DESKTOPS (min-width: 1024px) === */
 @media (min-width: 1024px) {
   .menu-btn {
-    height: 48px;
-    padding: 0 var(--space-md);
+    height: 44px;
+    padding: 0 var(--space-sm);
   }
 
   .menu-btn:hover {
@@ -72,11 +82,12 @@
   }
 
   .hamburger svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 
   .menu-text {
-    font-size: var(--font-size-body-reg);
+    font-size: 0.8rem;
+    display: inline;
   }
 }

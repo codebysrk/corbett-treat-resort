@@ -1,6 +1,3 @@
-/* ==========================================================================
-   NAVBAR COMPONENT STYLES
-   ========================================================================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -9,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6rem 4%; /* Base mobile spacing */
+  padding: 0.6rem 4%;
   z-index: 50;
   background: linear-gradient(
     to bottom,
@@ -23,6 +20,7 @@
   background: var(--color-light);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
+
 
 .nav-left {
   order: 2;
@@ -53,8 +51,8 @@
   transition: var(--transition-base);
 }
 
-.logo img {
-  height: 40px; /* Base height for small phones */
+.logo-img {
+  height: 40px;
   width: auto;
   filter: brightness(0) invert(1);
   transition:
@@ -62,7 +60,7 @@
     height 0.4s ease;
 }
 
-.navbar.scrolled .logo img {
+.navbar.scrolled .logo-img {
   height: 40px;
   filter: brightness(0);
 }
@@ -75,7 +73,7 @@
   order: 3;
   display: flex;
   align-items: center;
-  gap: var(--space-xs); /* 8px */
+  gap: var(--space-xs);
 }
 
 .nav-book-btn {
@@ -88,11 +86,11 @@
 
 /* === NORMAL & LARGE PHONES (min-width: 375px) === */
 @media (min-width: 375px) {
-  .logo img {
+  .logo-img {
     height: 44px;
   }
 
-  .navbar.scrolled .logo img {
+  .navbar.scrolled .logo-img {
     height: 36px;
   }
 }
@@ -107,11 +105,11 @@
     padding: 12px var(--space-xl);
   }
 
-  .logo img {
+  .logo-img {
     height: 60px;
   }
 
-  .navbar.scrolled .logo img {
+  .navbar.scrolled .logo-img {
     height: 42px;
   }
 }
@@ -140,11 +138,11 @@
     justify-content: center;
   }
 
-  .logo img {
+  .logo-img {
     height: 80px;
   }
 
-  .navbar.scrolled .logo img {
+  .navbar.scrolled .logo-img {
     height: 48px;
   }
 
@@ -159,6 +157,8 @@
     opacity: 0;
     transform: translateX(15px);
     pointer-events: none;
+    height: 44px;
+    padding: 0 var(--space-sm);
   }
 
   .navbar.scrolled .nav-book-btn {

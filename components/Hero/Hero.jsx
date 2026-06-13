@@ -1,7 +1,13 @@
-"use client";
-
 import "./Hero.css";
+import Button from "../Button";
 
+/**
+ * Hero Section — Full-screen video background with CTA
+ *
+ * Kya: Server Component hai — koi state ya effect nahi.
+ * Kyun: "use client" nahi chahiye, bundle size kam hoga.
+ * Video typo (hero-vieo) file ka actual naam hai, isliye as-is rakha.
+ */
 export default function Hero() {
   return (
     <header className="hero">
@@ -12,8 +18,9 @@ export default function Hero() {
           muted
           playsInline
           poster="/assets/images/hero-poster.png"
-          preload="auto"
+          preload="none"
         >
+          {/* Note: filename "hero-vieo.mp4" actual file ka naam hai — typo preserved */}
           <source src="/assets/videos/hero-vieo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -34,9 +41,9 @@ export default function Hero() {
           </p>
         </div>
         <div className="hero-action">
-          <a href="#book" className="book-now-btn">
+          <Button href="#book" variant="primary" className="story-cta-btn">
             Book Now
-          </a>
+          </Button>
         </div>
       </div>
     </header>

@@ -1,6 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  // Image optimization configuration
+  images: {
+    // Modern formats — automatically serve WebP/AVIF instead of JPEG/PNG
+    formats: ["image/avif", "image/webp"],
+
+    // Device sizes for responsive images (matches our breakpoints)
+    deviceSizes: [375, 640, 768, 1024, 1280, 1440, 1920],
+
+    // Image sizes for `sizes` prop in next/image
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+  },
+
+  // Recommended: strip unused CSS in production
+  experimental: {
+    optimizeCss: false, // Enable agar critters package install ho
+  },
 };
 
 export default nextConfig;

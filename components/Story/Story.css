@@ -6,7 +6,7 @@
 
 .our-story-section {
   padding: 1.5rem 0.5rem; /* Extremely compact mobile */
-  background: #FAF8F5;
+  background: #faf8f5;
   overflow: hidden;
 }
 
@@ -51,28 +51,30 @@
 .nature-card {
   position: absolute;
   left: 0;
-  bottom: 1.5rem;
+  bottom: 0%;
   z-index: 5;
   width: 50%;
   max-width: 12rem;
   padding: 0.5rem;
-  background: rgba(0, 50, 30, 0.92);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 50, 30, 0.831);
+  backdrop-filter: blur(4px);
   border-radius: 0 4px 0 4px;
   color: var(--color-light);
   transition: var(--transition-base);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .nature-card-icon {
   display: inline-flex;
-  font-size: 1rem;
+  font-size: 2rem;
   color: #c58a2a;
   margin-bottom: 0.2rem;
 }
 
 .nature-card h6 {
+  color: #c58a2a;
   font-size: 0.75rem;
   font-weight: 600;
   margin-bottom: 0.1rem;
@@ -89,15 +91,15 @@
 /* --- Floating Overlap Image (Bottom-Right) --- */
 .story-floating-image {
   position: absolute;
-  right: 0.5rem;
+  right: 0;
   bottom: 0;
   z-index: 4;
   width: 35%;
   max-width: 10rem;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 4px;
-  border: 3px solid #FAF8F5;
+  border: 3px solid #faf8f5;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
   transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -171,9 +173,6 @@
   font-size: 0.75rem;
 }
 
-/* ==========================================================================
-   FEATURE CARDS
-   ========================================================================== */
 .story-features {
   margin-top: 0.75rem;
   display: grid;
@@ -230,9 +229,6 @@
   line-height: 1.25;
 }
 
-/* ==========================================================================
-   CTA BUTTON
-   ========================================================================== */
 .story-action {
   margin-top: 1rem;
 }

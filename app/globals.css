@@ -17,7 +17,7 @@
   --font-size-small: clamp(0.75rem, 0.8vw, 0.85rem);
 
   /* Line Heights */
-  --line-height-heading: 1.15;
+  --line-height-heading: 1.1;
   --line-height-body: 1.6;
 
   /* Letter Spacing */
@@ -44,6 +44,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 77, 46, 0.5) var(--color-dark);
 }
 
 html {
@@ -77,11 +79,8 @@ body {
   background: rgba(0, 77, 46, 0.85); /* #004D2E with 85% opacity */
 }
 
-/* Custom Scrollbar for Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 77, 46, 0.5) var(--color-dark);
-}
+/* Custom Scrollbar for Firefox (merged into global * reset above) */
+/* scrollbar-width & scrollbar-color handled via * block below */
 
 /* Scroll Lock on HTML and Body when overlay menu is open */
 html.menu-open,
@@ -113,33 +112,7 @@ p {
 }
 
 /* ==========================================================================
-   BUTTON SYSTEM (Base for Mobile)
+   BUTTON SYSTEM
+   Button styles ab Button.css mein hain (component-based architecture).
+   Yahan sirf global utility classes hain jo Button component override karta hai.
    ========================================================================== */
-.book-now-btn,
-.nav-book-btn,
-.overlay-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px; /* Base mobile size */
-  padding: 0 var(--space-sm);
-  background-color: var(--color-primary);
-  color: var(--color-light);
-  border: 1px solid transparent;
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-small);
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  transition: var(--transition-base);
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-.book-now-btn:hover,
-.nav-book-btn:hover,
-.overlay-cta:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 77, 46, 0.2);
-}

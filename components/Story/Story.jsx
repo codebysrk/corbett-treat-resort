@@ -1,5 +1,3 @@
-"use client";
-
 import "./Story.css";
 import Image from "next/image";
 import {
@@ -9,7 +7,15 @@ import {
   RiArrowRightLine,
 } from "react-icons/ri";
 import { BsBinoculars } from "react-icons/bs";
+import Button from "../Button";
 
+/**
+ * Our Story Section — Static content, Server Component
+ *
+ * Kya: "use client" hataya — koi state/effect nahi tha.
+ * Kyun: Server Component ke roop mein render hoga, bundle size kam hoga.
+ * Fix: story-main-image se `priority` hataya — yeh above-fold nahi hai.
+ */
 const Story = () => {
   return (
     <section className="our-story-section" id="our-story">
@@ -22,9 +28,9 @@ const Story = () => {
                 src="/assets/images/cottage-exterior-dusk.jpeg"
                 alt="Corbett Treat Resort - Cottage Exterior at Dusk"
                 fill
-                priority
                 sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: "cover" }}
+                priority
               />
             </div>
 
@@ -42,11 +48,11 @@ const Story = () => {
             {/* Floating Overlap Image */}
             <div className="story-floating-image">
               <Image
-                src="/assets/images/garden-lawn-exterior-1.jpeg"
-                alt="Resort Interior"
+                src="/assets/images/cottage-exterior-1.jpeg"
+                alt="Resort Cottage Exterior"
                 fill
                 sizes="(max-width: 768px) 180px, 280px"
-                style={{ objectFit: "cover", objectPosition:"top" }}
+                style={{ objectFit: "cover" }}
               />
             </div>
           </div>
@@ -111,10 +117,15 @@ const Story = () => {
 
             {/* CTA Button */}
             <div className="story-action">
-              <a href="#explore" className="story-cta-btn">
-                <span>Read More</span>
-                <RiArrowRightLine />
-              </a>
+              <Button
+                href="#explore"
+                variant="primary"
+                size="large"
+                className="story-cta-btn"
+                icon={<RiArrowRightLine />}
+              >
+                Explore Our Resort
+              </Button>
             </div>
           </div>
         </div>

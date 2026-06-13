@@ -1,37 +1,30 @@
-"use client";
+import ClientShell from "@/components/ClientShell";
+import { Hero, Story, Amenities } from "@/components";
 
-import { useState, useEffect } from "react";
-import { Preloader, Navbar, OverlayMenu, Hero, Story } from "@/components";
-
+/**
+ * Home Page — Server Component (no "use client")
+ *
+ * Kya: `page.jsx` ab pure Server Component hai.
+ * Kyun: Pehle "use client" tha sirf state ke liye — poora page client bundle
+ *       mein chala jaata tha. Ab sirf ClientShell (Navbar, Preloader, Menu,
+ *       FloatingContact) client-side hai.
+ * Benefit:
+ *   - Hero, Story, Amenities — server-side render hote hain (faster FCP).
+ *   - Bundle size significant taur par kam hota hai.
+ *   - React Server Components ka full benefit milta hai.
+ */
 export default function Home() {
-  const [preloaderActive, setPreloaderActive] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Preloader minimum delay (for luxury feel)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPreloaderActive(false);
-    }, 800);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <>
-      {/* Preloader Component */}
-      <Preloader active={preloaderActive} />
+      {/* Client-side shell: Preloader + Navbar + OverlayMenu + FloatingContact */}
+      <ClientShell />
 
-      {/* Navigation Bar Component */}
-      <Navbar onMenuOpen={() => setIsMenuOpen(true)} />
-
-      {/* Full Screen Overlay Menu Component */}
-      <OverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-
-      {/* Hero Banner Section Component */}
-      <Hero />
-
-      {/* Our Story Section Component */}
-      <Story />
+      {/* Server-rendered sections */}
+      <main>
+        <Hero />
+        <Story />
+        <Amenities />
+      </main>
     </>
   );
 }

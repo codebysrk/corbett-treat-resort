@@ -1,0 +1,82 @@
+/* ==========================================================================
+   HAMBURGER COMPONENT STYLES
+   ========================================================================== */
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  gap: var(--space-xs);
+  /* background: rgba(255, 255, 255, 0.151);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2); */
+  padding: 0 .5rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.menu-btn.scrolled {
+  background: var(--color-primary);
+  border-color: transparent;
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-light);
+  transition: var(--transition-base);
+}
+
+.menu-text {
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  display: none; /* Hidden on very small mobile */
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM & MEDIA QUERIES
+   ========================================================================== */
+
+/* === NORMAL & LARGE PHONES (min-width: 375px) === */
+@media (min-width: 375px) {
+  .menu-btn {
+    padding: 0 var(--space-sm);
+  }
+
+  .menu-text {
+    display: inline;
+  }
+}
+
+/* === DESKTOPS (min-width: 1024px) === */
+@media (min-width: 1024px) {
+  .menu-btn {
+    height: 48px;
+    padding: 0 var(--space-md);
+  }
+
+  .menu-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .hamburger svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .menu-text {
+    font-size: var(--font-size-body-reg);
+  }
+}

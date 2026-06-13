@@ -1,0 +1,126 @@
+"use client";
+
+import "./Story.css";
+import Image from "next/image";
+import {
+  RiLeafLine,
+  RiPlantLine,
+  RiServiceBellLine,
+  RiArrowRightLine,
+} from "react-icons/ri";
+import { BsBinoculars } from "react-icons/bs";
+
+const Story = () => {
+  return (
+    <section className="our-story-section" id="our-story">
+      <div className="story-container">
+        <div className="our-story-wrapper">
+          {/* Gallery Side */}
+          <div className="story-gallery">
+            <div className="story-main-image">
+              <Image
+                src="/assets/images/cottage-exterior-dusk.jpeg"
+                alt="Corbett Treat Resort - Cottage Exterior at Dusk"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+
+            {/* Nature Card Badge */}
+            <div className="nature-card">
+              <span className="nature-card-icon">
+                <RiPlantLine />
+              </span>
+              <div className="nature-card-content">
+                <h6>Nestled in Nature</h6>
+                <p>Where luxury meets the untamed wild.</p>
+              </div>
+            </div>
+
+            {/* Floating Overlap Image */}
+            <div className="story-floating-image">
+              <Image
+                src="/assets/images/garden-lawn-exterior-1.jpeg"
+                alt="Resort Interior"
+                fill
+                sizes="(max-width: 768px) 180px, 280px"
+                style={{ objectFit: "cover", objectPosition:"top" }}
+              />
+            </div>
+          </div>
+
+          {/* Content Side */}
+          <div className="story-content">
+            <span className="section-label">OUR STORY</span>
+
+            <h2 className="story-heading">
+              A Hidden Retreat Beside Jim Corbett National Park
+            </h2>
+
+            {/* Decorative Divider with Leaf Icon */}
+            <div className="story-divider">
+              <span className="divider-line" />
+              <span className="divider-icon">
+                <RiPlantLine />
+              </span>
+              <span className="divider-line" />
+            </div>
+
+            <div className="story-description">
+              <p>
+                Corbett Treat Resort, located in the serene Dhela Village and
+                sharing a boundary with the renowned Corbett Tiger Reserve,
+                offers 24 well-appointed rooms designed for pure comfort.
+              </p>
+              <p>
+                Our resort provides an ideal escape for nature lovers, offering
+                stunning opportunities for wildlife sightings and birdwatching
+                right from the property. Wake up to the calls of the wild and
+                immerse yourself in absolute tranquility.
+              </p>
+            </div>
+
+            {/* Feature Cards */}
+            <div className="story-features">
+              <div className="feature-card">
+                <span className="feature-icon">
+                  <RiLeafLine />
+                </span>
+                <h4>Enchanting Location</h4>
+                <p>Surrounded by dense forests and natural beauty</p>
+              </div>
+
+              <div className="feature-card">
+                <span className="feature-icon">
+                  <BsBinoculars />
+                </span>
+                <h4>Wildlife Experiences</h4>
+                <p>Close encounters with nature and exotic wildlife</p>
+              </div>
+
+              <div className="feature-card">
+                <span className="feature-icon">
+                  <RiServiceBellLine />
+                </span>
+                <h4>Warm Hospitality</h4>
+                <p>Thoughtful service that makes every stay memorable</p>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="story-action">
+              <a href="#explore" className="story-cta-btn">
+                <span>Read More</span>
+                <RiArrowRightLine />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Story;

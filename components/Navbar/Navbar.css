@@ -1,0 +1,189 @@
+/* ==========================================================================
+   NAVBAR COMPONENT STYLES
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 4%; /* Base mobile spacing */
+  z-index: 50;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6) 0%,
+    transparent 100%
+  );
+  transition: var(--transition-base);
+}
+
+.navbar.scrolled {
+  background: var(--color-light);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.nav-left {
+  order: 2;
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 16px;
+}
+
+#weather-widget {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-small);
+  color: var(--color-light);
+  transition: var(--transition-base);
+}
+
+.navbar.scrolled #weather-widget {
+  color: var(--color-dark);
+}
+
+.logo {
+  order: 1;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.logo img {
+  height: 40px; /* Base height for small phones */
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition:
+    filter 0.4s ease,
+    height 0.4s ease;
+}
+
+.navbar.scrolled .logo img {
+  height: 40px;
+  filter: brightness(0);
+}
+
+.logo:hover {
+  transform: scale(1.03);
+}
+
+.nav-right {
+  order: 3;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs); /* 8px */
+}
+
+.nav-book-btn {
+  display: none !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM & MEDIA QUERIES
+   ========================================================================== */
+
+/* === NORMAL & LARGE PHONES (min-width: 375px) === */
+@media (min-width: 375px) {
+  .logo img {
+    height: 44px;
+  }
+
+  .navbar.scrolled .logo img {
+    height: 36px;
+  }
+}
+
+/* === TABLETS (min-width: 768px) === */
+@media (min-width: 768px) {
+  .navbar {
+    padding: var(--space-sm) var(--space-xl); /* 16px top/bottom, 48px left/right */
+  }
+
+  .navbar.scrolled {
+    padding: 12px var(--space-xl);
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .navbar.scrolled .logo img {
+    height: 42px;
+  }
+}
+
+/* === DESKTOPS (min-width: 1024px) === */
+@media (min-width: 1024px) {
+  .navbar {
+    padding: var(--space-md) 4%;
+  }
+
+  .navbar.scrolled {
+    padding: var(--space-sm) 4%;
+  }
+
+  .nav-left {
+    order: 1;
+    flex: 1;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: flex-start;
+  }
+
+  .logo {
+    order: 2;
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+  .navbar.scrolled .logo img {
+    height: 48px;
+  }
+
+  .nav-right {
+    order: 3;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .nav-book-btn {
+    display: inline-flex !important;
+    opacity: 0;
+    transform: translateX(15px);
+    pointer-events: none;
+  }
+
+  .navbar.scrolled .nav-book-btn {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+}
+
+/* === LARGE DESKTOPS (min-width: 1440px) === */
+@media (min-width: 1440px) {
+  .navbar {
+    padding: var(--space-md) var(--space-2xl);
+  }
+
+  .navbar.scrolled {
+    padding: var(--space-sm) var(--space-2xl);
+  }
+}
+
+/* === SAFE AREA / NOTCH SUPPORT === */
+@supports (padding: env(safe-area-inset-top)) {
+  .navbar {
+    padding-top: max(0.75rem, env(safe-area-inset-top));
+    padding-left: max(4%, env(safe-area-inset-left));
+    padding-right: max(4%, env(safe-area-inset-right));
+  }
+}

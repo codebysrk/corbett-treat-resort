@@ -1,0 +1,99 @@
+/* ==========================================================================
+   PRELOADER COMPONENT STYLES
+   ========================================================================== */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-dark);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+  will-change: opacity, visibility;
+}
+
+.preloader-logo {
+  height: 56px;
+  filter: brightness(0) invert(1);
+  animation: pulseLogo 2s infinite ease-in-out;
+  margin-bottom: var(--space-md); /* 24px */
+}
+
+.loader-line {
+  width: 140px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  animation: loadLine 1.5s infinite ease-in-out;
+}
+
+.preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS FOR PRELOADER
+   ========================================================================== */
+@keyframes pulseLogo {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes loadLine {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM & MEDIA QUERIES
+   ========================================================================== */
+
+/* === DESKTOPS (min-width: 1024px) === */
+@media (min-width: 1024px) {
+  .preloader-logo {
+    height: 80px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .loader-line {
+    width: 200px;
+  }
+}
+
+/* === LANDSCAPE PHONES === */
+@media (max-width: 767px) and (orientation: landscape) {
+  .preloader-logo {
+    height: 40px;
+    margin-bottom: var(--space-sm);
+  }
+}

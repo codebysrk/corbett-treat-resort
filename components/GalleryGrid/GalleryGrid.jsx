@@ -109,7 +109,8 @@ export default function GalleryGrid() {
                 height={350}
                 style={{ width: "100%", height: "auto", objectFit: "cover" }}
                 className="gallery-grid-img"
-                loading="lazy"
+                loading={index < 3 ? undefined : "lazy"}
+                priority={index < 3}
               />
               <div className="gallery-grid-hover-overlay">
                 <span className="zoom-icon">
@@ -150,7 +151,7 @@ export default function GalleryGrid() {
                 src={filteredImages[lightboxIndex].src}
                 alt={filteredImages[lightboxIndex].alt}
                 fill
-                sizes="100vw"
+                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 900px"
                 className="lightbox-img"
                 priority
               />

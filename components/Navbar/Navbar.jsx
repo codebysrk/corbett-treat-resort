@@ -60,6 +60,7 @@ export default function Navbar({ onMenuOpen }) {
           width={400}
           height={150}
           priority
+          loading="eager"
           style={{ width: "auto", height: "auto" }}
           className="logo-img"
         />

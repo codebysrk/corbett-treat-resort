@@ -17,6 +17,8 @@ export const WHATSAPP = {
     "Hello Corbett Treat Resort, I would like to inquire about booking/reservations.",
 };
 
+export const BOOK_NOW_URL = `https://wa.me/${WHATSAPP.number}?text=${encodeURIComponent(WHATSAPP.presetMessage)}`;
+
 // --- Address ---
 export const RESORT_ADDRESS =
   "Village Dhela, Jim Corbett National Park, Ramnagar, Uttarakhand 244715";
@@ -70,3 +72,59 @@ export const AMENITIES = [
     iconKey: "music",
   },
 ];
+
+// --- Email Address ---
+export const CONTACT_EMAIL = "corbetttreatresorts@gmail.com";
+
+// --- Stats Data (Why Choose Us) ---
+export const WHY_CHOOSE_US_STATS = [
+  { label: "Guests Served", value: "5.0k+" },
+  { label: "Team Members", value: "50+" },
+  { label: "Rooms & Suites", value: "24+" },
+  { label: "Customer Satisfaction", value: "99%" },
+];
+
+// --- Gallery Images ---
+export const GALLERY_IMAGES = [
+  {
+    src: "/assets/images/swimming-pool-daytime-view.jpeg",
+    alt: "Luxury Swimming Pool Daytime View",
+    span: "tall",
+  },
+  {
+    src: "/assets/images/cottage-exterior-dusk.jpeg",
+    alt: "Resort Cottages at Dusk",
+    span: "wide",
+  },
+  {
+    src: "/assets/images/safari-gypsy-parked.jpeg",
+    alt: "Jungle Safari Gypsy Parked",
+    span: "normal",
+  },
+  {
+    src: "/assets/images/bedroom-suite-2.jpeg",
+    alt: "Premium Bedroom Suite Interior",
+    span: "normal",
+  },
+  {
+    src: "/assets/images/restaurant-interior-1.jpeg",
+    alt: "Elegant Restaurant Dining",
+    span: "wide",
+  },
+  {
+    src: "/assets/images/resort-pathway-hedges.jpeg",
+    alt: "Lush Green Resort Pathway",
+    span: "normal",
+  },
+];
+
+// --- Social Links ---
+export const SOCIAL_LINKS = [
+  { label: "Instagram", href: "#", platform: "instagram" },
+  { label: "Facebook", href: "#", platform: "facebook" },
+  { label: "Twitter", href: "#", platform: "twitter" },
+];
+
+// --- Brand Info ---
+export const BRAND_DESCRIPTION =
+  "Experience the untamed beauty of Jim Corbett National Park while enjoying unmatched luxury, warm hospitality, and unforgettable moments.";

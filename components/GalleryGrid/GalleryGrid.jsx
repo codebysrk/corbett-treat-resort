@@ -24,6 +24,8 @@ const CATEGORIES = [
 export default function GalleryGrid() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
 
   const filteredImages = activeCategory === "all" 
     ? ALL_GALLERY_IMAGES 
@@ -69,10 +71,25 @@ export default function GalleryGrid() {
     } else {
       document.body.style.overflow = "";
     }
+    setIsZoomed(false); // Reset zoom on image change
     return () => {
       document.body.style.overflow = "";
     };
   }, [lightboxIndex]);
+
+  const handleMouseMove = (e) => {
+    if (!isZoomed) return;
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setZoomPos({ x, y });
+  };
+
+  const toggleZoom = (e) => {
+    e.stopPropagation();
+    setIsZoomed(prev => !prev);
+    setZoomPos({ x: 50, y: 50 });
+  };
 
   return (
     <div className="gallery-grid-wrapper">
@@ -145,13 +162,25 @@ export default function GalleryGrid() {
           </button>
 
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <div className="lightbox-image-container">
+            <div 
+              className="lightbox-image-container"
+              onMouseMove={handleMouseMove}
+              onClick={toggleZoom}
+              style={{ overflow: "hidden" }}
+            >
               <Image
                 src={filteredImages[lightboxIndex].src}
                 alt={filteredImages[lightboxIndex].alt}
                 fill
                 sizes="(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 900px"
                 className="lightbox-img"
+                style={isZoomed ? {
+                  transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+                  transform: "scale(2.2)",
+                  cursor: "zoom-out"
+                } : {
+                  cursor: "zoom-in"
+                }}
                 priority
               />
             </div>

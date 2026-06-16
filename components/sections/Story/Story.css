@@ -168,13 +168,13 @@
 .story-features {
   margin-top: 0.75rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .feature-card {
   padding: 0.5rem 0.25rem;
-  border-left: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   transition: var(--transition-base);
   display: flex;
   flex-direction: column;
@@ -182,8 +182,8 @@
   text-align: center;
 }
 
-.feature-card:first-child {
-  border-left: none;
+.feature-card:last-child {
+  border-bottom: none;
 }
 
 .feature-card:hover {
@@ -347,12 +347,20 @@
 
   .story-features {
     margin-top: 1.75rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
   }
 
   .feature-card {
     padding: 1rem 1.25rem;
     align-items: flex-start;
     text-align: left;
+    border-left: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: none;
+  }
+
+  .feature-card:first-child {
+    border-left: none;
   }
 
   .feature-icon {

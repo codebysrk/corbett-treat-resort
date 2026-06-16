@@ -20,9 +20,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Corbett Treat Resort",
+  title: "Luxury Resort in Jim Corbett | Corbett Treat Resort",
   description:
-    "Experience the wild in luxury at Corbett Treat Resort. Book your unforgettable wilderness adventure today.",
+    "Corbett Treat Resort is a luxury resort in Jim Corbett National Park. Perfect for destination weddings, events, jungle safaries and budget stay in Ramnagar.",
 };
 
 export default function RootLayout({ children }) {

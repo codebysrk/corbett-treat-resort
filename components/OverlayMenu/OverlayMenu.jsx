@@ -3,9 +3,9 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { RiArrowRightLine } from "react-icons/ri";
+import { RiArrowRightLine, RiInstagramLine, RiFacebookCircleLine, RiTwitterXLine } from "react-icons/ri";
 import Button from "../Button";
-import { NAV_LINKS, CONTACT_PHONES, RESORT_ADDRESS, CONTACT_EMAIL, BOOK_NOW_URL } from "@/constants";
+import { NAV_LINKS, CONTACT_PHONES, RESORT_ADDRESS, CONTACT_EMAIL, BOOK_NOW_URL, SOCIAL_LINKS } from "@/constants";
 import "./OverlayMenu.css";
 
 
@@ -126,6 +126,34 @@ export default function OverlayMenu({ isOpen, onClose }) {
             <p>
               <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             </p>
+          </div>
+
+          <div className="overlay-info-block">
+            <h4>Follow Us</h4>
+            <div className="overlay-socials">
+              {SOCIAL_LINKS.map((social) => {
+                const getSocialIcon = (platform) => {
+                  switch (platform) {
+                    case "instagram": return <RiInstagramLine />;
+                    case "facebook": return <RiFacebookCircleLine />;
+                    case "twitter": return <RiTwitterXLine />;
+                    default: return null;
+                  }
+                };
+                return (
+                  <a
+                    key={social.platform}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="overlay-social-link"
+                  >
+                    {getSocialIcon(social.platform)}
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
           <Button

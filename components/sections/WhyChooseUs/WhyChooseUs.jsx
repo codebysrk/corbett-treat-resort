@@ -31,7 +31,7 @@ export default function WhyChooseUs() {
           
           <div className="wcu-image-wrapper">
             <Image
-              src="/assets/images/bedroom-suite-1.jpeg"
+              src="/assets/images/yellow-building-exterior.jpeg"
               alt="Corbett Treat Resort Bedroom Suite"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"

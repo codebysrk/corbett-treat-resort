@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { RiArrowRightLine, RiInstagramLine, RiFacebookCircleLine, RiTwitterXLine } from "react-icons/ri";
+import { RiArrowRightLine, RiInstagramLine, RiFacebookCircleLine, RiTwitterXLine, RiYoutubeLine } from "react-icons/ri";
 import Button from "../Button";
 import { NAV_LINKS, CONTACT_PHONES, RESORT_ADDRESS, CONTACT_EMAIL, BOOK_NOW_URL, SOCIAL_LINKS } from "@/constants";
 import "./OverlayMenu.css";
@@ -137,6 +137,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
                     case "instagram": return <RiInstagramLine />;
                     case "facebook": return <RiFacebookCircleLine />;
                     case "twitter": return <RiTwitterXLine />;
+                    case "youtube": return <RiYoutubeLine/>;
                     default: return null;
                   }
                 };

@@ -1,23 +1,23 @@
 import "./Footer.css";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  RiInstagramLine, 
-  RiFacebookCircleLine, 
-  RiTwitterXLine, 
-  RiMapPinLine, 
+import {
+  RiInstagramLine,
+  RiFacebookCircleLine,
+  RiTwitterXLine,
+  RiMapPinLine,
   RiPhoneLine,
-  RiMailSendLine
+  RiMailSendLine,
+  RiYoutubeLine,
 } from "react-icons/ri";
-import { 
-  NAV_LINKS, 
-  RESORT_ADDRESS, 
-  CONTACT_PHONES, 
-  CONTACT_EMAIL, 
-  SOCIAL_LINKS, 
-  BRAND_DESCRIPTION 
+import {
+  NAV_LINKS,
+  RESORT_ADDRESS,
+  CONTACT_PHONES,
+  CONTACT_EMAIL,
+  SOCIAL_LINKS,
+  BRAND_DESCRIPTION,
 } from "@/constants";
-
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,11 +25,7 @@ export default function Footer() {
   return (
     <footer className="footer-section">
       <div className="footer-container">
-        
-        
         <div className="footer-grid">
-          
-          
           <div className="footer-col brand-col">
             <Link href="/" className="footer-logo">
               <Image
@@ -41,21 +37,29 @@ export default function Footer() {
                 className="footer-logo-img"
               />
             </Link>
-            <p className="footer-brand-desc">
-              {BRAND_DESCRIPTION}
-            </p>
+            <p className="footer-brand-desc">{BRAND_DESCRIPTION}</p>
             <div className="footer-socials">
               {SOCIAL_LINKS.map((social) => {
                 const getSocialIcon = (platform) => {
                   switch (platform) {
-                    case "instagram": return <RiInstagramLine />;
-                    case "facebook": return <RiFacebookCircleLine />;
-                    case "twitter": return <RiTwitterXLine />;
-                    default: return null;
+                    case "instagram":
+                      return <RiInstagramLine />;
+                    case "facebook":
+                      return <RiFacebookCircleLine />;
+                    case "twitter":
+                      return <RiTwitterXLine />;
+                    case "youtube":
+                      return <RiYoutubeLine/>;
+                    default:
+                      return null;
                   }
                 };
                 return (
-                  <a key={social.platform} href={social.href} aria-label={social.label}>
+                  <a
+                    key={social.platform}
+                    href={social.href}
+                    aria-label={social.label}
+                  >
                     {getSocialIcon(social.platform)}
                   </a>
                 );
@@ -63,7 +67,6 @@ export default function Footer() {
             </div>
           </div>
 
-          
           <div className="footer-col">
             <h4 className="footer-title">Quick Links</h4>
             <ul className="footer-links">
@@ -75,7 +78,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          
           <div className="footer-col">
             <h4 className="footer-title">Experiences</h4>
             <ul className="footer-links">
@@ -87,7 +89,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          
           <div className="footer-col contact-col">
             <h4 className="footer-title">Get in Touch</h4>
             <div className="footer-contact-item">
@@ -98,18 +99,21 @@ export default function Footer() {
               <RiPhoneLine className="contact-icon" />
               <div>
                 {CONTACT_PHONES.map((phone, idx) => (
-                  <p key={idx}><a href={phone.href}>{phone.label}</a></p>
+                  <p key={idx}>
+                    <a href={phone.href}>{phone.label}</a>
+                  </p>
                 ))}
               </div>
             </div>
             <div className="footer-contact-item">
               <RiMailSendLine className="contact-icon" />
-              <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+              <p>
+                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              </p>
             </div>
           </div>
         </div>
 
-        
         <div className="footer-bottom">
           <p>&copy; {currentYear} Corbett Treat Resort. All Rights Reserved.</p>
           <div className="footer-bottom-links">
@@ -117,7 +121,6 @@ export default function Footer() {
             <Link href="#">Terms of Service</Link>
           </div>
         </div>
-
       </div>
     </footer>
   );

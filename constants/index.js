@@ -110,8 +110,17 @@ export const SOCIAL_LINKS = [
     href: "https://www.instagram.com/corbett_treat_resort/",
     platform: "instagram",
   },
-  { label: "Facebook", href: "https://www.facebook.com/corbetttreatresort/", platform: "facebook" },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/corbetttreatresort/",
+    platform: "facebook",
+  },
   // { label: "Twitter", href: "#", platform: "twitter" },
+  {
+    label: "Youtube",
+    href: "https://www.youtube.com/@CorbettTreatResort",
+    platform: "youtube",
+  },
 ];
 
 export const BRAND_DESCRIPTION =

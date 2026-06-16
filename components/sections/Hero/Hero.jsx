@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "./Hero.css";
 import Button from "../../Button";
@@ -7,8 +7,20 @@ import { BOOK_NOW_URL } from "@/constants";
 
 export default function Hero() {
   const containerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detect mobile device layout
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Run on mount
+    checkMobile();
+
+    // Listen to viewport changes
+    window.addEventListener("resize", checkMobile);
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         [".hero-eyebrow", ".hero-title", ".main-text p", ".hero-action"],
@@ -27,21 +39,32 @@ export default function Hero() {
       );
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   return (
     <header className="hero" ref={containerRef}>
       <div className="video-background">
         <video
+          key={isMobile ? "mobile" : "desktop"}
           autoPlay
           loop
           muted
           playsInline
           poster="/assets/images/hero-poster.png"
-          preload="none"
+          preload="auto"
         >
-          {/* <source src="/assets/videos/hero-vieo.mp4" type="video/mp4" /> */}
+          <source
+            src={
+              isMobile
+                ? "/assets/videos/corbett-vertical-hero-video.mp4"
+                : " "
+            }
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
         <div className="video-overlay" />

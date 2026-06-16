@@ -2,9 +2,9 @@
 .why-choose-us-section {
   position: relative;
   padding: var(--space-2xl) 0;
-  background-color: var(--color-dark-alt); 
-  border-top: 1px solid rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  background-color: var(--color-bg-warm); 
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .wcu-container {
@@ -38,7 +38,7 @@
   display: block;
   font-size: var(--font-size-small);
   letter-spacing: var(--letter-spacing-label);
-  color: #d4af37; 
+  color: var(--color-accent-dark); 
   text-transform: uppercase;
   font-weight: 500;
   margin-bottom: 8px;
@@ -48,22 +48,22 @@
   display: block;
   width: 60px;
   height: 2px;
-  background-color: var(--color-light);
-  opacity: 0.3;
+  background-color: var(--color-dark);
+  opacity: 0.15;
 }
 
 .wcu-heading {
   font-family: var(--font-cormorant), serif;
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.15;
-  color: var(--color-light);
+  color: var(--color-dark);
   margin-bottom: var(--space-md);
   font-weight: 500;
 }
 
 .wcu-description {
   font-size: var(--font-size-body-reg);
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--color-dark-alt);
   line-height: 1.7;
 }
 
@@ -90,7 +90,7 @@
   position: absolute;
   width: 40px;
   height: 40px;
-  border: 2px solid #d4af37; 
+  border: 2px solid var(--color-accent); 
   z-index: 2;
   pointer-events: none;
   opacity: 0.8;
@@ -121,7 +121,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-xl) var(--space-md);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: var(--space-xl);
 }
 
@@ -133,7 +133,7 @@
 
 .stat-label {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-dark-alt);
   font-weight: 400;
 }
 
@@ -141,14 +141,13 @@
   font-family: var(--font-cormorant), serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 600;
-  color: var(--color-light);
+  color: var(--color-dark);
   line-height: 1;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .wcu-stat-item:hover .stat-value {
-  color: #d4af37;
+  color: var(--color-accent-dark);
   transform: translateY(-3px);
 }
 

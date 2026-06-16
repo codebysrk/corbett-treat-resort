@@ -43,7 +43,7 @@ export default function Hero() {
             variant="primary"
             className="story-cta-btn"
           >
-            Book Now
+            Book Your Stay
           </Button>
         </div>
       </div>

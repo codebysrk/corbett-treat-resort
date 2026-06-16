@@ -4,13 +4,16 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { RiSunLine } from "react-icons/ri";
+import { usePathname } from "next/navigation";
 import "./Navbar.css";
 import Hamburger from "../Hamburger";
 import Button from "../Button";
 import { BOOK_NOW_URL } from "@/constants";
 
 export default function Navbar({ onMenuOpen }) {
-  const [isNavbarScrolled, setIsNavbarScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [isNavbarScrolled, setIsNavbarScrolled] = useState(!isHome);
   const [weatherText, setWeatherText] = useState("Loading...");
 
 
@@ -36,12 +39,19 @@ export default function Navbar({ onMenuOpen }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsNavbarScrolled(window.scrollY > 50);
+      setIsNavbarScrolled(!isHome || window.scrollY > 50);
     };
 
+    const timeoutId = setTimeout(() => {
+      setIsNavbarScrolled(!isHome || window.scrollY > 50);
+    }, 0);
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isHome]);
 
   return (
     <nav className={`navbar ${isNavbarScrolled ? "scrolled" : ""}`}>

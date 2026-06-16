@@ -2,7 +2,7 @@
 .events-section {
   position: relative;
   padding: var(--space-2xl) 0;
-  background-color: var(--color-dark);
+  background-color: var(--color-bg-warm);
   overflow: hidden;
 }
 
@@ -87,7 +87,7 @@
 }
 
 .badge-icon {
-  color: #d4af37; 
+  color: var(--color-accent-dark); 
   display: flex;
   align-items: center;
   font-size: 1.1rem;
@@ -111,7 +111,7 @@
 .section-label {
   font-size: var(--font-size-small);
   letter-spacing: var(--letter-spacing-label);
-  color: #d4af37; 
+  color: var(--color-accent-dark); 
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: var(--space-xs);
@@ -121,7 +121,7 @@
   font-size: clamp(2rem, 4.5vw, 3.2rem);
   font-weight: 500;
   line-height: 1.15;
-  color: var(--color-light);
+  color: var(--color-dark);
   margin-bottom: var(--space-xs);
 }
 
@@ -137,7 +137,7 @@
   height: 1px;
   background: linear-gradient(
     to right,
-    rgba(212, 175, 55, 0.5),
+    rgba(176, 147, 107, 0.5),
     transparent
   );
   width: 60px;
@@ -146,13 +146,13 @@
 .events-divider .divider-line:last-child {
   background: linear-gradient(
     to left,
-    rgba(212, 175, 55, 0.5),
+    rgba(176, 147, 107, 0.5),
     transparent
   );
 }
 
 .divider-icon {
-  color: #d4af37;
+  color: var(--color-accent-dark);
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -160,7 +160,7 @@
 
 .events-intro {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--color-dark);
   line-height: 1.6;
   margin-bottom: var(--space-sm);
   font-weight: 400;
@@ -168,7 +168,7 @@
 
 .events-desc {
   font-size: var(--font-size-body-reg);
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-dark-alt);
   line-height: 1.6;
   margin-bottom: var(--space-lg);
 }
@@ -184,23 +184,23 @@
 .highlight-item {
   display: flex;
   gap: var(--space-sm);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   padding: var(--space-sm);
   transition: var(--transition-base);
 }
 
 .highlight-item:hover {
-  background: rgba(0, 77, 46, 0.08);
-  border-color: rgba(0, 77, 46, 0.2);
+  background: rgba(0, 77, 46, 0.05);
+  border-color: rgba(0, 77, 46, 0.15);
   transform: translateX(5px);
 }
 
 .highlight-icon {
-  background: rgba(0, 77, 46, 0.2);
-  border: 1px solid rgba(0, 77, 46, 0.3);
-  color: #d4af37;
+  background: rgba(0, 77, 46, 0.1);
+  border: 1px solid rgba(0, 77, 46, 0.2);
+  color: var(--color-accent-dark);
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -214,13 +214,13 @@
 .highlight-item h4 {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--color-light);
+  color: var(--color-dark);
   margin-bottom: 2px;
 }
 
 .highlight-item p {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-dark-alt);
   line-height: 1.4;
 }
 

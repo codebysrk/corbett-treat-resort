@@ -12,19 +12,18 @@ import { ALL_GALLERY_IMAGES } from "@/constants";
 import "./GalleryGrid.css";
 
 const CATEGORIES = [
-  { id: "all", label: "All Photos" },
-  { id: "rooms", label: "Rooms & Suites" },
-  { id: "resort", label: "Resort Exterior" },
-  { id: "nature", label: "Nature & Lawns" },
-  { id: "dining", label: "Dining" },
-  { id: "pool", label: "Swimming Pool" },
-  { id: "safari", label: "Safari" }
+  { id: "all", label: "ALL" },
+  { id: "rooms", label: "ROOMS" },
+  { id: "resort", label: "EXTERIORS" },
+  { id: "nature", label: "NATURE" },
+  { id: "dining", label: "DINING" },
+  { id: "pool", label: "POOL" },
+  { id: "safari", label: "SAFARI" }
 ];
 
 export default function GalleryGrid() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState(null);
-
 
   const filteredImages = activeCategory === "all" 
     ? ALL_GALLERY_IMAGES 

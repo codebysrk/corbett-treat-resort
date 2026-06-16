@@ -2,8 +2,8 @@
 .gallery-section {
   position: relative;
   padding: var(--space-3xl) 0;
-  background-color: var(--color-dark);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--color-bg-warm);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .gallery-container {
@@ -28,7 +28,7 @@
 .gallery-subtitle {
   font-size: var(--font-size-small);
   letter-spacing: var(--letter-spacing-label);
-  color: #d4af37; 
+  color: var(--color-accent-dark); 
   text-transform: uppercase;
   font-weight: 500;
   margin-bottom: var(--space-xs);
@@ -38,7 +38,7 @@
   font-family: var(--font-cormorant), serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.1;
-  color: var(--color-light);
+  color: var(--color-dark);
   margin-bottom: var(--space-sm);
   font-weight: 500;
 }
@@ -55,7 +55,7 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(212, 175, 55, 0.5)
+    rgba(176, 147, 107, 0.5)
   );
   width: 50px;
 }
@@ -64,12 +64,12 @@
   background: linear-gradient(
     to left,
     transparent,
-    rgba(212, 175, 55, 0.5)
+    rgba(176, 147, 107, 0.5)
   );
 }
 
 .gallery-divider .divider-icon {
-  color: #d4af37;
+  color: var(--color-accent-dark);
   font-size: 1.4rem;
   display: flex;
   align-items: center;
@@ -77,7 +77,7 @@
 
 .gallery-desc {
   font-size: var(--font-size-body-reg);
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-dark-alt);
   line-height: 1.6;
 }
 

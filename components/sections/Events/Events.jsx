@@ -1,9 +1,6 @@
 import "./Events.css";
-import Image from "next/image";
 import {
   RiHeartsLine,
-  RiGobletLine,
-  RiMusic2Line,
   RiArrowRightLine,
   RiPlantLine,
 } from "react-icons/ri";

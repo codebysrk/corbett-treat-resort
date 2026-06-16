@@ -15,16 +15,16 @@ export const RESORT_ADDRESS =
   "Village Dhela, Jim Corbett National Park, Ramnagar, Uttarakhand 244715";
 
 export const NAV_LINKS = [
-  { num: "01", label: "Home", href: "#home" },
-  { num: "02", label: "About", href: "#about" },
-  { num: "03", label: "Accommodation", href: "#accommodation" },
-  { num: "04", label: "Dining", href: "#dining" },
-  { num: "05", label: "Experience", href: "#experience" },
-  { num: "06", label: "Wedding", href: "#wedding" },
-  { num: "07", label: "Meeting & Event", href: "#meeting" },
-  { num: "08", label: "Gallery", href: "#gallery" },
-  { num: "09", label: "Blog", href: "#blog" },
-  { num: "10", label: "Contact", href: "#contact" },
+  { num: "01", label: "Home", href: "/#home" },
+  { num: "02", label: "About", href: "/about" },
+  { num: "03", label: "Accommodation", href: "/#accommodation" },
+  { num: "04", label: "Dining", href: "/#dining" },
+  { num: "05", label: "Experience", href: "/#experience" },
+  { num: "06", label: "Wedding", href: "/#wedding" },
+  { num: "07", label: "Meeting & Event", href: "/#meeting" },
+  { num: "08", label: "Gallery", href: "/gallery" },
+  { num: "09", label: "Blog", href: "/#blog" },
+  { num: "10", label: "Contact", href: "/#contact" },
 ];
 
 export const AMENITIES = [

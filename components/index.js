@@ -14,3 +14,8 @@ export { default as Button } from "./Button";
 export { default as FloatingContact } from "./FloatingContact";
 export { default as ClientShell } from "./ClientShell";
 export { default as GalleryGrid } from "./GalleryGrid";
+export { default as AboutHero } from "./sections/AboutHero/AboutHero";
+export { default as AboutIntro } from "./sections/AboutIntro/AboutIntro";
+export { default as AboutMission } from "./sections/AboutMission/AboutMission";
+export { default as AboutDedication } from "./sections/AboutDedication/AboutDedication";
+export { default as AboutBooking } from "./sections/AboutBooking/AboutBooking";

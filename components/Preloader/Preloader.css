@@ -5,7 +5,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--color-dark);
+  background: var(--color-bg-warm);
   z-index: 9999;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@
 .preloader-logo {
   height: 56px !important;
   width: auto !important; 
-  filter: brightness(0) invert(1);
+  filter: brightness(0);
   animation: pulseLogo 2s infinite ease-in-out;
   margin-bottom: var(--space-md);
 }
@@ -28,7 +28,7 @@
 .loader-line {
   width: 140px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -40,7 +40,7 @@
   left: -50%;
   width: 50%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--color-primary);
   animation: loadLine 1.5s infinite ease-in-out;
 }
 

@@ -66,6 +66,13 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   transition: var(--transition-base);
+  width: 100%;
+  min-width: 0;
+}
+
+.info-card > div:last-child {
+  flex: 1;
+  min-width: 0;
 }
 
 .info-card:hover {
@@ -99,12 +106,18 @@
   font-size: 0.95rem;
   color: var(--color-dark-alt);
   line-height: 1.5;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .info-card a {
   color: var(--color-dark-alt);
   text-decoration: none;
   transition: color 0.3s ease;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .info-card a:hover {

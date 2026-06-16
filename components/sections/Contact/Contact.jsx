@@ -94,7 +94,7 @@ export default function Contact() {
       // We use mode: "no-cors" and Content-Type: "text/plain" to bypass CORS preflight.
       // Google Apps Script's e.postData.contents will still receive the JSON string correctly.
       await fetch(
-        "https://script.google.com/macros/s/AKfycbxiDDhmaNQYyEkXRsMfIkrFvGFBOQTgKI5d2Wyrt7e2YOdVFU1Gi0Rl8QL64NOL21ah/exec",
+        "https://script.google.com/macros/s/AKfycbxcd_C0Qs9ThuKijd2jV-R8d_2N1mK5x-6h--bDeoZX9N--wF2l59oXrnLy_ye0HjLDUA/exec",
         {
           method: "POST",
           mode: "no-cors",

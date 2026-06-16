@@ -7,6 +7,16 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+.wcu-subtitle,
+.wcu-divider-line,
+.wcu-heading,
+.wcu-description,
+.wcu-image-wrapper,
+.wcu-stat-item {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
 .wcu-container {
   max-width: 1200px;
   margin: 0 auto;

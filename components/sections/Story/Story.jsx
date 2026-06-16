@@ -1,3 +1,7 @@
+"use client";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Story.css";
 import Image from "next/image";
 import {
@@ -9,10 +13,91 @@ import {
 import { BsBinoculars } from "react-icons/bs";
 import Button from "../../Button";
 
+gsap.registerPlugin(ScrollTrigger);
 
 const Story = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Left side: Gallery images fade & slide
+      gsap.fromTo(
+        ".story-main-image",
+        { opacity: 0, x: -50 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: ".story-gallery",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        [".nature-card", ".story-floating-image"],
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: ".story-gallery",
+            start: "top 70%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      // Right side: Content scroll reveal
+      gsap.fromTo(
+        [
+          ".story-content .section-label",
+          ".story-heading",
+          ".story-divider",
+          ".story-description p",
+          ".story-action",
+        ],
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: ".story-content",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      // Feature cards stagger
+      gsap.fromTo(
+        ".feature-card",
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: ".story-features",
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="our-story-section" id="our-story">
+    <section className="our-story-section" id="our-story" ref={sectionRef}>
       <div className="story-container">
         <div className="our-story-wrapper">
           

@@ -1,10 +1,37 @@
+"use client";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import "./Hero.css";
 import Button from "../../Button";
 import { BOOK_NOW_URL } from "@/constants";
 
 export default function Hero() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        [".hero-eyebrow", ".hero-title", ".main-text p", ".hero-action"],
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          stagger: 0.15,
+          ease: "power3.out",
+          delay: 0.2,
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <header className="hero">
+    <header className="hero" ref={containerRef}>
       <div className="video-background">
         <video
           autoPlay

@@ -5,6 +5,16 @@
   overflow: hidden;
 }
 
+.amenities-subtitle,
+.amenities-divider,
+.amenities-title,
+.amenities-title-sub,
+.amenities-description,
+.amenity-card {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
 .amenities-container {
   width: min(100%, 78rem);
   margin-inline: auto;

@@ -1,15 +1,101 @@
+"use client";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./WhyChooseUs.css";
 import Image from "next/image";
 import { WHY_CHOOSE_US_STATS } from "@/constants";
 
+gsap.registerPlugin(ScrollTrigger);
+
+const parseStat = (val) => {
+  const match = val.match(/^([\d.]+)(.*)$/);
+  if (!match) return { num: 0, suffix: val, decimals: 0 };
+  const numStr = match[1];
+  const suffix = match[2];
+  const decimals = numStr.includes(".") ? numStr.split(".")[1].length : 0;
+  return { num: parseFloat(numStr), suffix, decimals };
+};
 
 export default function WhyChooseUs() {
+  const sectionRef = useRef(null);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Top Grid reveal
+      gsap.fromTo(
+        [".wcu-subtitle", ".wcu-divider-line", ".wcu-heading", ".wcu-description"],
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: ".wcu-content",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        ".wcu-image-wrapper",
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          scrollTrigger: {
+            trigger: ".wcu-image-wrapper",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      // Stats Count Up
+      const statItems = gsap.utils.toArray(".wcu-stat-item");
+      statItems.forEach((item) => {
+        const valEl = item.querySelector(".stat-value");
+        if (!valEl) return;
+        const rawVal = valEl.getAttribute("data-value");
+        const { num, suffix, decimals } = parseStat(rawVal);
+        
+        const obj = { val: 0 };
+        gsap.fromTo(
+          item,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            scrollTrigger: {
+              trigger: item,
+              start: "top 90%",
+              toggleActions: "play none none none",
+            },
+            onStart: () => {
+              gsap.to(obj, {
+                val: num,
+                duration: 2,
+                ease: "power2.out",
+                onUpdate: () => {
+                  valEl.textContent = obj.val.toFixed(decimals) + suffix;
+                },
+              });
+            },
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="why-choose-us-section" id="why-choose-us">
+    <section className="why-choose-us-section" id="why-choose-us" ref={sectionRef}>
       <div className="wcu-container">
-        
         
         <div className="wcu-top-grid">
           
@@ -49,7 +135,7 @@ export default function WhyChooseUs() {
           {WHY_CHOOSE_US_STATS.map((stat, index) => (
             <div className="wcu-stat-item" key={index}>
               <span className="stat-label">{stat.label}</span>
-              <span className="stat-value">{stat.value}</span>
+              <span className="stat-value" data-value={stat.value}>{stat.value}</span>
             </div>
           ))}
         </div>

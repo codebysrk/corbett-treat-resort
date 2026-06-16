@@ -6,6 +6,19 @@
   overflow: hidden;
 }
 
+.story-main-image,
+.nature-card,
+.story-floating-image,
+.section-label,
+.story-heading,
+.story-divider,
+.story-description p,
+.feature-card,
+.story-action {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
 .story-container {
   width: min(100%, 78rem);
   margin-inline: auto;

@@ -1,0 +1,98 @@
+.accommodation-hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.accommodation-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.accommodation-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.65)
+  );
+  z-index: 2;
+}
+
+.accommodation-hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 1.5rem;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accommodation-hero-subtitle {
+  font-family: var(--font-secondary, "Outfit", sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #c5a880;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.accommodation-hero-title {
+  font-family: var(--font-primary, "Playfair Display", serif);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.accommodation-hero-divider {
+  width: 60px;
+  height: 2px;
+  background-color: #c5a880;
+  margin-bottom: 1.5rem;
+}
+
+.accommodation-hero-desc {
+  font-family: var(--font-secondary, "Outfit", sans-serif);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+/* Tablet & Desktop Enhancements */
+@media (min-width: 768px) {
+  .accommodation-hero {
+    height: 70vh;
+  }
+
+  .accommodation-hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .accommodation-hero-title {
+    font-size: 4rem;
+  }
+
+  .accommodation-hero-desc {
+    font-size: 1.15rem;
+  }
+}

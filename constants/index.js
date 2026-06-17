@@ -17,7 +17,7 @@ export const RESORT_ADDRESS =
 export const NAV_LINKS = [
   { num: "01", label: "Home", href: "/#home" },
   { num: "02", label: "About", href: "/about" },
-  { num: "03", label: "Accommodation", href: "/#accommodation" },
+  { num: "03", label: "Accommodation", href: "/accommodation" },
   { num: "04", label: "Dining", href: "/dining" },
   { num: "05", label: "Experience", href: "/#experience" },
   { num: "06", label: "Wedding", href: "/#wedding" },
@@ -312,4 +312,51 @@ export const ALL_GALLERY_IMAGES = [
     alt: "Spacious Parking Facilities 2",
     category: "resort",
   },
+];
+
+export const ROOMS_DATA = [
+  {
+    id: "deluxe-room",
+    title: "Deluxe Room",
+    description: "Elegant, cozy, and perfectly appointed for couples or solo travelers seeking a peaceful retreat in Corbett.",
+    image: "/assets/images/bedroom-suite-1.jpeg",
+    size: "350 sq. ft.",
+    occupancy: "2 Adults + 1 Child",
+    bed: "King Size Bed",
+    view: "Garden View",
+    features: ["Air Conditioning", "Flat-screen TV", "Mini Bar", "Tea/Coffee Maker", "Complimentary Wi-Fi", "Daily Housekeeping"],
+  },
+  {
+    id: "super-deluxe-room",
+    title: "Super Deluxe Room",
+    description: "Spacious layout with premium furniture and a beautiful sit-out area overlooking the lush green gardens of the resort.",
+    image: "/assets/images/bedroom-suite-2.jpeg",
+    size: "450 sq. ft.",
+    occupancy: "3 Adults or 2 Adults + 2 Children",
+    bed: "King Size Bed + Daybed",
+    view: "Pool & Garden View",
+    features: ["Private Balcony", "Air Conditioning", "LED TV", "Mini Fridge", "Electronic Safe", "Complimentary Wi-Fi", "Luxury Toiletries"],
+  },
+  {
+    id: "executive-suite",
+    title: "Executive Suite",
+    description: "Designed for ultimate luxury, featuring a separate cozy living area, modern bathroom amenities, and personalized services.",
+    image: "/assets/images/bedroom-suite-3.jpeg",
+    size: "600 sq. ft.",
+    occupancy: "3 Adults or 2 Adults + 2 Children",
+    bed: "Super King Bed",
+    view: "Forest View",
+    features: ["Separate Living Room", "Air Conditioning", "Smart TV", "Mini Bar", "Bathtub", "Premium Toiletries", "Coffee Machine"],
+  },
+  {
+    id: "family-cottage",
+    title: "Duplex Family Cottage",
+    description: "A gorgeous double-story cottage layout offering maximum space, privacy, and scenic nature views, ideal for larger families.",
+    image: "/assets/images/cottages-numbered-exterior.jpeg",
+    size: "850 sq. ft.",
+    occupancy: "4 Adults + 2 Children",
+    bed: "2 King Beds (Duplex)",
+    view: "Panoramic Nature View",
+    features: ["Duplex Layout", "Private Balcony & Sit-out", "2 Bathrooms", "Air Conditioning", "2 Smart TVs", "Mini Bar", "In-room Dining Support"],
+  }
 ];

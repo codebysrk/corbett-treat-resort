@@ -24,7 +24,7 @@ export const NAV_LINKS = [
   { num: "07", label: "Meeting & Event", href: "/#meeting" },
   { num: "08", label: "Gallery", href: "/gallery" },
   { num: "09", label: "Blog", href: "/#blog" },
-  { num: "10", label: "Contact", href: "/#contact" },
+  { num: "10", label: "Contact", href: "/contact" },
 ];
 
 export const AMENITIES = [

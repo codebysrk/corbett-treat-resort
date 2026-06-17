@@ -31,6 +31,8 @@ export default function Footer() {
               <Image
                 src="/assets/images/resort-logo.png"
                 alt="Corbett Treat Resort"
+                priority
+                loading="eager"
                 width={200}
                 height={75}
                 style={{ width: "auto", height: "auto" }}
@@ -114,9 +116,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="footer-bottom-brand">
-          Corbett
-        </div>
+        <div className="footer-bottom-brand">Corbett</div>
         <div className="footer-bottom">
           <p>&copy; {currentYear} Corbett Treat Resort. All Rights Reserved.</p>
           <div className="footer-bottom-links">

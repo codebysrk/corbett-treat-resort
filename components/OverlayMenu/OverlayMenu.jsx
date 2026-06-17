@@ -3,17 +3,28 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { RiArrowRightLine, RiInstagramLine, RiFacebookCircleLine, RiTwitterXLine, RiYoutubeLine } from "react-icons/ri";
+import {
+  RiArrowRightLine,
+  RiInstagramLine,
+  RiFacebookCircleLine,
+  RiTwitterXLine,
+  RiYoutubeLine,
+} from "react-icons/ri";
 import Button from "../Button";
-import { NAV_LINKS, CONTACT_PHONES, RESORT_ADDRESS, CONTACT_EMAIL, BOOK_NOW_URL, SOCIAL_LINKS } from "@/constants";
+import {
+  NAV_LINKS,
+  CONTACT_PHONES,
+  RESORT_ADDRESS,
+  CONTACT_EMAIL,
+  BOOK_NOW_URL,
+  SOCIAL_LINKS,
+} from "@/constants";
 import "./OverlayMenu.css";
-
 
 export default function OverlayMenu({ isOpen, onClose }) {
   const [menuScrolled, setMenuScrolled] = useState(false);
   const overlayNavRef = useRef(null);
   const overlayMenuRef = useRef(null);
-
 
   useEffect(() => {
     if (isOpen) {
@@ -26,7 +37,6 @@ export default function OverlayMenu({ isOpen, onClose }) {
     };
   }, [isOpen]);
 
-
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape" && isOpen) {
@@ -36,7 +46,6 @@ export default function OverlayMenu({ isOpen, onClose }) {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
-
 
   const handleMenuScroll = () => {
     const menuScroll = overlayMenuRef.current?.scrollTop ?? 0;
@@ -68,10 +77,11 @@ export default function OverlayMenu({ isOpen, onClose }) {
             height={150}
             style={{ width: "auto", height: "auto" }}
             className="overlay-logo-img"
+            priority
+            loading="eager"
           />
         </Link>
 
-        
         <button
           type="button"
           className="overlay-close"
@@ -134,11 +144,16 @@ export default function OverlayMenu({ isOpen, onClose }) {
               {SOCIAL_LINKS.map((social) => {
                 const getSocialIcon = (platform) => {
                   switch (platform) {
-                    case "instagram": return <RiInstagramLine />;
-                    case "facebook": return <RiFacebookCircleLine />;
-                    case "twitter": return <RiTwitterXLine />;
-                    case "youtube": return <RiYoutubeLine/>;
-                    default: return null;
+                    case "instagram":
+                      return <RiInstagramLine />;
+                    case "facebook":
+                      return <RiFacebookCircleLine />;
+                    case "twitter":
+                      return <RiTwitterXLine />;
+                    case "youtube":
+                      return <RiYoutubeLine />;
+                    default:
+                      return null;
                   }
                 };
                 return (
@@ -171,7 +186,6 @@ export default function OverlayMenu({ isOpen, onClose }) {
         </div>
       </div>
 
-      
       <div
         className={`overlay-scroll-indicator ${menuScrolled ? "fade-out" : ""}`}
         id="overlay-scroll-indicator"

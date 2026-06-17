@@ -54,7 +54,7 @@
 
 .footer-logo-img {
   max-width: 180px;
-  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.15));
 }
 
 .footer-brand-desc {

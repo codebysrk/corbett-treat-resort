@@ -31,6 +31,7 @@ export default function GalleryGrid() {
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
+  const [mounted, setMounted] = useState(false);
   
   const containerRef = useRef(null);
   const itemsRef = useRef([]);
@@ -40,6 +41,7 @@ export default function GalleryGrid() {
     : ALL_GALLERY_IMAGES.filter(img => img.category === activeCategory);
 
   useEffect(() => {
+    setMounted(true);
     // Initial scroll entrance animation
     const ctx = gsap.context(() => {
       gsap.fromTo(".filter-btn", 
@@ -167,39 +169,43 @@ export default function GalleryGrid() {
       </div>
 
       
-      <ResponsiveMasonry
-        columnsCountBreakPoints={{ 350: 1, 750: 2, 992: 3, 1200: 4 }}
-      >
-        <Masonry gutter="1.5rem">
-          {filteredImages.map((image, index) => (
-            <div 
-              key={image.src + activeCategory} 
-              className="gallery-grid-item"
-              ref={(el) => (itemsRef.current[index] = el)}
-              onClick={() => setLightboxIndex(index)}
-            >
-              <div className="gallery-grid-img-container">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={500}
-                  height={350}
-                  style={{ width: "100%", height: "auto", display: "block" }}
-                  className="gallery-grid-img"
-                  loading={index < 3 ? undefined : "lazy"}
-                  priority={index < 3}
-                />
-                <div className="gallery-grid-hover-overlay">
-                  <span className="zoom-icon">
-                    <RiZoomInLine />
-                  </span>
-                  <p className="hover-caption">{image.alt}</p>
+      {mounted ? (
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 350: 1, 750: 2, 992: 3, 1200: 4 }}
+        >
+          <Masonry gutter="1.5rem">
+            {filteredImages.map((image, index) => (
+              <div 
+                key={image.src + activeCategory} 
+                className="gallery-grid-item"
+                ref={(el) => (itemsRef.current[index] = el)}
+                onClick={() => setLightboxIndex(index)}
+              >
+                <div className="gallery-grid-img-container">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={500}
+                    height={350}
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                    className="gallery-grid-img"
+                    loading={index < 3 ? undefined : "lazy"}
+                    priority={index < 3}
+                  />
+                  <div className="gallery-grid-hover-overlay">
+                    <span className="zoom-icon">
+                      <RiZoomInLine />
+                    </span>
+                    <p className="hover-caption">{image.alt}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Masonry>
-      </ResponsiveMasonry>
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
+      ) : (
+        <div style={{ minHeight: "600px" }} />
+      )}
 
       
       {lightboxIndex !== null && (

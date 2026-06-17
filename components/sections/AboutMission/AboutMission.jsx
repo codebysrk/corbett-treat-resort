@@ -20,6 +20,7 @@ const AboutMission = () => {
             fill
             sizes="(max-width: 992px) 100vw, 33vw"
             style={{ objectFit: "cover" }}
+            loading="eager"
           />
         </div>
 

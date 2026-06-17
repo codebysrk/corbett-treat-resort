@@ -186,8 +186,8 @@ export default function GalleryGrid() {
                     height={350}
                     style={{ width: "100%", height: "auto", display: "block" }}
                     className="gallery-grid-img"
-                    loading={index < 3 ? undefined : "lazy"}
-                    priority={index < 3}
+                    loading={index < 6 ? "eager" : "lazy"}
+                    priority={index < 6}
                   />
                   <div className="gallery-grid-hover-overlay">
                     <span className="zoom-icon">

@@ -42,7 +42,11 @@ export default function GalleryGrid() {
 
   useEffect(() => {
     setMounted(true);
-    // Initial scroll entrance animation
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     const ctx = gsap.context(() => {
       gsap.fromTo(".filter-btn", 
         { y: 20, opacity: 0 },
@@ -59,31 +63,35 @@ export default function GalleryGrid() {
         }
       );
       
-      gsap.fromTo(
-        itemsRef.current,
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".gallery-masonry-grid",
-            start: "top 85%",
+      const validItems = itemsRef.current.filter(Boolean);
+      if (validItems.length > 0) {
+        gsap.fromTo(
+          validItems,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 85%",
+            }
           }
-        }
-      );
+        );
+      }
     }, containerRef);
     
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
 
   // Animation when category changes
   useEffect(() => {
-    if (itemsRef.current.length > 0) {
+    const validItems = itemsRef.current.filter(Boolean);
+    if (validItems.length > 0) {
       gsap.fromTo(
-        itemsRef.current,
+        validItems,
         { scale: 0.9, opacity: 0 },
         { scale: 1, opacity: 1, duration: 0.5, stagger: 0.05, ease: "power2.out", overwrite: true }
       );

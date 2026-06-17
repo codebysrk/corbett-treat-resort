@@ -17,9 +17,7 @@ const Story = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger);
-    }
+    gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       // Left side: Gallery images fade & slide
       gsap.fromTo(

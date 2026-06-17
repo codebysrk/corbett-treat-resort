@@ -170,7 +170,7 @@ export default function GalleryGrid() {
         <ResponsiveMasonry
           columnsCountBreakPoints={{ 350: 2, 750: 3, 992: 3, 1200: 4 }}
         >
-          <Masonry gutter="0rem">
+          <Masonry gutter="1rem">
             {filteredImages.map((image, index) => (
               <div 
                 key={image.src + activeCategory} 

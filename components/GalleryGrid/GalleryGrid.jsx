@@ -6,7 +6,9 @@ import {
    RiCloseLine, 
    RiArrowLeftSLine, 
    RiArrowRightSLine, 
-   RiZoomInLine 
+   RiZoomInLine,
+   RiZoomOutLine,
+   RiRestartLine
 } from "react-icons/ri";
 import { ALL_GALLERY_IMAGES } from "@/constants";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
@@ -26,12 +28,14 @@ const CATEGORIES = [
 export default function GalleryGrid() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState(null);
-  const [isZoomed, setIsZoomed] = useState(false);
-  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
+  const [scale, setScale] = useState(1);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
   const [mounted, setMounted] = useState(false);
   
   const containerRef = useRef(null);
   const itemsRef = useRef([]);
+  const dragStart = useRef({ x: 0, y: 0 });
 
   const filteredImages = activeCategory === "all" 
     ? ALL_GALLERY_IMAGES 
@@ -127,24 +131,98 @@ export default function GalleryGrid() {
     } else {
       document.body.style.overflow = "";
     }
-    setIsZoomed(false); // Reset zoom on image change
+    setScale(1);
+    setPosition({ x: 0, y: 0 });
+    setIsDragging(false);
     return () => {
       document.body.style.overflow = "";
     };
   }, [lightboxIndex]);
 
-  const handleMouseMove = (e) => {
-    if (!isZoomed) return;
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - left) / width) * 100;
-    const y = ((e.clientY - top) / height) * 100;
-    setZoomPos({ x, y });
+  const handleStart = (clientX, clientY) => {
+    if (scale <= 1) return;
+    setIsDragging(true);
+    dragStart.current = { x: clientX - position.x, y: clientY - position.y };
   };
 
-  const toggleZoom = (e) => {
+  const handleMouseDown = (e) => {
+    if (scale <= 1) return;
+    e.preventDefault();
+    handleStart(e.clientX, e.clientY);
+  };
+
+  const handleTouchStart = (e) => {
+    if (e.touches.length === 1) {
+      handleStart(e.touches[0].clientX, e.touches[0].clientY);
+    } else if (e.touches.length === 2) {
+      const dist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      e.currentTarget.dataset.pinchDist = dist;
+    }
+  };
+
+  const handleMove = (clientX, clientY) => {
+    const newX = clientX - dragStart.current.x;
+    const newY = clientY - dragStart.current.y;
+    
+    const maxOffset = (scale - 1) * 250;
+    setPosition({
+      x: Math.max(-maxOffset, Math.min(maxOffset, newX)),
+      y: Math.max(-maxOffset, Math.min(maxOffset, newY))
+    });
+  };
+
+  const handleMouseMove = (e) => {
+    if (scale <= 1 || !isDragging) return;
+    handleMove(e.clientX, e.clientY);
+  };
+
+  const handleTouchMove = (e) => {
+    if (e.touches.length === 1 && isDragging) {
+      handleMove(e.touches[0].clientX, e.touches[0].clientY);
+    } else if (e.touches.length === 2 && e.currentTarget.dataset.pinchDist) {
+      const initialDist = parseFloat(e.currentTarget.dataset.pinchDist);
+      const currentDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const factor = currentDist / initialDist;
+      setScale(prev => Math.max(1, Math.min(4, prev * factor)));
+      e.currentTarget.dataset.pinchDist = currentDist;
+    }
+  };
+
+  const handleEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleWheel = (e) => {
+    e.preventDefault();
+    const zoomIntensity = 0.15;
+    const delta = e.deltaY < 0 ? 1 : -1;
+    setScale(prev => {
+      const nextScale = Math.max(1, Math.min(4, prev + delta * zoomIntensity));
+      if (nextScale === 1) {
+        setPosition({ x: 0, y: 0 });
+      }
+      return nextScale;
+    });
+  };
+
+  const handleDoubleClick = (e) => {
     e.stopPropagation();
-    setIsZoomed(prev => !prev);
-    setZoomPos({ x: 50, y: 50 });
+    if (scale > 1) {
+      setScale(1);
+      setPosition({ x: 0, y: 0 });
+    } else {
+      setScale(2.5);
+      const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - left - width / 2;
+      const clickY = e.clientY - top - height / 2;
+      setPosition({ x: -clickX * 1.5, y: -clickY * 1.5 });
+    }
   };
 
   return (
@@ -168,7 +246,7 @@ export default function GalleryGrid() {
       
       {mounted ? (
         <ResponsiveMasonry
-          columnsCountBreakPoints={{ 350: 2, 750: 3, 992: 3, 1200: 4 }}
+          columnsCountBreakPoints={{ 350: 2, 750: 3, 992: 3, 1200: 5 }}
         >
           <Masonry gutter="1rem">
             {filteredImages.map((image, index) => (
@@ -207,13 +285,45 @@ export default function GalleryGrid() {
       
       {lightboxIndex !== null && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
-          <button 
-            className="lightbox-close" 
-            onClick={closeLightbox}
-            aria-label="Close lightbox"
-          >
-            <RiCloseLine />
-          </button>
+          <div className="lightbox-toolbar" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="toolbar-btn" 
+              onClick={() => setScale(prev => Math.min(4, prev + 0.4))}
+              aria-label="Zoom in"
+            >
+              <RiZoomInLine />
+            </button>
+            <button 
+              className="toolbar-btn" 
+              onClick={() => {
+                setScale(prev => {
+                  const nextScale = Math.max(1, prev - 0.4);
+                  if (nextScale === 1) setPosition({ x: 0, y: 0 });
+                  return nextScale;
+                });
+              }}
+              aria-label="Zoom out"
+            >
+              <RiZoomOutLine />
+            </button>
+            <button 
+              className="toolbar-btn" 
+              onClick={() => {
+                setScale(1);
+                setPosition({ x: 0, y: 0 });
+              }}
+              aria-label="Reset zoom"
+            >
+              <RiRestartLine />
+            </button>
+            <button 
+              className="toolbar-btn close-btn" 
+              onClick={closeLightbox}
+              aria-label="Close lightbox"
+            >
+              <RiCloseLine />
+            </button>
+          </div>
 
           <button 
             className="lightbox-nav prev" 
@@ -229,8 +339,15 @@ export default function GalleryGrid() {
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             <div 
               className="lightbox-image-container"
+              onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
-              onClick={toggleZoom}
+              onMouseUp={handleEnd}
+              onMouseLeave={handleEnd}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleEnd}
+              onWheel={handleWheel}
+              onDoubleClick={handleDoubleClick}
               style={{ overflow: "hidden" }}
             >
               <Image
@@ -239,12 +356,10 @@ export default function GalleryGrid() {
                 fill
                 sizes="(max-width: 768px) 90vw, (max-width: 1200px) 80vw, 900px"
                 className="lightbox-img"
-                style={isZoomed ? {
-                  transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
-                  transform: "scale(2.2)",
-                  cursor: "zoom-out"
-                } : {
-                  cursor: "zoom-in"
+                style={{
+                  transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
+                  cursor: scale > 1 ? (isDragging ? "grabbing" : "grab") : "zoom-in",
+                  transition: isDragging ? "none" : "transform 0.15s ease-out"
                 }}
                 priority
               />

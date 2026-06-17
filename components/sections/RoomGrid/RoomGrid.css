@@ -66,21 +66,6 @@
   transform: scale(1.06);
 }
 
-.room-card-tag {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: rgba(0, 77, 46, 0.85);
-  backdrop-filter: blur(4px);
-  color: #ffffff;
-  padding: 0.35rem 0.8rem;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  border-radius: 2px;
-  z-index: 2;
-}
 
 .room-card-info {
   padding: 2rem 1.5rem;

@@ -8,14 +8,14 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* 1. Hero Section styling */
 .contact-hero-section {
   position: relative;
-  height: 380px;
+  height: 350px;
   width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
+  padding: 3rem var(--space-md);
 }
 
 .contact-hero-img {
@@ -26,7 +26,7 @@
 .contact-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.3) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.3) 80%);
   z-index: 2;
 }
 
@@ -615,6 +615,9 @@
 
 /* Desktop View: 1024px and up */
 @media (min-width: 1024px) {
+  .contact-page-main {
+    padding-top: 80px;
+  }
   .contact-hero-content {
     padding: 0 5rem;
   }

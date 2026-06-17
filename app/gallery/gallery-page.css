@@ -18,11 +18,48 @@
 
 .gallery-hero-title {
   font-family: var(--font-secondary, "Playfair Display", serif);
-  font-size: 3rem;
-  font-weight: 300;
-  margin-bottom: 0;
-  letter-spacing: 1px;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
   color: var(--color-dark);
+}
+
+.gallery-hero-subtitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 1.2rem 0 1.5rem;
+}
+
+.gallery-hero-divider .divider-line {
+  height: 1px;
+  width: 60px;
+  background-color: var(--color-border);
+}
+
+.gallery-hero-divider .divider-icon {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}
+
+.gallery-hero-desc {
+  font-size: 0.9rem;
+  color: var(--color-dark-alt);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .gallery-grid-section {
@@ -35,10 +72,15 @@
   }
   
   .gallery-hero-header {
-    padding: 3rem 2rem 1rem;
+    padding: 4rem 2rem 2rem;
   }
   
   .gallery-hero-title {
     font-size: 3.5rem;
+  }
+
+  .gallery-hero-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 6px;
   }
 }

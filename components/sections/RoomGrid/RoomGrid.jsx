@@ -28,7 +28,7 @@ export default function RoomGrid() {
         <div className="rooms-intro">
           <h2>Find Your Perfect Sanctuary</h2>
           <p>
-            Choose from our carefully curated range of deluxe rooms, premium suites, and family duplex cottages. Designed to provide unmatched luxury and tranquility in the lap of nature.
+            Choose from our carefully curated range of Deluxe Rooms, Premium Rooms, and Family Rooms. Designed to provide unmatched luxury and tranquility in the lap of nature.
           </p>
         </div>
 
@@ -45,7 +45,6 @@ export default function RoomGrid() {
                   className="room-img"
                   loading="lazy"
                 />
-                <div className="room-card-tag">{room.view}</div>
               </div>
 
               <div className="room-card-info">

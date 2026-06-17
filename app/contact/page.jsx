@@ -49,9 +49,7 @@ export default function ContactPage() {
       newErrors.name = "Name is required";
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else {
+    if (formData.email.trim()) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
         newErrors.email = "Please enter a valid email address";
@@ -67,7 +65,9 @@ export default function ContactPage() {
       }
     }
 
-    if (formData.checkIn) {
+    if (!formData.checkIn) {
+      newErrors.checkIn = "Check-in date is required";
+    } else {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       const checkInDate = new Date(formData.checkIn);
@@ -76,27 +76,21 @@ export default function ContactPage() {
       }
     }
 
-    if (formData.checkOut) {
-      if (!formData.checkIn) {
-        newErrors.checkIn = "Please select check-in date first";
-      } else {
-        const checkInDate = new Date(formData.checkIn);
-        const checkOutDate = new Date(formData.checkOut);
-        if (checkOutDate <= checkInDate) {
-          newErrors.checkOut = "Check-out must be after check-in";
-        }
+    if (!formData.checkOut) {
+      newErrors.checkOut = "Check-out date is required";
+    } else if (formData.checkIn) {
+      const checkInDate = new Date(formData.checkIn);
+      const checkOutDate = new Date(formData.checkOut);
+      if (checkOutDate <= checkInDate) {
+        newErrors.checkOut = "Check-out must be after check-in";
       }
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitStatus(null);
     setErrorMessage("");
@@ -108,47 +102,54 @@ export default function ContactPage() {
 
     setIsSubmitting(true);
 
-    const now = new Date();
-    const formattedDate = now.toLocaleString("en-US", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: true,
-    });
-
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbxcd_C0Qs9ThuKijd2jV-R8d_2N1mK5x-6h--bDeoZX9N--wF2l59oXrnLy_ye0HjLDUA/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "text/plain",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            checkIn: formData.checkIn,
-            checkOut: formData.checkOut,
-            guests: formData.guests,
-            children: formData.children,
-            message: formData.message,
-            date: formattedDate,
-            timestamp: formattedDate,
-          }),
-        },
-      );
+      // Helper function to format date from YYYY-MM-DD to DD-MM-YYYY
+      const formatDateToDDMMYYYY = (dateStr) => {
+        if (!dateStr) return "";
+        const [year, month, day] = dateStr.split("-");
+        return `${day}-${month}-${year}`;
+      };
+
+      const formattedCheckIn = formatDateToDDMMYYYY(formData.checkIn);
+      const formattedCheckOut = formatDateToDDMMYYYY(formData.checkOut);
+
+      // Format guests count
+      const guestsCount = `${formData.guests} Adults` + (formData.children !== "0" ? `, ${formData.children} Children` : "");
+
+      // Generate WhatsApp message format as requested
+      const messageText = `🏨 New Booking Inquiry
+
+Hello, I would like to check availability for my stay.
+
+Guest Details:
+Name: ${formData.name}
+Mobile: ${formData.phone}
+Email: ${formData.email || "Not provided"}
+
+Stay Details:
+Check-in: ${formattedCheckIn}
+Check-out: ${formattedCheckOut}
+Guests: ${guestsCount}
+
+Customer Message:
+${formData.message || "No special requirements"}
+
+Please share room availability, pricing, and booking details.
+
+Thank you.`;
+
+      // Open WhatsApp in a new tab using international format for the resort's number
+      const whatsappUrl = `https://wa.me/918057094258?text=${encodeURIComponent(messageText)}`;
+      window.open(whatsappUrl, "_blank");
 
       setSubmitStatus("success");
       setToast({
         show: true,
-        message: "Thank you! Your message has been sent successfully. We will get back to you soon.",
+        message: "Opening WhatsApp to send your inquiry...",
         type: "success",
       });
+
+      // Reset form data after redirect
       setFormData({
         name: "",
         email: "",
@@ -166,7 +167,7 @@ export default function ContactPage() {
       }, 5000);
     } catch (error) {
       setSubmitStatus("error");
-      const err = error.message || "Something went wrong. Please try again later.";
+      const err = error.message || "Something went wrong. Please try again.";
       setErrorMessage(err);
       setToast({
         show: true,

@@ -1,5 +1,13 @@
 export { default as Preloader } from "./Preloader";
 export { default as Navbar } from "./Navbar";
+export { default as Header } from "./layout/Header";
+export { default as ResortLogo } from "./ui/ResortLogo";
+export { default as AboutSection } from "./ui/AboutSection";
+export { default as RoomsShowcase } from "./ui/RoomsShowcase";
+export { default as DiningSection } from "./ui/DiningSection";
+export { default as ActivitiesSection } from "./ui/ActivitiesSection";
+export { default as GallerySection } from "./ui/GallerySection";
+export { default as PlacesToVisit } from "./ui/PlacesToVisit";
 export { default as OverlayMenu } from "./OverlayMenu";
 export { default as Hero } from "./sections/Hero";
 export { default as Story } from "./sections/Story";

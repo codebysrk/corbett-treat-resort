@@ -1,0 +1,75 @@
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import './GallerySection.css';
+
+const GallerySection = () => {
+  return (
+    <section className="gallery-section">
+      <div className="gallery-container">
+        
+        <div className="gallery-header">
+          <span className="gallery-subtitle">Captured Moments</span>
+          <h2 className="gallery-title">The Resort Experience</h2>
+          <p className="gallery-description">
+            Glimpses of luxury, nature, and unforgettable memories waiting for you at Corbett Treat Resort.
+          </p>
+        </div>
+
+        <div className="gallery-layout">
+          
+          {/* Column 1 */}
+          <div className="gallery-col col-1">
+            <div className="gallery-img-wrapper">
+              <Image src="/assets/images/wild.jpg" alt="Wildlife" fill className="gallery-img" />
+            </div>
+          </div>
+
+          {/* Column 2 */}
+          <div className="gallery-col col-2">
+            <div className="gallery-img-wrapper">
+              <Image src="/assets/images/cabin_bedroom.png" alt="Cabin" fill className="gallery-img" />
+            </div>
+            <div className="gallery-img-wrapper">
+              <Image src="/assets/images/spa_wellness.png" alt="Spa" fill className="gallery-img" />
+            </div>
+          </div>
+
+          {/* Column 3 (Center Tall) */}
+          <div className="gallery-col col-3">
+            <div className="gallery-img-wrapper tall">
+              <Image src="/assets/images/garden-area.jpg" alt="Resort View" fill className="gallery-img" />
+            </div>
+          </div>
+
+          {/* Column 4 */}
+          <div className="gallery-col col-4">
+            <div className="gallery-img-wrapper">
+              <Image src="/assets/images/safari.webp" alt="Safari" fill className="gallery-img" />
+            </div>
+            <div className="gallery-img-wrapper">
+              <Image src="/assets/images/fine_dining.png" alt="Dining" fill className="gallery-img" />
+            </div>
+          </div>
+
+          {/* Column 5 */}
+          <div className="gallery-col col-5">
+            <div className="gallery-img-wrapper">
+              <Image src="/assets/images/swimming-pool.jpeg" alt="Pool" fill className="gallery-img" />
+            </div>
+          </div>
+
+        </div>
+
+        {/* See More Button */}
+        <div className="gallery-footer">
+          <Link href="/gallery" className="btn-see-more" style={{ textDecoration: "none" }}>
+            SEE MORE
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default GallerySection;

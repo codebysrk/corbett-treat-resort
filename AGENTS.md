@@ -156,28 +156,101 @@ Har code change ke saath clear aur simple language me ye points explain kiye jay
 ```text
 src/
 │
-├── components/
-│   ├── Button/
-│   │   ├── Button.jsx
-│   │   ├── Button.css
-│   │   └── index.js
+├── app/
+│   ├── (public)/
+│   │   ├── page.tsx
+│   │   ├── about/
+│   │   ├── rooms/
+│   │   ├── dining/
+│   │   ├── experiences/
+│   │   ├── gallery/
+│   │   ├── contact/
+│   │   └── offers/
 │   │
-│   ├── Card/
-│   │   ├── Card.jsx
-│   │   ├── Card.css
-│   │   └── index.js
+│   ├── api/
+│   │   └── inquiry/
+│   │       └── route.ts
+│   │
+│   ├── layout.tsx
+│   ├── loading.tsx
+│   ├── not-found.tsx
+│   └── globals.css
 │
-├── pages/
-│   ├── Home/
-│   │   ├── Home.jsx
-│   │   ├── Home.css
-│   │   └── index.js
+├── features/
+│   │
+│   ├── home/
+│   │   ├── components/
+│   │   ├── sections/
+│   │   ├── hooks/
+│   │   └── data.ts
+│   │
+│   ├── rooms/
+│   │   ├── components/
+│   │   ├── sections/
+│   │   ├── hooks/
+│   │   └── data.ts
+│   │
+│   ├── dining/
+│   ├── experiences/
+│   ├── gallery/
+│   ├── contact/
+│   └── booking/
+│
+├── components/
+│   │
+│   ├── ui/
+│   │   ├── Button.tsx
+│   │   ├── Input.tsx
+│   │   ├── Modal.tsx
+│   │   ├── Card.tsx
+│   │   └── SectionHeading.tsx
+│   │
+│   ├── layout/
+│   │   ├── Navbar.tsx
+│   │   ├── Footer.tsx
+│   │   ├── MobileMenu.tsx
+│   │   └── Container.tsx
+│   │
+│   └── shared/
+│       ├── InquiryForm.tsx
+│       ├── GalleryGrid.tsx
+│       └── BookingCTA.tsx
+│
+├── lib/
+│   ├── constants.ts
+│   ├── utils.ts
+│   ├── validations.ts
+│   └── seo.ts
+│
+├── services/
+│   ├── inquiry.service.ts
+│   ├── room.service.ts
+│   └── gallery.service.ts
 │
 ├── hooks/
-├── services/
-├── utils/
-├── constants/
-└── assets/
+│   ├── useScroll.ts
+│   ├── useMediaQuery.ts
+│   └── useModal.ts
+│
+├── data/
+│   ├── rooms.ts
+│   ├── dining.ts
+│   ├── testimonials.ts
+│   ├── amenities.ts
+│   └── offers.ts
+│
+├── types/
+│   ├── room.ts
+│   ├── booking.ts
+│   └── gallery.ts
+│
+├── assets/
+│   ├── icons/
+│   └── fonts/
+│
+└── styles/
+    ├── animations.css
+    └── variables.css
 ```
 
 ### Purpose
@@ -192,3 +265,61 @@ src/
 
 - React + JSX default development stack rahega.
 - Agar future me TypeScript ki requirement aaye, to uske liye alag rule explicitly add kiya jayega.
+
+---
+
+## 14. Responsive Units Rule
+
+- Hamesha layout grids, margins, paddings aur typography ke liye responsive/relative units ka use karein.
+- Hardcoded pixels (`px`) ke bajae relative units jaise `rem`, `em`, `%`, `vh`, `vw` aur dynamic CSS functions jaise `clamp()`, `min()`, `max()` ka use karein.
+- Isse text content aur visual elements different screen resolutions aur mobile orientations par stretch ya scale automatically ho jate hain bina overflow/clipping ke.
+
+---
+
+## 15. Centralized Theme Structure & Consistency Rule
+
+- Poore project me theme aur colors ki consistency (ekroopta) honi chahiye.
+- Kisi bhi color, gradient, ya style tokens ko component files me hardcode karne ke bajae [globals.css](file:///e:/SRK/Codes/Corbett/corbetttreatresort/app/globals.css) me centralized CSS Custom Properties (CSS Variables) ke roop me define aur use karein.
+- Isse poori website me ek color change karne ke liye multiple files me badlaav karne ki zaroorat nahi padegi; sirf ek global variable change karne se update poore project me reflect ho jayega.
+
+---
+
+## 16. Component Isolation Rule
+
+Har component apne aap mein poora aur self-contained hona chahiye. Ek component ko doosre component ke andar se directly depend nahi karna chahiye.
+
+### Isolation Ke Niyam
+
+- **Apna Data Khud Manage Kare:** Agar component ko koi static data chahiye (jaise slide content, menu items, etc.), to wo data ya to component ke bahar (module level par) define kiya jayega, ya ek alag `data.js`/`data.ts` file mein. Component ke andar inline define karna avoid karein.
+
+- **Props Ke Zariye Communication:** Components ke beech data ka aadaan-pradaan (exchange) sirf `props` ke zariye hoga. Ek component doosre component ki internal state ko directly access nahi karega.
+
+- **Koi Cross-Component CSS Nahi:** Ek component ki CSS sirf usi component ke elements ko style karegi. Doosre component ke class names ko target karna **bilkul mana hai** (forbidden).
+
+  ```css
+  /* ❌ Galat — doosre component ko target karna */
+  .header-bar .hero-slide-title { ... }
+
+  /* ✅ Sahi — sirf apne scope mein styling */
+  .hero-slide-title { ... }
+  ```
+
+- **Independent Render:** Har component ko is tarah design kiya jayega ki wo kisi bhi page par import karke seedha use kiya ja sake, bina kisi specific parent component ki zaroorat ke.
+
+- **Single Responsibility:** Har component ka ek hi kaam hoga. Agar koi component bahut bada ho jaye (50+ lines JSX), to usse chhote sub-components mein todna chahiye.
+
+  ```
+  ✅ Sahi structure example:
+  Header.jsx       → sirf header bar logic
+  MobileDrawer.jsx → sirf mobile drawer logic (Header ke andar import hoga)
+  ```
+
+- **No Global State Dependency (Bina zaroorat ke):** Jab tak bilkul zaroori na ho, component kisi global store (Redux, Context) par depend nahi karega. Local state (`useState`) ko prefer karein.
+
+### Fayde (Benefits)
+
+- Koi bhi component alag test kiya ja sakta hai
+- Ek component mein change karne se doosra component affect nahi hoga
+- Code reuse aasaan ho jata hai
+- Debugging fast hoti hai kyunki problem scope limited hoti hai
+

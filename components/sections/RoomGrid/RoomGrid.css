@@ -1,400 +1,402 @@
-.rooms-section {
-  padding: 4rem 1.5rem;
-  background-color: var(--color-bg-warm);
+/* RoomGrid.css - Luxury Redesign */
+
+.rg-section {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-bg-warm, #faf8f5);
+  color: var(--text-dark, #2A211B);
 }
 
-.rooms-container {
+.rg-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 var(--space-md);
 }
 
-.rooms-intro {
+/* Intro Section */
+.rg-intro {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 3.5rem auto;
+  margin: 0 auto var(--space-3xl) auto;
 }
 
-.rooms-intro h2 {
-  font-family: var(--font-primary, "Playfair Display", serif);
-  font-size: 2.2rem;
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-  font-weight: 700;
+.rg-subtitle {
+  display: block;
+  font-family: var(--font-poppins), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--primary-gold-dark, #A88E68);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
 }
 
-.rooms-intro p {
-  font-family: var(--font-secondary, "Outfit", sans-serif);
-  font-size: 1rem;
-  color: var(--color-dark-alt);
-  line-height: 1.6;
+.rg-heading {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  color: var(--primary-green, #1E3D2F);
+  font-weight: 400;
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
 }
 
-.rooms-list-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
+.rg-heading em {
+  font-style: italic;
+  color: var(--primary-gold, #C8AE86);
 }
 
-.room-card {
-  background-color: var(--color-bg-light);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  border: 1px solid var(--color-border);
+.rg-intro-text {
+  color: var(--text-body, #55524c);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* List / Grid */
+.rg-list {
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: var(--space-2xl);
 }
 
-.room-card:hover {
+@media (min-width: 992px) {
+  .rg-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-xl);
+  }
+}
+
+/* Card */
+.rg-card {
+  background-color: var(--surface-white, #ffffff);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.rg-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
-.room-card-image {
+.rg-card-image-wrapper {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 280px;
   overflow: hidden;
 }
 
-.room-img {
-  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+.rg-img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.room-card:hover .room-img {
-  transform: scale(1.06);
+.rg-card:hover .rg-img {
+  transform: scale(1.05);
 }
 
-
-.room-card-info {
-  padding: 2rem 1.5rem;
+/* Card Info */
+.rg-card-info {
+  padding: var(--space-lg);
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex: 1;
 }
 
-.room-card-title {
-  font-family: var(--font-primary, "Playfair Display", serif);
-  font-size: 1.6rem;
-  color: var(--color-primary);
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-}
-
-.room-card-description {
-  font-family: var(--font-secondary, "Outfit", sans-serif);
-  font-size: 0.95rem;
-  color: var(--color-dark-alt);
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-}
-
-.room-specs-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  padding: 1rem 0;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: 1.5rem;
-}
-
-.spec-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.spec-icon {
-  font-size: 1.15rem;
-  color: var(--color-accent);
-}
-
-.spec-item span {
-  font-family: var(--font-secondary, "Outfit", sans-serif);
-  font-size: 0.85rem;
-  color: var(--color-dark);
-}
-
-.room-card-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.room-btn-primary,
-.room-btn-secondary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.8rem 1rem;
-  font-family: var(--font-secondary, "Outfit", sans-serif);
-  font-size: 0.9rem;
+.rg-card-title {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.8rem;
+  color: var(--primary-green, #1E3D2F);
   font-weight: 500;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  text-align: center;
+  margin-bottom: var(--space-xs);
 }
 
-.room-btn-primary {
-  background-color: var(--color-primary);
-  color: #ffffff;
-  border: 1px solid var(--color-primary);
+.rg-card-description {
+  color: var(--text-body, #55524c);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+  flex-grow: 1;
 }
 
-.room-btn-primary:hover {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+/* Specs */
+.rg-specs-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--border-light, #e8e3d9);
+  border-bottom: 1px solid var(--border-light, #e8e3d9);
 }
 
-.room-btn-secondary {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
+.rg-spec-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted, #77736c);
+  font-size: 0.85rem;
 }
 
-.room-btn-secondary:hover {
-  background-color: var(--color-primary);
-  color: #ffffff;
-}
-
-.whatsapp-icon {
+.rg-spec-icon {
+  color: var(--primary-gold, #C8AE86);
   font-size: 1.1rem;
 }
 
-/* Modal Styling */
-.room-modal-overlay {
+/* Actions */
+.rg-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 480px) {
+  .rg-card-actions {
+    flex-direction: row;
+  }
+}
+
+.rg-btn-secondary,
+.rg-btn-primary {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.rg-btn-secondary {
+  background-color: transparent;
+  color: var(--primary-green, #1E3D2F);
+  border: 1.5px solid var(--primary-green, #1E3D2F);
+}
+
+.rg-btn-secondary:hover {
+  background-color: var(--logo-bg, #F4F1EA);
+}
+
+.rg-btn-primary {
+  background-color: #25D366; /* WhatsApp Green */
+  color: #fff;
+  border: none;
+}
+
+.rg-btn-primary:hover {
+  background-color: #1ebc59;
+}
+
+.rg-whatsapp-icon {
+  font-size: 1.25rem;
+}
+
+/* =========================================
+   Modal Styling 
+========================================= */
+.rg-modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: var(--space-sm);
+  animation: fadeIn 0.3s ease;
 }
 
-.room-modal-content {
-  background-color: var(--color-bg-light);
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.rg-modal-content {
+  background-color: var(--surface-white, #fff);
+  border-radius: 12px;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   max-height: 90vh;
   overflow-y: auto;
-  border-radius: 8px;
   position: relative;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-  animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.room-modal-close {
+.rg-modal-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: rgba(255, 255, 255, 0.9);
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
   border: none;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
-  color: var(--color-dark);
+  font-size: 1.5rem;
+  color: var(--text-dark);
   cursor: pointer;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.room-modal-close:hover {
-  background-color: var(--color-primary);
-  color: #ffffff;
+.rg-modal-close:hover {
+  background: var(--surface-cream, #faf9f6);
 }
 
-.room-modal-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.room-modal-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 250px;
-}
-
-.room-modal-body {
-  padding: 2.5rem 1.5rem;
-}
-
-.room-modal-body h2 {
-  font-family: var(--font-primary, "Playfair Display", serif);
-  font-size: 2rem;
-  color: var(--color-primary);
-  margin-bottom: 0.5rem;
-}
-
-.room-modal-subtitle {
-  font-family: var(--font-secondary, "Outfit", sans-serif);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  display: block;
-  margin-bottom: 1.5rem;
-}
-
-.room-modal-desc {
-  font-family: var(--font-secondary, "Outfit", sans-serif);
-  font-size: 0.95rem;
-  color: var(--color-dark-alt);
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-.room-modal-specs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: 2rem;
-}
-
-.modal-spec-block {
+.rg-modal-grid {
   display: flex;
   flex-direction: column;
 }
 
-.modal-spec-block strong {
-  font-family: var(--font-secondary, "Outfit", sans-serif);
-  font-size: 0.75rem;
-  color: var(--color-dark-alt);
-  text-transform: uppercase;
-  margin-bottom: 0.25rem;
+@media (min-width: 768px) {
+  .rg-modal-grid {
+    flex-direction: row;
+  }
 }
 
-.modal-spec-block span {
-  font-family: var(--font-secondary, "Outfit", sans-serif);
+.rg-modal-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+@media (min-width: 768px) {
+  .rg-modal-image-wrapper {
+    width: 50%;
+    height: auto;
+    min-height: 400px;
+  }
+}
+
+.rg-modal-body {
+  padding: var(--space-xl);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .rg-modal-body {
+    width: 50%;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+}
+
+.rg-modal-title {
+  font-family: var(--font-playfair), serif;
+  font-size: 2.2rem;
+  color: var(--primary-green, #1E3D2F);
+  margin-bottom: 5px;
+}
+
+.rg-modal-subtitle {
+  display: block;
   font-size: 0.9rem;
-  color: var(--color-dark);
+  color: var(--primary-gold-dark, #A88E68);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-md);
+}
+
+.rg-modal-desc {
+  color: var(--text-body);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: var(--space-lg);
+}
+
+.rg-modal-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-md);
+  background-color: var(--logo-bg, #F4F1EA);
+  border-radius: 8px;
+}
+
+.rg-modal-spec-block {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
+
+.rg-modal-spec-block strong {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.rg-modal-spec-block span {
+  font-size: 0.95rem;
+  color: var(--text-dark);
   font-weight: 500;
 }
 
-.room-modal-amenities-section {
-  margin-bottom: 2.5rem;
+.rg-modal-amenities-section h3 {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.4rem;
+  color: var(--primary-green);
+  margin-bottom: var(--space-sm);
 }
 
-.room-modal-amenities-section h3 {
-  font-family: var(--font-secondary, "Outfit", sans-serif);
-  font-size: 1.1rem;
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.modal-amenities-list {
+.rg-modal-amenities-list {
+  list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  list-style: none;
-  padding: 0;
+  gap: 12px;
+  margin-bottom: var(--space-xl);
 }
 
-.modal-amenities-list li {
+.rg-modal-amenities-list li {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
+  color: var(--text-body);
+  font-size: 0.9rem;
 }
 
-.check-icon {
-  color: var(--color-accent);
+.rg-check-icon {
+  color: var(--primary-gold);
   font-size: 1.1rem;
 }
 
-.modal-amenities-list span {
-  font-family: var(--font-secondary, "Outfit", sans-serif);
-  font-size: 0.9rem;
-  color: var(--color-dark-alt);
-}
-
-.room-modal-actions {
-  display: flex;
-}
-
-.modal-book-btn {
+.rg-modal-book-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 10px;
   width: 100%;
-  padding: 1rem;
-  background-color: var(--color-primary);
-  color: #ffffff;
-  font-family: var(--font-secondary, "Outfit", sans-serif);
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  text-align: center;
+  background-color: #25D366;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
-.modal-book-btn:hover {
-  background-color: var(--color-primary-dark);
-}
-
-/* Tablet & Desktop Layouts */
-@media (min-width: 768px) {
-  .rooms-section {
-    padding: 6rem 2rem;
-  }
-
-  .rooms-intro h2 {
-    font-size: 3rem;
-  }
-
-  .rooms-list-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-  }
-
-  .room-card-image {
-    height: 300px;
-  }
-
-  .room-modal-image-wrapper {
-    height: 100%;
-  }
-
-  .room-modal-grid {
-    grid-template-columns: 1.1fr 1fr;
-  }
-
-  .room-modal-body {
-    padding: 3rem;
-    max-height: 85vh;
-    overflow-y: auto;
-  }
+.rg-modal-book-btn:hover {
+  background-color: #1ebc59;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }

@@ -1,100 +1,142 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import "./Hero.css";
-import Button from "../../Button";
+
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { BOOK_NOW_URL } from "@/constants";
+import "./Hero.css";
 
-export default function Hero() {
-  const containerRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
+// Static data — component ke bahar define kiya taaki har render par re-create na ho
+const SLIDE_CONTENT = [
+  {
+    title: "Welcome to Wilderness Luxury",
+    desc: "Escape into the wilds and experience nature like never before at Corbett Treat Resort.",
+  },
+  {
+    title: "Natural Swimming Pool",
+    desc: "Unwind and rejuvenate at our refreshing natural pool surrounded by dense forest trees.",
+  },
+  {
+    title: "Luxury Suites & Rooms",
+    desc: "Rustic elegance meets modern luxury in our specially designed jungle-view rooms.",
+  },
+  {
+    title: "Cozy Forest Cottages",
+    desc: "Relax on the wooden decks and stargaze from your private, cozy jungle cottages.",
+  },
+];
 
+const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const videoRef = useRef(null);
+
+  // Effect 1: Slide timer for image slides (1, 2, 3)
   useEffect(() => {
-    // Detect mobile device layout
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    if (currentSlide === 0) return; // Video slide — timer nahi chahiye
 
-    // Run on mount
-    checkMobile();
+    const timer = setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % SLIDE_CONTENT.length);
+    }, 4000);
 
-    // Listen to viewport changes
-    window.addEventListener("resize", checkMobile);
+    return () => clearTimeout(timer); // Har case mein cleanup
+  }, [currentSlide]);
 
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        [".hero-eyebrow", ".hero-title", ".main-text p", ".hero-action"],
-        {
-          opacity: 0,
-          y: 40,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          stagger: 0.15,
-          ease: "power3.out",
-          delay: 0.2,
-        }
-      );
-    }, containerRef);
+  // Effect 2: Video play/reset — alag effect mein taaki DOM mutations React cycle se bahar rahein
+  useEffect(() => {
+    if (currentSlide !== 0) return;
 
-    return () => {
-      ctx.revert();
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, []);
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.currentTime = 0;
+    video.play().catch((err) => console.log("Video play interrupted:", err));
+  }, [currentSlide]);
 
   return (
-    <header className="hero" ref={containerRef}>
-      <div className="video-background">
-        <video
-          key={isMobile ? "mobile" : "desktop"}
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/assets/images/hero-poster.png"
-          preload="auto"
-        >
-          <source
-            src={
-              isMobile
-                ? "/assets/videos/corbett-vertical-hero-video.mp4"
-                : " "
-            }
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-        <div className="video-overlay" />
-      </div>
+    <div className="hero-container">
+      {/* Dynamic Background Slides Section */}
+      <section className="hero-video-section">
+        <div className="hero-media-container">
+          {/* Slide 0: Video (No loop attribute so onEnded triggers) */}
+          <video
+            ref={videoRef}
+            className={`hero-media video-slide ${currentSlide === 0 ? "active" : ""}`}
+            autoPlay
+            muted
+            playsInline
+            preload="metadata"
+            onEnded={() => setCurrentSlide(1)}
+          >
+            <source src="/assets/videos/wild-animal.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
 
-      <div className="hero-bottom-content">
-        <div className="main-text">
-          <span className="hero-eyebrow">LUXURY IN THE WILD</span>
-          <h1 className="hero-title">
-            Wake Up To The Wild.
-            <br />
-            Stay Wrapped In Luxury.
-          </h1>
-          <p>
-            Nestled beside Jim Corbett National Park, experience premium stays,
-            immersive nature, curated adventures and unforgettable hospitality.
-          </p>
+          {/* Slide 1: Resort Pool Image */}
+          <div
+            className={`hero-media image-slide ${currentSlide === 1 ? "active" : ""}`}
+          >
+            <Image
+              src="/assets/images/swimming-pool.jpeg"
+              alt="Natural Swimming Pool"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </div>
+
+          {/* Slide 2: Resort Room Image */}
+          <div
+            className={`hero-media image-slide ${currentSlide === 2 ? "active" : ""}`}
+          >
+            <Image
+              src="/assets/images/room.jpg"
+              alt="Luxury Suites & Rooms"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+
+          {/* Slide 3: Resort Exterior Image */}
+          <div
+            className={`hero-media image-slide ${currentSlide === 3 ? "active" : ""}`}
+          >
+            <Image
+              src="/assets/images/garden-area.jpg"
+              alt="Cozy Forest Cottages"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         </div>
-        <div className="hero-action">
-          <Button
+
+        <div className="hero-overlay"></div>
+
+        {/* Overlay Content (Fades dynamically per slide) */}
+        <div className="hero-content-wrapper">
+          <div className="hero-content">
+            {SLIDE_CONTENT.map((content, index) => (
+              <div
+                key={index}
+                className={`calligraphy-wrapper ${currentSlide === index ? "active" : ""}`}
+              >
+                <h2 className="hero-slide-title">{content.title}</h2>
+                <p className="hero-slide-desc">{content.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <a
             href={BOOK_NOW_URL}
             target="_blank"
             rel="noopener noreferrer"
-            variant="primary"
-            className="story-cta-btn"
+            className="hero-booking-btn"
+            style={{ textDecoration: "none" }}
           >
-            Book Now
-          </Button>
+            Book Your Safari Stay
+          </a>
         </div>
-      </div>
-    </header>
+      </section>
+    </div>
   );
-}
+};
+
+export default Hero;

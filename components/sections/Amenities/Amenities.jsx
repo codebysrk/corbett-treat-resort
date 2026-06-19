@@ -67,7 +67,7 @@ const Amenities = () => {
   }, []);
 
   return (
-    <section className="amenities-section" id="amenities" ref={sectionRef}>
+    <section className="amenities-section" id="facilities" ref={sectionRef}>
       <div className="amenities-container">
         
         <div className="amenities-header">
@@ -81,13 +81,13 @@ const Amenities = () => {
             <span className="divider-line" />
           </div>
 
-          <h2 className="amenities-title">World Class Amenities</h2>
+          <h2 className="amenities-title">World Class Facilities</h2>
           <span className="amenities-title-sub">
             TO ELEVATE YOUR STAY EXPERIENCE
           </span>
 
           <p className="amenities-description">
-            From leisure to adventure, every amenity at Corbett Treat Resort is
+            From leisure to adventure, every facility at Corbett Treat Resort is
             thoughtfully crafted to make your stay truly unforgettable.
           </p>
         </div>

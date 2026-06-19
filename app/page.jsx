@@ -1,5 +1,15 @@
 import ClientShell from "@/components/ClientShell";
-import { Hero, Story, Amenities, Events, WhyChooseUs, Gallery, Footer } from "@/components";
+import { 
+  Hero, 
+  AboutSection, 
+  RoomsShowcase, 
+  DiningSection, 
+  Amenities,
+  ActivitiesSection, 
+  GallerySection, 
+  PlacesToVisit,
+  Footer 
+} from "@/components";
 
 export default function Home() {
   return (
@@ -8,11 +18,13 @@ export default function Home() {
 
       <main>
         <Hero />
-        <Story />
-        <WhyChooseUs />
+        <AboutSection />
+        <RoomsShowcase />
+        {/* <DiningSection /> */}
         <Amenities />
-        <Events />
-        <Gallery />
+        <ActivitiesSection />
+        <GallerySection />
+        {/* <PlacesToVisit /> */}
       </main>
 
       <Footer />

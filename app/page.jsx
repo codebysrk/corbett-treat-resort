@@ -22,7 +22,7 @@ export default function Home() {
         <RoomsShowcase />
         {/* <DiningSection /> */}
         <Amenities />
-        <ActivitiesSection />
+        {/* <ActivitiesSection /> */}
         <GallerySection />
         {/* <PlacesToVisit /> */}
       </main>

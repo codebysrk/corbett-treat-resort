@@ -1,7 +1,7 @@
 /* 2. Contact Details Section (Info & Form) */
 .contact-details-section {
   background-color: var(--color-bg-light);
-  padding: 4rem 0;
+  padding: 2rem 0;
 }
 
 .contact-details-container {
@@ -13,7 +13,7 @@
 .contact-details-flex {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 2rem;
 }
 
 /* Left Column - Contact Info */

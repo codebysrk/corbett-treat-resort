@@ -3,7 +3,7 @@
   position: relative;
   background-color: var(--color-primary-dark, #003620); 
   border-top: 1px solid rgba(197, 168, 128, 0.25); 
-  padding-top: var(--space-lg);
+  padding-top: var(--space-md);
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -163,18 +163,19 @@
 
 .footer-bottom-brand {
   font-family: var(--font-cormorant), serif;
-  font-size: clamp(3.5rem, 12vw, 12rem);
+  font-size: clamp(1.5rem, 5vw, 6rem);
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
   color: transparent;
   -webkit-text-stroke: 1px var(--color-accent);
-  letter-spacing: 0.2em;
-  line-height: 0.9;
+  letter-spacing: 0.1em;
+  line-height: 1;
   margin: var(--space-md) 0 var(--space-xs) 0;
   user-select: none;
   pointer-events: none;
   opacity: 0.8;
+  word-wrap: break-word;
 }
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);

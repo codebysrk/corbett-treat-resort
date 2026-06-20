@@ -1,6 +1,6 @@
 import "./AboutIntro.css";
 import Image from "next/image";
-import Button from "@/components/ui/Button";
+import Button from "./Button";
 import { FaPlay } from "react-icons/fa";
 import { WHATSAPP } from "@/constants";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Preloader, Header, OverlayMenu, FloatingContact } from "@/components";
+import { Preloader, Navbar, OverlayMenu, FloatingContact } from "@/components";
 
 
 export default function ClientShell() {
@@ -17,7 +17,7 @@ export default function ClientShell() {
   return (
     <>
       <Preloader active={preloaderActive} />
-      <Header />
+      <Navbar onMenuOpen={() => setIsMenuOpen(true)} />
       <OverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <FloatingContact />
     </>

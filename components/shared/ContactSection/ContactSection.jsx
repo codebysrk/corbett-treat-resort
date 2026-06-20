@@ -296,10 +296,11 @@ Thank you.`;
 
             {/* Right Column - Form */}
             <div className="contact-form-column">
-              <h3 className="form-column-title">SEND US AN INQUIRY</h3>
-              <div className="form-column-title-underline" />
+              <div className="contact-form-card">
+                <h3 className="form-column-title">SEND US AN INQUIRY</h3>
+                <div className="form-column-title-underline" />
 
-              <form className="contact-inquiry-form" onSubmit={handleSubmit} noValidate>
+                <form className="contact-inquiry-form" onSubmit={handleSubmit} noValidate>
                 <div className="form-grid-2col">
                   <div className="form-input-group">
                     <input
@@ -448,6 +449,7 @@ Thank you.`;
                 )}
               </form>
             </div>
+          </div>
           </div>
         </div>
       </section>

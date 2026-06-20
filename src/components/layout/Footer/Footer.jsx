@@ -116,7 +116,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="footer-bottom-brand">Corbett</div>
+        <div className="footer-bottom-brand">CORBETT TREAT RESORT</div>
         <div className="footer-bottom">
           <p>&copy; {currentYear} Corbett Treat Resort. All Rights Reserved.</p>
           <div className="footer-bottom-links">

@@ -172,3 +172,41 @@ p {
     font-size: 1.15rem;
   }
 }
+
+/* ==========================================================================
+   UNIFIED SECTION PADDING & MARGINS
+   ========================================================================== */
+.about-section,
+.rs-section,
+.dining-section,
+.amenities-section,
+.gallery-section,
+.places-section,
+.contact-details-section {
+  padding-top: clamp(3.5rem, 8vw, 7rem) !important;
+  padding-bottom: clamp(3.5rem, 8vw, 7rem) !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Ensure no extra padding-bottom in RoomsShowcase sub-elements */
+.rs-section-end {
+  padding-bottom: 0 !important;
+}
+
+/* Align ActivitiesSection spacing with standard clamp values */
+.act-intro {
+  padding-top: clamp(3.5rem, 8vw, 7rem) !important;
+  padding-bottom: clamp(3.5rem, 8vw, 7rem) !important;
+}
+
+@media (max-width: 768px) {
+  .act-intro {
+    padding-top: clamp(3.5rem, 8vw, 7rem) !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .act-strip-wrapper {
+    padding-top: 0 !important;
+    padding-bottom: clamp(3.5rem, 8vw, 7rem) !important;
+  }
+}

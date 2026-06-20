@@ -5,9 +5,13 @@ import "./Hero.css";
 import Button from "@/components/ui/Button";
 import { BOOK_NOW_URL } from "@/constants";
 
+import Image from "next/image";
+
 export default function Hero() {
   const containerRef = useRef(null);
+  const videoRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0); // 0: video, 1: pool, 2: room, 3: garden
 
   useEffect(() => {
     // Detect mobile device layout
@@ -45,28 +49,77 @@ export default function Hero() {
     };
   }, []);
 
+  // Slide transition effect once video finishes (currentSlide > 0)
+  useEffect(() => {
+    if (currentSlide === 0) return;
+
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === 3 ? 1 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [currentSlide]);
+
   return (
     <header className="hero" ref={containerRef}>
       <div className="video-background">
+        {/* Video Slide (Slide 0) */}
         <video
+          ref={videoRef}
           key={isMobile ? "mobile" : "desktop"}
           autoPlay
-          loop
           muted
           playsInline
-          poster="/assets/images/hero-poster.png"
+          poster="/assets/images/gallery/hero-poster.png"
           preload="auto"
+          onEnded={() => setCurrentSlide(1)}
+          className={`hero-media-element ${currentSlide === 0 ? "active" : ""}`}
         >
           <source
             src={
               isMobile
                 ? "/assets/videos/corbett-vertical-hero-video.mp4"
-                : " "
+                : "/assets/videos/wild-animal.mp4"
             }
             type="video/mp4"
           />
           Your browser does not support the video tag.
         </video>
+
+        {/* Image Slide 1: Swimming Pool */}
+        <div className={`hero-media-element image-slide ${currentSlide === 1 ? "active" : ""}`}>
+          <Image
+            src="/assets/images/gallery/swimming-pool.jpeg"
+            alt="Natural Swimming Pool"
+            fill
+            sizes="100vw"
+            priority
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+
+        {/* Image Slide 2: Room */}
+        <div className={`hero-media-element image-slide ${currentSlide === 2 ? "active" : ""}`}>
+          <Image
+            src="/assets/images/gallery/room.jpg"
+            alt="Luxury Room"
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+
+        {/* Image Slide 3: Outer Green Area */}
+        <div className={`hero-media-element image-slide ${currentSlide === 3 ? "active" : ""}`}>
+          <Image
+            src="/assets/images/gallery/garden-area.jpg"
+            alt="Outer Green Area"
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+
         <div className="video-overlay" />
       </div>
 

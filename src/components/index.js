@@ -1,13 +1,11 @@
 // UI Components
 export { default as Button } from "./ui/Button";
-export { default as ResortLogo } from "./ui/ResortLogo";
 
 // Layout Components
 export { default as Navbar } from "./layout/Navbar";
 export { default as Footer } from "./layout/Footer";
 export { default as Hamburger } from "./layout/Hamburger";
 export { default as OverlayMenu } from "./layout/OverlayMenu";
-export { default as Header } from "./layout/Header";
 
 // Shared Components
 export { default as ClientShell } from "./shared/ClientShell";

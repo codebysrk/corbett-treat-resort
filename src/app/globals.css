@@ -1,0 +1,174 @@
+:root {
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  --font-size-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --font-size-body-reg: clamp(0.875rem, 1vw, 1.05rem);
+  --font-size-small: clamp(0.75rem, 0.8vw, 0.85rem);
+
+  --line-height-heading: 1.1;
+  --line-height-body: 1.6;
+
+  --letter-spacing-heading: -1.5px;
+  --letter-spacing-label: 2px;
+
+  --color-primary: #004d2e;
+  --color-primary-dark: #003620;
+  --color-accent: #c5a880;
+  --color-accent-dark: #b0936b;
+  --color-accent-light: #f3edd8;
+  --color-dark: #1a271d;
+  --color-dark-alt: #5a6358;
+  --color-light: #ffffff;
+  --color-bg-warm: #faf8f5;
+  --color-bg-light: #ffffff;
+  --color-bg-alt: #f3f0ea;
+  --color-border: #e6e2da;
+  --glass-bg: rgba(255, 255, 255, 0.75);       
+
+  /* Variables added from Corbett source project */
+  --font-serif: Georgia, serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Times New Roman', Times, serif;
+  --bg-color: #FAF8F4;
+  --text-dark: #2A211B;
+  --text-muted: #77736c;
+  --text-body: #55524c;
+  --primary-green: #1E3D2F;
+  --primary-gold: #C8AE86;
+  --primary-gold-dark: #A88E68;
+  --logo-bg: #F4F1EA;
+  --surface-white: #ffffff;
+  --surface-cream: #faf9f6;
+  --surface-dark: #0f0d0a;
+  --border-light: #e8e3d9;
+  --border-gold: rgba(255, 231, 169, 0.567);
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --shadow-gold: 0 4px 15px rgba(200, 174, 134, 0.3);
+
+  --border-radius: 4px;
+  --transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  /* Containers */
+  --container-max-width: 1280px;
+  --container-max-wide: 1800px;
+
+  /* Centralized rules variables */
+  --color-dark-green-bg: #0c1110;
+  --color-offwhite-text: #fdfbf7;
+  --color-hero-bg: #fcfbfa;
+  --color-pure-black: #000000;
+  --color-overlay-black: rgba(10, 14, 13, 0.92);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 77, 46, 0.5) var(--color-light);
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-poppins), "Poppins", sans-serif;
+  color: var(--color-dark);
+  background-color: var(--color-bg-warm);
+  line-height: var(--line-height-body);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-light);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 77, 46, 0.5);
+  border-radius: 6px;
+  transition: var(--transition-base);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 77, 46, 0.85);
+}
+
+html.menu-open,
+html.menu-open body {
+  overflow: hidden !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+}
+
+h1,
+.hero-title {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+}
+
+h1,
+.h1 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-heading);
+}
+
+p {
+  font-size: 0.8rem;
+  line-height: var(--line-height-body);
+}
+
+/* --- ULTRA-WIDE SCREEN RESPONSIVENESS ( > 1400px ) --- */
+@media (min-width: 1400px) {
+  :root {
+    /* Scale up base fonts slightly so it doesn't look tiny on 4K */
+    --font-size-body-reg: clamp(1.05rem, 1.2vw, 1.25rem);
+    --font-size-small: clamp(0.85rem, 0.9vw, 1rem);
+    
+    /* Scale up spaces */
+    --space-md: 32px;
+    --space-lg: 48px;
+    --space-xl: 64px;
+    --space-2xl: 96px;
+    --space-3xl: 128px;
+  }
+  
+  body {
+    font-size: 1.1rem;
+  }
+  
+  p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  :root {
+    --font-size-body-reg: clamp(1.15rem, 1.3vw, 1.4rem);
+    --font-size-small: clamp(0.95rem, 1vw, 1.1rem);
+  }
+  
+  body {
+    font-size: 1.2rem;
+  }
+  
+  p {
+    font-size: 1.15rem;
+  }
+}

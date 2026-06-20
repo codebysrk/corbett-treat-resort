@@ -24,6 +24,7 @@ const ContactSection = () => {
     checkOut: "",
     guests: "1",
     children: "0",
+    mealPlan: "no_meal",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -114,6 +115,14 @@ const ContactSection = () => {
       // Format guests count
       const guestsCount = `${formData.guests} Adults` + (formData.children !== "0" ? `, ${formData.children} Children` : "");
 
+      // Format meal plan
+      const mealPlanLabels = {
+        "no_meal": "No Meal",
+        "2_meals": "2 Meals (Breakfast + Dinner)",
+        "3_meals": "3 Meals (Breakfast + Lunch + Dinner)"
+      };
+      const selectedMealPlan = mealPlanLabels[formData.mealPlan] || "No Meal";
+
       // Generate WhatsApp message format as requested
       const messageText = `🏨 New Booking Inquiry
 
@@ -128,6 +137,7 @@ Stay Details:
 Check-in: ${formattedCheckIn}
 Check-out: ${formattedCheckOut}
 Guests: ${guestsCount}
+Meal Plan: ${selectedMealPlan}
 
 Customer Message:
 ${formData.message || "No special requirements"}
@@ -156,6 +166,7 @@ Thank you.`;
         checkOut: "",
         guests: "1",
         children: "0",
+        mealPlan: "no_meal",
         message: ""
       });
       setErrors({});
@@ -387,6 +398,20 @@ Thank you.`;
                       <option value="5+">5+ Children</option>
                     </select>
                   </div>
+                </div>
+
+                <div className="form-input-group">
+                  <label className="form-field-label">Meal Option</label>
+                  <select
+                    name="mealPlan"
+                    value={formData.mealPlan}
+                    onChange={handleChange}
+                    className="form-field select-field"
+                  >
+                    <option value="no_meal">No Meal</option>
+                    <option value="2_meals">2 Meals (Breakfast + Dinner)</option>
+                    <option value="3_meals">3 Meals (Breakfast + Lunch + Dinner)</option>
+                  </select>
                 </div>
 
                 <div className="form-input-group">

@@ -196,152 +196,90 @@ Thank you.`;
     <>
       <section className="contact-details-section">
         <div className="contact-details-container">
-          <div className="contact-details-flex">
-            {/* Left Column - Contact Info */}
-            <div className="contact-info-column">
-              <h3 className="resort-title">CORBETT TREAT RESORT</h3>
-              <div className="resort-leaf-icon">
-                <RiLeafLine />
-              </div>
-              <p className="resort-description">
-                Experience the untamed beauty of Jim Corbett National Park while enjoying unmatched luxury, warm hospitality, and unforgettable moments.
-              </p>
-
-              <div className="contact-info-divider" />
-
-              <div className="contact-info-list">
-                {/* Visit Us */}
-                <div className="info-list-item">
-                  <div className="info-list-icon-wrapper">
-                    <RiMapPinLine className="info-list-icon" />
-                  </div>
-                  <div className="info-list-text">
-                    <p className="info-list-label">Visit Us</p>
-                    <p className="info-list-val">{RESORT_ADDRESS}</p>
-                  </div>
-                </div>
-
-                {/* Call Us */}
-                <div className="info-list-item">
-                  <div className="info-list-icon-wrapper">
-                    <RiPhoneLine className="info-list-icon" />
-                  </div>
-                  <div className="info-list-text">
-                    <p className="info-list-label">Call Us</p>
-                    {CONTACT_PHONES.map((phone, idx) => (
-                      <p key={idx} className="info-list-val">
-                        <a href={phone.href} className="contact-link">
-                          {phone.label}
-                        </a>
-                      </p>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Email Us */}
-                <div className="info-list-item">
-                  <div className="info-list-icon-wrapper">
-                    <RiMailLine className="info-list-icon" />
-                  </div>
-                  <div className="info-list-text">
-                    <p className="info-list-label">Email Us</p>
-                    <p className="info-list-val">
-                      <a href={`mailto:${CONTACT_EMAIL}`} className="contact-link">
-                        {CONTACT_EMAIL}
-                      </a>
-                    </p>
-                  </div>
-                </div>
-
-                {/* We're Open */}
-                <div className="info-list-item">
-                  <div className="info-list-icon-wrapper">
-                    <RiTimeLine className="info-list-icon" />
-                  </div>
-                  <div className="info-list-text">
-                    <p className="info-list-label">We're Open</p>
-                    <p className="info-list-val">24/7 – Always here for you</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="contact-socials-wrapper">
-                <p className="socials-title">Follow Us</p>
-                <div className="socials-icons-flex">
-                  {SOCIAL_LINKS.map((link) => {
-                    let Icon = null;
-                    if (link.platform === "instagram") Icon = RiInstagramLine;
-                    else if (link.platform === "facebook") Icon = RiFacebookCircleLine;
-                    else if (link.platform === "youtube") Icon = RiYoutubeLine;
-                    
-                    return (
-                      <a
-                        key={link.platform}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="social-icon-link"
-                        aria-label={link.label}
-                      >
-                        {Icon && <Icon className="social-icon" />}
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
+          <div className="contact-layout-wrapper">
+            
+            {/* Left Column - Large Image */}
+            <div className="contact-image-column">
+              <img 
+                src="/assets/images/gallery/garden-lawn-exterior-1.jpeg" 
+                alt="Corbett Treat Resort Guests" 
+                className="contact-hero-image"
+              />
             </div>
-
-            {/* Vertical Divider */}
-            <div className="contact-column-divider" />
 
             {/* Right Column - Form */}
             <div className="contact-form-column">
-              <div className="contact-form-card">
-                <h3 className="form-column-title">SEND US AN INQUIRY</h3>
-                <div className="form-column-title-underline" />
+              <span className="contact-eyebrow">GET IN TOUCH</span>
+              <h2 className="contact-heading">
+                Connect With Us for a <br />
+                <em>Perfect Stay</em> You & Family
+              </h2>
 
-                <form className="contact-inquiry-form" onSubmit={handleSubmit} noValidate>
+              <form className="contact-inquiry-form" onSubmit={handleSubmit} noValidate>
+                
+                {/* Row 1: Name & Phone */}
                 <div className="form-grid-2col">
                   <div className="form-input-group">
+                    <label className="form-field-label">Full Name *</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Full Name"
+                      placeholder="e.g. John Doe"
                       className={`form-field ${errors.name ? "error-border" : ""}`}
                     />
                     {errors.name && <span className="field-error-msg">{errors.name}</span>}
                   </div>
 
                   <div className="form-input-group">
+                    <label className="form-field-label">Your Phone *</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="e.g. (+91) 8123 456 789"
+                      className={`form-field ${errors.phone ? "error-border" : ""}`}
+                    />
+                    {errors.phone && <span className="field-error-msg">{errors.phone}</span>}
+                  </div>
+                </div>
+
+                {/* Row 2: Email & Meal Option */}
+                <div className="form-grid-2col">
+                  <div className="form-input-group">
+                    <label className="form-field-label">Your Email *</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="Email Address"
+                      placeholder="e.g. hello@solenne.com"
                       className={`form-field ${errors.email ? "error-border" : ""}`}
                     />
                     {errors.email && <span className="field-error-msg">{errors.email}</span>}
                   </div>
+
+                  <div className="form-input-group">
+                    <label className="form-field-label">Meal Option</label>
+                    <select
+                      name="mealPlan"
+                      value={formData.mealPlan}
+                      onChange={handleChange}
+                      className="form-field select-field"
+                    >
+                      <option value="no_meal">No Meal</option>
+                      <option value="2_meals">2 Meals (Breakfast + Dinner)</option>
+                      <option value="3_meals">3 Meals (Breakfast + Lunch + Dinner)</option>
+                    </select>
+                  </div>
                 </div>
 
-                <div className="form-input-group">
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Phone Number"
-                    className={`form-field ${errors.phone ? "error-border" : ""}`}
-                  />
-                  {errors.phone && <span className="field-error-msg">{errors.phone}</span>}
-                </div>
-
+                {/* Row 3: Check-in & Check-out */}
                 <div className="form-grid-2col">
                   <div className="form-input-group">
-                    <label className="form-field-label">Check-in Date</label>
+                    <label className="form-field-label">Check-in Date *</label>
                     <input
                       type="date"
                       name="checkIn"
@@ -353,7 +291,7 @@ Thank you.`;
                   </div>
 
                   <div className="form-input-group">
-                    <label className="form-field-label">Check-out Date</label>
+                    <label className="form-field-label">Check-out Date *</label>
                     <input
                       type="date"
                       name="checkOut"
@@ -365,6 +303,7 @@ Thank you.`;
                   </div>
                 </div>
 
+                {/* Row 4: Guests & Children */}
                 <div className="form-grid-2col">
                   <div className="form-input-group">
                     <label className="form-field-label">Adults (12+ yrs)</label>
@@ -401,40 +340,33 @@ Thank you.`;
                   </div>
                 </div>
 
+                {/* Row 5: Message */}
                 <div className="form-input-group">
-                  <label className="form-field-label">Meal Option</label>
-                  <select
-                    name="mealPlan"
-                    value={formData.mealPlan}
-                    onChange={handleChange}
-                    className="form-field select-field"
-                  >
-                    <option value="no_meal">No Meal</option>
-                    <option value="2_meals">2 Meals (Breakfast + Dinner)</option>
-                    <option value="3_meals">3 Meals (Breakfast + Lunch + Dinner)</option>
-                  </select>
-                </div>
-
-                <div className="form-input-group">
+                  <label className="form-field-label">Message</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Message"
-                    rows={6}
+                    placeholder="Write your message here..."
+                    rows={4}
                     className={`form-field textarea-field ${errors.message ? "error-border" : ""}`}
                   />
                   {errors.message && <span className="field-error-msg">{errors.message}</span>}
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="form-submit-btn"
-                >
-                  <RiSendPlaneFill className="submit-icon" />
-                  {isSubmitting ? "Sending Inquiry..." : "Send Inquiry"}
-                </button>
+                {/* Submit Button */}
+                <div className="form-submit-wrapper">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="form-submit-btn-pill"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                    <span className="submit-icon-circle">
+                      <RiSendPlaneFill className="submit-icon" />
+                    </span>
+                  </button>
+                </div>
 
                 {submitStatus === "success" && (
                   <div className="status-banner success-banner">
@@ -449,7 +381,6 @@ Thank you.`;
                 )}
               </form>
             </div>
-          </div>
           </div>
         </div>
       </section>

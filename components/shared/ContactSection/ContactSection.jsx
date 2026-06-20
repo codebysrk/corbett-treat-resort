@@ -348,7 +348,7 @@ Thank you.`;
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Write your message here..."
-                    rows={4}
+                    rows={2}
                     className={`form-field textarea-field ${errors.message ? "error-border" : ""}`}
                   />
                   {errors.message && <span className="field-error-msg">{errors.message}</span>}

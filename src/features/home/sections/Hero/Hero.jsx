@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "./Hero.css";
-import Button from "./Button";
+import Button from "@/components/ui/Button";
 import { BOOK_NOW_URL } from "@/constants";
 
 import Image from "next/image";

@@ -6,8 +6,8 @@ import Link from "next/link";
 import { RiSunLine } from "react-icons/ri";
 import { usePathname } from "next/navigation";
 import "./Navbar.css";
-import Hamburger from "./Hamburger";
-import Button from "./Button";
+import Hamburger from "../Hamburger";
+import Button from "@/components/ui/Button";
 import { BOOK_NOW_URL } from "@/constants";
 
 export default function Navbar({ onMenuOpen }) {

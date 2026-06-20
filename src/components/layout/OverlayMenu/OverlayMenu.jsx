@@ -10,7 +10,7 @@ import {
   RiTwitterXLine,
   RiYoutubeLine,
 } from "react-icons/ri";
-import Button from "./Button";
+import Button from "@/components/ui/Button";
 import {
   NAV_LINKS,
   CONTACT_PHONES,

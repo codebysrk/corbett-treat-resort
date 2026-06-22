@@ -14,7 +14,7 @@ const ACTIVITIES = [
     label: "Safari",
     title: "7 Zones of Jungle Safari",
     desc: "Explore the wild heart of Jim Corbett National Park across 7 unique safari zones. Meet tigers, elephants, leopards, and beautiful wilderness environments.",
-    image: "/assets/images/safari.webp",
+    image: "/assets/images/gallery/safari-gypsy-parked.jpeg",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const ACTIVITIES = [
     label: "Cricket",
     title: "Lawn Cricket Ground",
     desc: "Gather your group or family for a friendly match on our spacious green cricket lawn, custom-made for active leisure.",
-    image: "/assets/images/cricket.png",
+    image: "/assets/images/gallery/garden-lawn-exterior-1.jpeg",
   },
   {
     id: 4,
@@ -79,7 +79,7 @@ export default function ExperiencePage() {
         <section className="experience-hero">
           <div className="experience-hero-bg">
             <Image
-              src="/assets/images/safari.webp"
+              src="/assets/images/gallery/safari-gypsy-parked.jpeg"
               alt="Jungle Safari Gypsy at Corbett"
               fill
               sizes="100vw"

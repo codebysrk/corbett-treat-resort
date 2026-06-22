@@ -19,6 +19,7 @@ export default function ActivitiesSection() {
               height={450}
               className="act-main-image"
               style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "8px" }}
+              priority={true}
             />
           </div>
 

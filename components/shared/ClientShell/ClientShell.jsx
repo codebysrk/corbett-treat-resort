@@ -102,7 +102,7 @@ export default function ClientShell() {
 
         // 4. Parallax Image scale-down effects
         const images = document.querySelectorAll(
-          ".about-image-stack img, .dining-img-wrap img, .facility-img-wrap img, .room-image img, .hero-bg img"
+          ".about-image-stack img, .dining-img-wrap img, .facility-img-wrap img, .room-image img, .hero-bg img, .accommodation-left-image-wrap img, .accommodation-right-image-wrap img"
         );
         images.forEach((img) => {
           gsap.fromTo(
@@ -122,7 +122,7 @@ export default function ClientShell() {
 
         // 5. Description Paragraphs fade
         const paragraphs = document.querySelectorAll(
-          ".about-body-text p, .amenities-description, .facilities-hero-desc, .dining-hero-desc, .experience-hero-desc, .rooms-hero-desc"
+          ".about-body-text p, .amenities-description, .facilities-hero-desc, .dining-hero-desc, .experience-hero-desc, .rooms-hero-desc, .accommodation-desc-text"
         );
         paragraphs.forEach((p) => {
           gsap.fromTo(

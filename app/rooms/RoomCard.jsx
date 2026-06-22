@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Button } from "@/components";
 
 const WHATSAPP_NUMBER = "918057094258";
 
@@ -26,6 +25,15 @@ export default function RoomCard({ room }) {
           className="room-card-main-img"
           style={{ objectFit: "cover" }}
         />
+        <div className="room-card-float-img">
+          <Image
+            src="/assets/images/gallery/cottage-exterior-dusk.jpeg"
+            alt="Corbett Treat Resort"
+            fill
+            sizes="120px"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
         <div className="room-card-gallery-strip">
           {room.gallery.map((img, i) => (
             <div 

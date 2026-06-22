@@ -120,7 +120,7 @@
 .room-card-image-pane {
   position: relative;
   min-height: 340px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .room-card-image-pane > img {
@@ -130,13 +130,28 @@
   transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.room-detail-card:hover .room-card-image-pane img {
+.room-detail-card:hover .room-card-main-img {
   transform: scale(1.04);
 }
+
+.room-card-float-img {
+  position: absolute;
+  bottom: -4rem;
+  right: 0;
+  z-index: 2;
+  width: clamp(120px, 9vw, 200px);
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(4px);
+}
+
 
 /* Gallery thumbnails strip */
 .room-card-gallery-strip {
   position: absolute;
+  z-index: 2;
   bottom: 1rem;
   left: 1rem;
   right: 1rem;

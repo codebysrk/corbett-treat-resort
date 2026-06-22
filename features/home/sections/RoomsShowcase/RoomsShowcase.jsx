@@ -1,70 +1,53 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components";
 import "./RoomsShowcase.css";
 
-const ROOMS = [
-  {
-    id: "deluxe-room",
-    title: "DELUXE ROOM",
-    image: "/assets/images/gallery/bedroom-suite-1.jpeg",
-  },
-  {
-    id: "premium-room",
-    title: "PREMIUM ROOM",
-    image: "/assets/images/gallery/bedroom-suite-2.jpeg",
-  },
-  {
-    id: "family-room",
-    title: "FAMILY COTTAGE",
-    image: "/assets/images/gallery/cottages-numbered-exterior.jpeg",
-  },
-];
-
-export default function RoomShowcase() {
+export default function RoomsShowcase() {
   return (
     <section className="accommodation" id="rooms">
-      <div className="accommodation-header">
-        <div>
-          <h2>Comfort and Space Combined</h2>
-          <p>
-            Relish the charm of our spacious rooms and separate houses, blending
-            modern elegance with the tranquility of the surrounding forest park
-            and natural oasis.
-          </p>
+      <div className="accommodation-split-container">
+        
+        {/* Left Column: Room Interior + Info */}
+        <div className="accommodation-left-col">
+          <div className="accommodation-left-image-wrap">
+            <Image
+              src="/assets/images/gallery/bedroom-suite-2.jpeg"
+              alt="Elegant Bedroom Suite Interior"
+              fill
+              sizes="(max-width: 992px) 100vw, 50vw"
+              priority
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+          <div className="accommodation-left-content">
+            <h2 className="accommodation-title-serif">Elegant Accommodations</h2>
+            <p className="accommodation-desc-text">
+              Make a corner of Jim Corbett your own in exquisite resort accommodations, 
+              from scenic garden-view cottages to luxurious premium family suites.
+            </p>
+            <div className="accommodation-action">
+              <Button href="/rooms" variant="outline" className="accommodation-btn-outline">
+                Browse Rooms
+              </Button>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="rooms-grid">
-        {ROOMS.map((room) => (
-          <Link
-            key={room.id}
-            href={`/rooms#${room.id}`}
-            className="room-card"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <article>
-              <div className="image-wrapper">
-                <Image
-                  src={room.image}
-                  alt={room.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              <h3>{room.title}</h3>
-            </article>
-          </Link>
-        ))}
-      </div>
+        {/* Right Column: Portrait Balcony/Garden Seating View */}
+        <div className="accommodation-right-col">
+          <div className="accommodation-right-image-wrap">
+            <Image
+              src="/assets/images/gallery/cottage-exterior-1.jpeg"
+              alt="Scenic Cottage Porch Seating"
+              fill
+              sizes="(max-width: 992px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+        </div>
 
-      <div className="accommodation-bottom">
-        <Button href="/rooms" variant="primary" size="medium">
-          Explore
-        </Button>
       </div>
     </section>
   );

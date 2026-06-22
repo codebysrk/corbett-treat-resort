@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Button } from "@/components";
 
 const WHATSAPP_NUMBER = "918057094258";
 
@@ -86,6 +87,16 @@ export default function RoomCard({ room }) {
             </span>
           ))}
         </div>
+
+        <Button
+          href={getWhatsappUrl(room.name)}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="primary"
+          className="room-card-cta"
+        >
+          Book via WhatsApp
+        </Button>
 
       </div>
     </article>

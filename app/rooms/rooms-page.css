@@ -90,7 +90,7 @@
 .rooms-list-grid {
   display: flex;
   flex-direction: column;
-  gap: clamp(2.5rem, 5vw, 4rem);
+  gap: clamp(2.5rem, 5vw, 2rem);
 }
 
 /* ---- Individual Room Card ---- */
@@ -99,7 +99,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 0;
   background: var(--surface-white, #ffffff);
-  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.5s ease;

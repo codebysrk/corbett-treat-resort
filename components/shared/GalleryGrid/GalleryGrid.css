@@ -61,7 +61,7 @@
   cursor: pointer;
   background-color: transparent;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .gallery-grid-item:hover {
@@ -73,7 +73,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .gallery-grid-img {

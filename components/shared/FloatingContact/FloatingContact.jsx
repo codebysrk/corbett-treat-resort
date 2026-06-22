@@ -71,6 +71,7 @@ const FloatingContact = () => {
         title="Call Reservations"
       >
         <RiPhoneLine aria-hidden="true" />
+        <span className="pulse-glow" aria-hidden="true" />
       </button>
 
       

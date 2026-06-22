@@ -215,3 +215,31 @@ p {
 }
 
 /* ActivitiesSection handles its own spacing internally */
+
+/* Remove border-radius from all images, image wrappers, and cards containing images across the site */
+img,
+[class*="img-wrapper"],
+[class*="image-wrapper"],
+[class*="img-container"],
+[class*="image-container"],
+[class*="img-box"],
+[class*="image-box"],
+[class*="image-pane"],
+[class*="thumb-wrapper"],
+[class*="thumb"],
+.place-card,
+.place-image-wrapper,
+.about-img-box,
+.about-dedication-img-wrapper,
+.mission-card-img-wrapper,
+.dining-menu-img-wrapper,
+.room-card-image-pane,
+.room-card-float-img,
+.room-card-thumb-wrapper,
+.room-card-thumb,
+.gallery-grid-item,
+.gallery-grid-img-container,
+.gallery-img-wrapper,
+.room-detail-card {
+  border-radius: 0 !important;
+}

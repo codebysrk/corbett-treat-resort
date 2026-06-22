@@ -1,15 +1,18 @@
 .places-section {
-  padding: 6.25rem 5%;
   background-color: var(--surface-cream);
   color: var(--text-dark);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .places-container {
   width: 100%;
   max-width: var(--container-max-wide, 1800px);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
 }
 
 .places-header {

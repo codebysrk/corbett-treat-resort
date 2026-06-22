@@ -1,14 +1,18 @@
 .gallery-section {
-  padding: 5rem 5%;
   background-color: var(--bg-color); /* Sand warm cream */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .gallery-container {
   width: 100%;
   max-width: var(--container-max-wide, 1800px);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--container-padding);
   display: flex;
   flex-direction: column;
   align-items: center;

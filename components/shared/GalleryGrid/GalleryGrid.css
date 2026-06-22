@@ -2,9 +2,9 @@
 
 .gallery-grid-wrapper {
   width: 100%;
-  max-width: 1400px;
+  max-width: var(--container-max-wide, 1800px);
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem var(--container-padding);
 }
 
 

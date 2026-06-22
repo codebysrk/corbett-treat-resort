@@ -76,15 +76,18 @@
 .hero-bottom-content {
   position: absolute;
   bottom: 4%;
-  left: 4%;
-  right: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--container-max-wide, 1800px);
+  padding: 0 var(--container-padding);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
   z-index: 10;
   gap: var(--space-sm);
-  text-align: center;
+  text-align: left;
 }
 
 .main-text {
@@ -100,8 +103,9 @@
 }
 
 .hero-title {
+  font-family: var(--font-poppins), sans-serif;
   font-size: 1.9rem;
-  font-weight: 900;
+  font-weight: 800;
   line-height: var(--line-height-heading);
   letter-spacing: -0.5px;
   margin-bottom: var(--space-xs);
@@ -125,13 +129,8 @@
   width: 100%;
 }
 
-.hero-action .book-now-btn,
-.hero-action .story-cta-btn {
+.hero-action .hero-btn {
   width: 100%;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @keyframes fadeUp {
@@ -165,8 +164,6 @@
 
   .hero-bottom-content {
     bottom: 8%;
-    left: 5%;
-    right: 5%;
   }
 
   .hero-title {
@@ -188,21 +185,14 @@
     align-items: flex-end;
     justify-content: space-between;
     bottom: 6%;
-    text-align: left;
   }
 
   .hero-action {
     width: auto;
   }
 
-  .hero-action .book-now-btn,
-  .hero-action .story-cta-btn {
+  .hero-action .hero-btn {
     width: auto;
-    padding: 0 var(--space-sm);
-    height: 36px;
-    font-size: var(--font-size-small);
-    min-height: 36px;
-    display: inline-flex;
   }
 }
 
@@ -227,18 +217,11 @@
 
   .hero-bottom-content {
     bottom: var(--space-lg);
-    left: 4%;
-    right: 4%;
     gap: var(--space-lg);
   }
 }
 
-@media (min-width: 1440px) {
-  .hero-bottom-content {
-    left: var(--space-2xl);
-    right: var(--space-2xl);
-  }
-}
+
 
 @media (max-width: 767px) and (orientation: landscape) {
   .hero {
@@ -261,14 +244,8 @@
     width: auto;
   }
 
-  .book-now-btn,
-  .story-cta-btn {
+  .hero-btn {
     width: auto;
-    padding: 0 var(--space-sm);
-    height: 36px;
-    font-size: var(--font-size-small);
-    min-height: 36px;
-    display: inline-flex;
   }
 
   .hero-title {
@@ -290,3 +267,135 @@
     padding-bottom: env(safe-area-inset-bottom);
   }
 }
+
+/* ─── Floating Check Availability Form ─── */
+.hero-availability-wrapper {
+  width: 100%;
+  margin-top: 2rem;
+  background: rgba(29, 29, 29, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 174, 134, 0.35);
+  padding: 1.25rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hero-availability-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.availability-field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+}
+
+.availability-label {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--primary-gold, #C8AE86);
+  margin-bottom: 0.5rem;
+}
+
+.availability-input,
+.availability-select {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(200, 174, 134, 0.25);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.8rem;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.availability-input:focus,
+.availability-select:focus {
+  border-color: var(--primary-gold, #C8AE86);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Style date picker calendar icon color for dark background */
+.availability-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* Dropdown option background color */
+.availability-select option {
+  background-color: #1d1d1d;
+  color: #ffffff;
+}
+
+.availability-submit-btn {
+  background-color: var(--primary-gold, #C8AE86);
+  color: #1e3d2f;
+  border: none;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.availability-submit-btn:hover {
+  background-color: #ffffff;
+  color: #1e3d2f;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+}
+
+/* Desktop Horizontal Form Layout */
+@media (min-width: 992px) {
+  .hero-availability-wrapper {
+    padding: 1.5rem 2rem;
+  }
+
+  .hero-availability-form {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1.5rem;
+  }
+
+  .availability-submit-btn {
+    height: 48px;
+    padding: 0 2.5rem;
+  }
+
+  .availability-input,
+  .availability-select {
+    height: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-bottom-content {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .hero-action {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-action .hero-btn {
+    width: 100%;
+  }
+}
+

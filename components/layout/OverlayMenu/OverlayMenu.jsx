@@ -62,6 +62,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
       aria-modal="true"
       aria-label="Navigation Menu"
       aria-hidden={!isOpen}
+      data-lenis-prevent
     >
       <div className="overlay-header">
         <Link
@@ -100,6 +101,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
           ref={overlayNavRef}
           onScroll={handleMenuScroll}
           aria-label="Main navigation"
+          data-lenis-prevent
         >
           <ul className="overlay-links">
             {NAV_LINKS.map((link) => (

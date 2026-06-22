@@ -1,0 +1,168 @@
+/* ============================================================
+   EXPERIENCE PAGE — /experience
+   ============================================================ */
+
+.experience-page-main {
+  padding-top: 100px;
+  background-color: var(--color-bg-warm, #faf8f5);
+  min-height: 100vh;
+}
+
+/* ---- Hero ---- */
+.experience-hero {
+  position: relative;
+  height: clamp(280px, 40vw, 420px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.experience-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.experience-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 13, 10, 0.55) 0%,
+    rgba(15, 13, 10, 0.7) 100%
+  );
+}
+
+.experience-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.experience-hero-eyebrow {
+  display: block;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--primary-gold, #c8ae86);
+  margin-bottom: 0.75rem;
+}
+
+.experience-hero-title {
+  font-family: var(--font-playfair, "Playfair Display"), var(--font-serif, Georgia, serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.experience-hero-desc {
+  margin-top: 1rem;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
+
+/* ---- List Section ---- */
+.experience-list-section {
+  max-width: var(--container-max-width, 1280px);
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--container-padding, clamp(1.25rem, 5vw, 6.5rem));
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-page-main {
+    padding-top: 80px;
+  }
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.experience-card {
+  background: var(--surface-white, #ffffff);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.experience-img-wrap {
+  position: relative;
+  height: 220px;
+  width: 100%;
+}
+
+.experience-img-wrap img {
+  object-fit: cover;
+}
+
+.experience-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(15, 13, 10, 0.75);
+  color: var(--primary-gold, #c8ae86);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+}
+
+.experience-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.experience-card-title {
+  font-family: var(--font-playfair, "Playfair Display"), var(--font-serif, Georgia, serif);
+  font-size: 1.25rem;
+  color: var(--text-dark, #2a211b);
+  font-weight: 500;
+}
+
+.experience-card-desc {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-body, #55524c);
+  font-weight: 300;
+}

@@ -1,8 +1,9 @@
 .amenities-section {
-  padding: clamp(3rem, 8vw, 6rem) 1rem;
   background: var(--color-bg-alt); 
   color: var(--color-dark);
   overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .amenities-subtitle,
@@ -16,9 +17,11 @@
 }
 
 .amenities-container {
-  width: min(100%, 78rem);
-  margin-inline: auto;
-  padding: 0 clamp(0.5rem, 2vw, 2rem);
+  width: 100%;
+  max-width: var(--container-max-wide, 1800px);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--container-padding);
 }
 
 

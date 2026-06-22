@@ -2,10 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "./Hero.css";
-import Button from "@/components/ui/Button";
-import { BOOK_NOW_URL } from "@/constants";
-
 import Image from "next/image";
+import { Button } from "@/components";
+import { BOOK_NOW_URL } from "@/constants";
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -76,11 +75,7 @@ export default function Hero() {
           className={`hero-media-element ${currentSlide === 0 ? "active" : ""}`}
         >
           <source
-            src={
-              isMobile
-                ? "/assets/videos/corbett-vertical-hero-video.mp4"
-                : "/assets/videos/wild-animal.mp4"
-            }
+            src="/assets/videos/wild-animal.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
@@ -98,11 +93,11 @@ export default function Hero() {
           />
         </div>
 
-        {/* Image Slide 2: Room */}
+        {/* Image Slide 2: Resort View */}
         <div className={`hero-media-element image-slide ${currentSlide === 2 ? "active" : ""}`}>
           <Image
-            src="/assets/images/gallery/room.jpg"
-            alt="Luxury Room"
+            src="/assets/images/gallery/main-building-exterior.jpeg"
+            alt="Resort Main Building"
             fill
             sizes="100vw"
             style={{ objectFit: "cover" }}
@@ -136,13 +131,15 @@ export default function Hero() {
             immersive nature, curated adventures and unforgettable hospitality.
           </p>
         </div>
+
         <div className="hero-action">
           <Button
             href={BOOK_NOW_URL}
             target="_blank"
             rel="noopener noreferrer"
             variant="primary"
-            className="story-cta-btn"
+            size="large"
+            className="hero-btn"
           >
             Book Now
           </Button>

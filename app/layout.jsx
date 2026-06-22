@@ -1,4 +1,5 @@
 import { Cormorant_Garamond, Poppins, Playfair_Display } from "next/font/google";
+import SmoothScroll from "@/components/shared/SmoothScroll/SmoothScroll";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -57,7 +58,9 @@ export default function RootLayout({ children }) {
       className={`${cormorant.variable} ${poppins.variable} ${playfair.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body>{children}</body>
+      <body>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

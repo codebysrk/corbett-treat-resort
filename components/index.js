@@ -12,7 +12,7 @@ export { default as ClientShell } from "./shared/ClientShell";
 export { default as FloatingContact } from "./shared/FloatingContact";
 export { default as GalleryGrid } from "./shared/GalleryGrid";
 export { default as Preloader } from "./shared/Preloader";
-export { default as ContactSection } from "./shared/ContactSection/ContactSection";
+export { default as Counter } from "./shared/Counter/Counter";
 
 // Features - Home Page Sections
 export { default as Hero } from "../features/home/sections/Hero";
@@ -21,6 +21,7 @@ export { default as RoomsShowcase } from "../features/home/sections/RoomsShowcas
 export { default as DiningSection } from "../features/home/sections/DiningSection";
 export { default as Amenities } from "../features/home/sections/Amenities";
 export { default as ActivitiesSection } from "../features/home/sections/ActivitiesSection";
+export { default as EventsSection } from "../features/home/sections/EventsSection";
 export { default as GallerySection } from "../features/home/sections/GallerySection";
 export { default as PlacesToVisit } from "../features/home/sections/PlacesToVisit";
 
@@ -29,7 +30,6 @@ export { default as AboutHero } from "../features/about/sections/AboutHero/About
 export { default as AboutIntro } from "../features/about/sections/AboutIntro/AboutIntro";
 export { default as AboutMission } from "../features/about/sections/AboutMission/AboutMission";
 export { default as AboutDedication } from "../features/about/sections/AboutDedication/AboutDedication";
+export { default as AboutStats } from "../features/about/sections/AboutStats/AboutStats";
 
-// Features - Rooms / Accommodation Page Sections
-export { default as AccommodationHero } from "../features/rooms/sections/AccommodationHero";
-export { default as RoomGrid } from "../features/rooms/sections/RoomGrid";
+

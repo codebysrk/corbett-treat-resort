@@ -81,7 +81,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4 className="footer-title">Experiences</h4>
+            <h4 className="footer-title">Activities &amp; Recreation</h4>
             <ul className="footer-links">
               {NAV_LINKS.slice(5, 10).map((link, idx) => (
                 <li key={idx}>

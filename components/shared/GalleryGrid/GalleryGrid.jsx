@@ -41,7 +41,9 @@ export default function GalleryGrid() {
     ? ALL_GALLERY_IMAGES 
     : ALL_GALLERY_IMAGES.filter(img => img.category === activeCategory);
 
+  // Set mounted flag on client
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -131,9 +133,11 @@ export default function GalleryGrid() {
     } else {
       document.body.style.overflow = "";
     }
-    setScale(1);
-    setPosition({ x: 0, y: 0 });
-    setIsDragging(false);
+    // Only reset state if they have changed to prevent infinite loops / cascade renders
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setScale((prev) => (prev !== 1 ? 1 : prev));
+    setPosition((prev) => (prev.x !== 0 || prev.y !== 0 ? { x: 0, y: 0 } : prev));
+    setIsDragging((prev) => (prev !== false ? false : prev));
     return () => {
       document.body.style.overflow = "";
     };
@@ -267,12 +271,6 @@ export default function GalleryGrid() {
                     loading={index < 6 ? "eager" : "lazy"}
                     priority={index < 6}
                   />
-                  <div className="gallery-grid-hover-overlay">
-                    <span className="zoom-icon">
-                      <RiZoomInLine />
-                    </span>
-                    <p className="hover-caption">{image.alt}</p>
-                  </div>
                 </div>
               </div>
             ))}

@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BOOK_NOW_URL } from "@/constants";
+import { Button, Counter } from "@/components";
 import "./AboutSection.css";
 
 /* ─── Decorative Mountain Sketch (SVG sub-component) ─── */
@@ -34,7 +35,10 @@ const MountainSketch = () => (
       <path d="M260 220 L300 270 M280 250 L320 295" opacity="0.6" />
       <path d="M610 250 L640 290 M625 270 L660 300" opacity="0.6" />
       {/* Secondary range */}
-      <path d="M0 470 L90 400 L160 440 L240 380 L330 450 L420 400 L500 460 L600 400 L700 470 L800 420 L900 470" opacity="0.55" />
+      <path
+        d="M0 470 L90 400 L160 440 L240 380 L330 450 L420 400 L500 460 L600 400 L700 470 L800 420 L900 470"
+        opacity="0.55"
+      />
     </g>
 
     {/* Foreground brush strokes */}
@@ -63,7 +67,9 @@ const ExperienceBadge = () => (
       10<sup>+</sup>
     </span>
     <span className="about-badge-text">
-      YEARS OF<br />EXPERIENCE
+      YEARS OF
+      <br />
+      EXPERIENCE
     </span>
   </div>
 );
@@ -92,15 +98,18 @@ const AboutSection = () => {
   const handleEnded = (e) => {
     const video = e.target;
     video.currentTime = 0;
-    video.play().then(() => {
-      // Small delay to ensure the video actually began playing first frame
-      setTimeout(() => {
+    video
+      .play()
+      .then(() => {
+        // Small delay to ensure the video actually began playing first frame
+        setTimeout(() => {
+          setIsFading(false);
+        }, 50);
+      })
+      .catch((err) => {
+        console.log("Autoplay error on loop:", err);
         setIsFading(false);
-      }, 50);
-    }).catch(err => {
-      console.log("Autoplay error on loop:", err);
-      setIsFading(false);
-    });
+      });
   };
 
   return (
@@ -125,30 +134,39 @@ const AboutSection = () => {
 
           <div className="about-body-text">
             <p>
-              Nestled in the heart of Jim Corbett National Park's lush landscape,
-              Corbett Treat Resort offers an unparalleled blend of rustic luxury
-              and natural beauty. Our retreat is designed to let you experience
-              the wilderness without compromising on modern comfort.
+              Corbett Treat Resort is a premium nature retreat situated in the
+              peaceful surroundings of Village Dhela, near the renowned Jim
+              Corbett National Park. Designed for travelers seeking both
+              adventure and comfort, the resort combines modern hospitality with
+              the raw beauty of the wilderness.
             </p>
             <p>
-              Whether you are exploring the wild safari paths or relaxing by our
-              cozy lounges, we provide a warm, hospitable sanctuary. Enjoy our
-              custom curated wild tours, local adventure highlights, and gourmet
-              dining experiences prepared by master chefs using organic garden
-              produce.
+              Whether you&apos;re planning a family vacation, romantic getaway,
+              wildlife expedition, destination wedding, or corporate retreat,
+              Corbett Treat Resort offers thoughtfully designed accommodations,
+              authentic dining experiences, exciting jungle safaris, and
+              personalized service. Surrounded by forests, open landscapes, and
+              abundant wildlife, every stay provides an opportunity to reconnect
+              with nature while enjoying luxury and relaxation.
+            </p>
+            <p>
+              From early morning bird songs and thrilling safari adventures to
+              relaxing evenings by the pool and bonfire gatherings under the
+              stars, Corbett Treat Resort delivers a memorable experience that
+              captures the true spirit of Corbett.
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="about-cta-row">
-            <a
+            <Button
               href={BOOK_NOW_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="about-btn-reserve"
+              variant="primary"
             >
               Get Your Reservation
-            </a>
+            </Button>
             <Link href="/about" className="about-btn-learn">
               <span className="about-btn-learn-text">Learn More</span>
             </Link>
@@ -174,7 +192,7 @@ const AboutSection = () => {
             <video
               ref={videoRef}
               className={`about-video-player ${isFading ? "is-fading" : ""}`}
-              src="/assets/videos/jungle-safari.mp4"
+              src="/assets/videos/corbett-vertical-hero-video.mp4"
               autoPlay
               muted={isMuted}
               playsInline
@@ -184,23 +202,48 @@ const AboutSection = () => {
               style={{ cursor: "pointer" }}
             />
             {/* Small mute/unmute control indicator overlay */}
-            <button 
+            <button
               className="about-mute-indicator-btn"
               onClick={() => setIsMuted(!isMuted)}
               aria-label={isMuted ? "Unmute video" : "Mute video"}
             >
               {isMuted ? (
-                <svg viewBox="0 0 24 24" className="about-mute-icon" fill="currentColor">
-                  <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="about-mute-icon"
+                  fill="currentColor"
+                >
+                  <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
                 </svg>
               ) : (
-                <svg viewBox="0 0 24 24" className="about-mute-icon" fill="currentColor">
-                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="about-mute-icon"
+                  fill="currentColor"
+                >
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
                 </svg>
               )}
             </button>
           </div>
         </div>
+      </div>
+
+      {/* ─── Stats Counter Bar ─── */}
+      <div className="about-stats-bar">
+        {[
+          { label: "Guests Served", value: "5.0k+" },
+          { label: "Team Members", value: "50+" },
+          { label: "Rooms & Suites", value: "24+" },
+          { label: "Customer Satisfaction", value: "99%" },
+        ].map((stat) => (
+          <div key={stat.label} className="about-stat-item">
+            <span className="about-stat-label">{stat.label}</span>
+            <span className="about-stat-value">
+              <Counter value={stat.value} />
+            </span>
+          </div>
+        ))}
       </div>
     </section>
   );

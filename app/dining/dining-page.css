@@ -1,0 +1,221 @@
+/* ============================================================
+   DINING PAGE — /dining
+   Minimalist dining page styling
+   ============================================================ */
+
+.dining-page-main {
+  padding-top: 100px;
+  background-color: var(--color-bg-warm, #faf8f5);
+  min-height: 100vh;
+}
+
+/* ---- Hero ---- */
+.dining-hero {
+  position: relative;
+  height: clamp(280px, 40vw, 420px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dining-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.dining-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dining-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 13, 10, 0.55) 0%,
+    rgba(15, 13, 10, 0.7) 100%
+  );
+}
+
+.dining-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.dining-hero-eyebrow {
+  display: block;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--primary-gold, #c8ae86);
+  margin-bottom: 0.75rem;
+}
+
+.dining-hero-title {
+  font-family: var(--font-playfair, "Playfair Display"), var(--font-serif, Georgia, serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.dining-hero-desc {
+  margin-top: 1rem;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
+
+/* ---- Dining Content Section ---- */
+.dining-content-section {
+  max-width: var(--container-max-width, 1280px);
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--container-padding, clamp(1.25rem, 5vw, 6.5rem));
+}
+
+.dining-details-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .dining-details-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.dining-gallery-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.dining-gallery-image {
+  position: relative;
+  height: 240px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.dining-gallery-image.large {
+  grid-column: span 2;
+  height: 320px;
+}
+
+.dining-gallery-image img {
+  object-fit: cover;
+}
+
+.dining-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dining-info-title {
+  font-family: var(--font-playfair, "Playfair Display"), var(--font-serif, Georgia, serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--text-dark, #2a211b);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.dining-info-desc {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-body, #55524c);
+  font-weight: 300;
+}
+
+.dining-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.dining-feature-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.dining-feature-number {
+  font-family: var(--font-playfair, "Playfair Display"), var(--font-serif, Georgia, serif);
+  font-size: 1.2rem;
+  color: var(--primary-gold-dark, #a88e68);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.dining-feature-content h4 {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark, #2a211b);
+  margin-bottom: 0.25rem;
+}
+
+.dining-feature-content p {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-body, #55524c);
+  font-weight: 300;
+}
+
+.dining-meta-info {
+  display: flex;
+  gap: 2rem;
+  border-top: 1px solid var(--border-light, #e8e3d9);
+  padding-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dining-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dining-meta-label {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary-gold-dark, #a88e68);
+}
+
+.dining-meta-value {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark, #2a211b);
+}
+
+@media (max-width: 768px) {
+  .dining-page-main {
+    padding-top: 80px;
+  }
+}

@@ -1,68 +1,49 @@
-import React from 'react';
-import Image from 'next/image';
-import './DiningSection.css';
+"use client";
 
-const DiningSection = () => {
-  const diningOptions = [
-    {
-      id: 1,
-      title: "Our In-House Restaurant",
-      subtitle: "Fresh, Local & Delicious",
-      description: "Enjoy mouth-watering meals without stepping out of the resort. Our very own in-house restaurant serves freshly prepared Kumaoni delicacies and global cuisines, crafted daily by our expert chefs.",
-      image: "/assets/images/restaurant_food.png",
-      features: ["In-House Dining", "Fresh Local Ingredients", "Multi-Cuisine Menu"]
-    },
-    {
-      id: 2,
-      title: "Al-Fresco Dining",
-      subtitle: "Under the Starry Canopy",
-      description: "Enjoy a romantic dinner or a family gathering out on our manicured lawns with soft music, bonfires, and a curated barbeque menu.",
-      image: "/assets/images/fine_dining.png",
-      features: ["Bonfire Barbeques", "Private Canopy Setups", "Forest-Edge Ambiance"]
-    }
-  ];
+import React from "react";
+import { RiTimeLine } from "react-icons/ri";
+import Image from "next/image";
+import "./DiningSection.css";
+
+
+export default function DiningSection() {
+  const getWhatsappUrl = () => {
+    const message = `Hello Corbett Treat Resort, I would like to inquire about booking/reservations for the In-House Restaurant.`;
+    return `https://wa.me/918057094258?text=${encodeURIComponent(message)}`;
+  };
 
   return (
-    <section className="dining-section">
+    <section id="dining" className="dining-section">
       <div className="dining-container">
-        
-        <div className="dining-header">
-          <span className="dining-subtitle">Culinary Delights</span>
-          <h2 className="dining-title">Gourmet Experiences</h2>
-          <p className="dining-desc">
-            Indulge in flavors as rich as the wilderness surrounding you. Our chefs combine fresh local ingredients with global techniques.
-          </p>
-        </div>
+        <div className="dining-split-layout">
+          {/* Left Column: Image */}
+          <div className="dining-image-pane">
+            <Image
+              src="/assets/images/dining/restaurant-interior-2.jpeg"
+              alt="In-House Restaurant"
+              className="dining-main-image"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
 
-        <div className="dining-grid">
-          {diningOptions.map((option) => (
-            <div className="dining-card" key={option.id}>
-              <div className="dining-img-wrapper">
-                <Image 
-                  src={option.image} 
-                  alt={option.title} 
-                  fill 
-                  className="dining-img"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              <div className="dining-content">
-                <span className="dining-card-sub">{option.subtitle}</span>
-                <h3 className="dining-card-title">{option.title}</h3>
-                <p className="dining-card-desc">{option.description}</p>
-                <ul className="dining-features">
-                  {option.features.map((feature, i) => (
-                    <li key={i}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
+          {/* Right Column: Info Summary */}
+          <div className="dining-info-pane">
+            <span className="dining-eyebrow">DINING EXPERIENCE</span>
+            <h2 className="dining-heading-text">In-House Restaurant</h2>
+            <p className="dining-subheading-text">Savor Kumaoni &amp; Global Flavors</p>
+            <p className="dining-description-text">
+              Bite by bite, journey through Uttarakhand&apos;s rich culinary repertoire at our handpicked on-site restaurant. Framing scenic views of Kumaon&apos;s Sal forests, enjoy fresh multi-cuisine delights, organic regional herbs, and live tandoor specialties crafted by our expert chefs.
+            </p>
+
+            <div className="dining-hours-badge">
+              <RiTimeLine className="dining-hours-icon" />
+              <span>TIMING: 07:00 AM - 11:00 PM</span>
             </div>
-          ))}
+          </div>
         </div>
-
       </div>
     </section>
   );
-};
-
-export default DiningSection;
+}

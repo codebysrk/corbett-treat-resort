@@ -1,14 +1,17 @@
+"use client";
+
+import { useState } from "react";
 import { 
   ClientShell,
   Hero, 
   AboutSection, 
-  RoomsShowcase, 
+  RoomsShowcase,
   DiningSection, 
   Amenities,
   ActivitiesSection, 
+  EventsSection,
   GallerySection, 
   PlacesToVisit,
-  ContactSection,
   Footer 
 } from "@/components";
 
@@ -21,12 +24,12 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <RoomsShowcase />
-        {/* <DiningSection /> */}
+        <DiningSection />
         <Amenities />
         <ActivitiesSection />
+        <EventsSection />
         <GallerySection />
         {/* <PlacesToVisit /> */}
-        <ContactSection />
       </main>
 
       <Footer />

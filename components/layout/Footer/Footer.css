@@ -10,7 +10,7 @@
 .footer-container {
   max-width: var(--container-max-wide, 1800px);
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 var(--container-padding);
 }
 
 

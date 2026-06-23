@@ -6,6 +6,9 @@ export const metadata = {
   title: "Activities & Recreation | Corbett Treat Resort",
   description:
     "Discover fun outdoor activities and relaxing games at Corbett Treat Resort. Book a jungle safari in Jim Corbett National Park, play pool, table tennis, and more.",
+  alternates: {
+    canonical: "/experience",
+  },
 };
 
 const ACTIVITIES = [

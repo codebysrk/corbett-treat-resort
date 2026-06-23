@@ -3,6 +3,9 @@ import { ClientShell, AboutHero, AboutIntro, AboutStats, AboutMission, AboutDedi
 export const metadata = {
   title: "About Us | Corbett Treat Resort",
   description: "Learn more about Corbett Treat Resort, our story, and our commitment to providing unforgettable wilderness adventures in Jim Corbett National Park.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

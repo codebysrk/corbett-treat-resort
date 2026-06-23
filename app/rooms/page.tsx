@@ -7,6 +7,9 @@ export const metadata = {
   title: "Rooms & Suites | Corbett Treat Resort",
   description:
     "Explore our collection of Deluxe Rooms, Premium Rooms and Family Cottages at Corbett Treat Resort, located close to Jim Corbett National Park.",
+  alternates: {
+    canonical: "/rooms",
+  },
 };
 
 const ROOMS = [

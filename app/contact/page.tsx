@@ -1,6 +1,14 @@
-
 import Image from "next/image";
 import { ClientShell, Footer } from "@/components";
+
+export const metadata = {
+  title: "Contact Us | Corbett Treat Resort",
+  description:
+    "Get in touch with Corbett Treat Resort. Book your stay, inquire about destination weddings, corporate events, or forest safaris in Jim Corbett.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 import {
   RiMapPinLine,
   RiPhoneLine,

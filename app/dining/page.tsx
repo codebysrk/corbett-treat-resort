@@ -6,6 +6,9 @@ export const metadata = {
   title: "Dining | Corbett Treat Resort",
   description:
     "Savor fine Kumaoni & Global flavors at the In-House Restaurant of Corbett Treat Resort. Traditional pahadi delicacies, live tandoor and scenic views.",
+  alternates: {
+    canonical: "/dining",
+  },
 };
 
 export default function DiningPage() {

@@ -13,12 +13,11 @@ export default function Preloader({ active }: { active: boolean }) {
       aria-live="polite"
     >
       <Image
-        src="/assets/images/resort-logo.png"
-        alt="Corbett Treat Resort"
-        width={400}
+        src="/resort-logo.svg"
+        alt="Corbett Treat Resort Logo"
+        width={150}
         height={150}
         priority
-        style={{ width: "auto", height: "auto" }}
         className="preloader-logo"
       />
       <div className="loader-line" aria-hidden="true" />

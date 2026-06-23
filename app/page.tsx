@@ -1,15 +1,13 @@
 
 import { ClientShell, Footer } from "@/components";
-import dynamic from "next/dynamic";
-
-const Hero = dynamic(() => import("@/features/home/sections/Hero"));
-const AboutSection = dynamic(() => import("@/features/home/sections/AboutSection"));
-const RoomsShowcase = dynamic(() => import("@/features/home/sections/RoomsShowcase"));
-const DiningSection = dynamic(() => import("@/features/home/sections/DiningSection"));
-const Amenities = dynamic(() => import("@/features/home/sections/Amenities"));
-const ActivitiesSection = dynamic(() => import("@/features/home/sections/ActivitiesSection"));
-const EventsSection = dynamic(() => import("@/features/home/sections/EventsSection"));
-const GallerySection = dynamic(() => import("@/features/home/sections/GallerySection"));
+import Hero from "@/features/home/sections/Hero";
+import AboutSection from "@/features/home/sections/AboutSection";
+import RoomsShowcase from "@/features/home/sections/RoomsShowcase";
+import DiningSection from "@/features/home/sections/DiningSection";
+import Amenities from "@/features/home/sections/Amenities";
+import ActivitiesSection from "@/features/home/sections/ActivitiesSection";
+import EventsSection from "@/features/home/sections/EventsSection";
+import GallerySection from "@/features/home/sections/GallerySection";
 
 export default function Home() {
   return (

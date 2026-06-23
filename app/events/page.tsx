@@ -7,6 +7,9 @@ export const metadata = {
   title: "Weddings, Meetings & Events | Corbett Treat Resort",
   description:
     "Host corporate events, summits, destination weddings, and milestone celebrations at Corbett Treat Resort, Jim Corbett. Scenic locations and top facilities.",
+  alternates: {
+    canonical: "/events",
+  },
 };
 
 const EVENTS = [

@@ -50,22 +50,25 @@ export default function RoomCard({ room }: { room: Room }) {
         </div>
 
         {/* Gallery Strip Below */}
-        <div className="room-card-gallery-strip-below">
+        <div className="room-card-gallery-strip-below" role="group" aria-label="Room image gallery">
           {room.gallery.map((img, i) => (
-            <div 
+            <button 
               key={i} 
+              type="button"
               className={`room-card-thumb-wrapper-below ${activeImage === img ? "active" : ""}`}
               onClick={() => setActiveImage(img)}
+              aria-label={`View ${room.name} image ${i + 1}`}
+              aria-current={activeImage === img ? "true" : "false"}
             >
               <Image
                 src={img}
-                alt={`${room.name} view ${i + 1}`}
+                alt=""
                 fill
                 sizes="64px"
                 style={{ objectFit: "cover" }}
                 className="room-card-thumb"
               />
-            </div>
+            </button>
           ))}
         </div>
       </div>

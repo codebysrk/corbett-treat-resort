@@ -27,14 +27,14 @@ const CATEGORIES = [
 
 export default function GalleryGrid() {
   const [activeCategory, setActiveCategory] = useState("all");
-  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [mounted, setMounted] = useState(false);
   
-  const containerRef = useRef(null);
-  const itemsRef = useRef([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const dragStart = useRef({ x: 0, y: 0 });
 
   const filteredImages = activeCategory === "all" 
@@ -115,7 +115,7 @@ export default function GalleryGrid() {
 
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowRight") nextImage();
@@ -146,19 +146,19 @@ export default function GalleryGrid() {
     };
   }, [lightboxIndex]);
 
-  const handleStart = (clientX, clientY) => {
+  const handleStart = (clientX: number, clientY: number) => {
     if (scale <= 1) return;
     setIsDragging(true);
     dragStart.current = { x: clientX - position.x, y: clientY - position.y };
   };
 
-  const handleMouseDown = (e) => {
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (scale <= 1) return;
     e.preventDefault();
     handleStart(e.clientX, e.clientY);
   };
 
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     if (e.touches.length === 1) {
       handleStart(e.touches[0].clientX, e.touches[0].clientY);
     } else if (e.touches.length === 2) {
@@ -166,11 +166,11 @@ export default function GalleryGrid() {
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
       );
-      e.currentTarget.dataset.pinchDist = dist;
+      e.currentTarget.dataset.pinchDist = dist.toString();
     }
   };
 
-  const handleMove = (clientX, clientY) => {
+  const handleMove = (clientX: number, clientY: number) => {
     const newX = clientX - dragStart.current.x;
     const newY = clientY - dragStart.current.y;
     
@@ -181,12 +181,12 @@ export default function GalleryGrid() {
     });
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (scale <= 1 || !isDragging) return;
     handleMove(e.clientX, e.clientY);
   };
 
-  const handleTouchMove = (e) => {
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
     if (e.touches.length === 1 && isDragging) {
       handleMove(e.touches[0].clientX, e.touches[0].clientY);
     } else if (e.touches.length === 2 && e.currentTarget.dataset.pinchDist) {
@@ -197,7 +197,7 @@ export default function GalleryGrid() {
       );
       const factor = currentDist / initialDist;
       setScale(prev => Math.max(1, Math.min(4, prev * factor)));
-      e.currentTarget.dataset.pinchDist = currentDist;
+      e.currentTarget.dataset.pinchDist = currentDist.toString();
     }
   };
 
@@ -205,7 +205,7 @@ export default function GalleryGrid() {
     setIsDragging(false);
   };
 
-  const handleWheel = (e) => {
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     e.preventDefault();
     const zoomIntensity = 0.15;
     const delta = e.deltaY < 0 ? 1 : -1;
@@ -218,7 +218,7 @@ export default function GalleryGrid() {
     });
   };
 
-  const handleDoubleClick = (e) => {
+  const handleDoubleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     if (scale > 1) {
       setScale(1);
@@ -260,7 +260,7 @@ export default function GalleryGrid() {
               <div 
                 key={image.src + activeCategory} 
                 className="gallery-grid-item"
-                ref={(el) => (itemsRef.current[index] = el)}
+                ref={(el) => { itemsRef.current[index] = el; }}
                 onClick={() => setLightboxIndex(index)}
               >
                 <div className="gallery-grid-img-container">

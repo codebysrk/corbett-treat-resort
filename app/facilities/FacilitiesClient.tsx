@@ -20,7 +20,7 @@ import {
 } from "react-icons/ri";
 import { FaBinoculars, FaSwimmingPool } from "react-icons/fa";
 
-const ICON_MAP = {
+const ICON_MAP: Record<string, React.ReactNode> = {
   safari: <FaBinoculars />,
   pool: <FaSwimmingPool />,
   bonfire: <RiFireLine />,
@@ -236,7 +236,7 @@ export default function FacilitiesClient() {
   }, []);
 
   // Custom interactive GSAP hover animations
-  const handleMouseEnter = (e) => {
+  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
     const icon = card.querySelector(".facility-icon");
     const iconBg = card.querySelector(".facility-icon-container");
@@ -264,7 +264,7 @@ export default function FacilitiesClient() {
     });
   };
 
-  const handleMouseLeave = (e) => {
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
     const icon = card.querySelector(".facility-icon");
     const iconBg = card.querySelector(".facility-icon-container");

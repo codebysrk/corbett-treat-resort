@@ -15,7 +15,7 @@ import { CONTACT_PHONES, RESORT_ADDRESS, CONTACT_EMAIL, SOCIAL_LINKS } from "@/c
 import "./contact-page.css";
 
 export default function ContactPage() {
-  const socialIconMap = {
+  const socialIconMap: Record<string, any> = {
     instagram: RiInstagramLine,
     facebook: RiFacebookCircleLine,
     youtube: RiYoutubeLine,

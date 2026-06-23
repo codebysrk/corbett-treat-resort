@@ -4,7 +4,12 @@ import { RiMenu3Line } from "react-icons/ri";
 import "./Hamburger.css";
 
 
-export default function Hamburger({ onClick, scrolled }) {
+interface HamburgerProps {
+  onClick: () => void;
+  scrolled: boolean;
+}
+
+export default function Hamburger({ onClick, scrolled }: HamburgerProps) {
   return (
     <button
       type="button"

@@ -10,7 +10,11 @@ import Hamburger from "../Hamburger";
 import Button from "@/components/ui/Button";
 import { BOOK_NOW_URL } from "@/constants";
 
-export default function Navbar({ onMenuOpen }) {
+interface NavbarProps {
+  onMenuOpen: () => void;
+}
+
+export default function Navbar({ onMenuOpen }: NavbarProps) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [isNavbarScrolled, setIsNavbarScrolled] = useState(!isHome);

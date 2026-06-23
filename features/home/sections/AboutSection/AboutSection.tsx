@@ -80,11 +80,11 @@ const ExperienceBadge = () => (
 const AboutSection = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isFading, setIsFading] = useState(false);
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Fade out slightly before the video ends
-  const handleTimeUpdate = (e) => {
-    const video = e.target;
+  const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.target as HTMLVideoElement;
     if (video.duration) {
       const timeRemaining = video.duration - video.currentTime;
       // Start fading out when 0.4 seconds remain
@@ -95,8 +95,8 @@ const AboutSection = () => {
   };
 
   // When video ends, restart from beginning and fade back in
-  const handleEnded = (e) => {
-    const video = e.target;
+  const handleEnded = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.target as HTMLVideoElement;
     video.currentTime = 0;
     video
       .play()

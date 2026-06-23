@@ -56,7 +56,7 @@ const eventTypes = [
 ];
 
 export default function EventsSection() {
-  const getWhatsappUrl = (eventTitle) => {
+  const getWhatsappUrl = (eventTitle: string) => {
     const message = `Hello Corbett Treat Resort, I would like to inquire about hosting a ${eventTitle} event at your resort.`;
     return `https://wa.me/918057094258?text=${encodeURIComponent(message)}`;
   };
@@ -111,13 +111,15 @@ export default function EventsSection() {
                       paddingBottom: "2px",
                       transition: "color 0.3s ease, border-color 0.3s ease"
                     }}
-                    onMouseEnter={(e) => {
-                      e.target.style.color = "var(--text-dark, #2a211b)";
-                      e.target.style.borderColor = "var(--text-dark, #2a211b)";
+                    onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                      const target = e.currentTarget;
+                      target.style.color = "var(--text-dark, #2a211b)";
+                      target.style.borderColor = "var(--text-dark, #2a211b)";
                     }}
-                    onMouseLeave={(e) => {
-                      e.target.style.color = "var(--primary-gold-dark, #a88e68)";
-                      e.target.style.borderColor = "var(--primary-gold, #c8ae86)";
+                    onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                      const target = e.currentTarget;
+                      target.style.color = "var(--primary-gold-dark, #a88e68)";
+                      target.style.borderColor = "var(--primary-gold, #c8ae86)";
                     }}
                   >
                     Inquire Now &rarr;

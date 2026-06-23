@@ -8,7 +8,7 @@ import { RiPlantLine, RiMusic2Line } from "react-icons/ri";
 import { FaUmbrellaBeach, FaFire, FaChild } from "react-icons/fa";
 import { AMENITIES } from "@/constants";
 
-const ICON_MAP = {
+const ICON_MAP: Record<string, React.ReactNode> = {
   umbrella: <FaUmbrellaBeach />,
   fire: <FaFire />,
   child: <FaChild />,
@@ -16,7 +16,7 @@ const ICON_MAP = {
 };
 
 const Amenities = () => {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

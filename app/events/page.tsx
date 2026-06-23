@@ -67,7 +67,7 @@ const EVENTS = [
 ];
 
 export default function EventsPage() {
-  const getWhatsappUrl = (title) => {
+  const getWhatsappUrl = (title: string) => {
     const message = `Hello Corbett Treat Resort, I would like to inquire about hosting a ${title} event at your resort.`;
     return `https://wa.me/918057094258?text=${encodeURIComponent(message)}`;
   };

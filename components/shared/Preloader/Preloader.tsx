@@ -4,7 +4,7 @@ import Image from "next/image";
 import "./Preloader.css";
 
 
-export default function Preloader({ active }) {
+export default function Preloader({ active }: { active: boolean }) {
   return (
     <div
       className={`preloader ${!active ? "fade-out" : ""}`}

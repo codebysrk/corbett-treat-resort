@@ -21,10 +21,10 @@ import {
 } from "@/constants";
 import "./OverlayMenu.css";
 
-export default function OverlayMenu({ isOpen, onClose }) {
+export default function OverlayMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [menuScrolled, setMenuScrolled] = useState(false);
-  const overlayNavRef = useRef(null);
-  const overlayMenuRef = useRef(null);
+  const overlayNavRef = useRef<HTMLElement>(null);
+  const overlayMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -38,7 +38,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
   }, [isOpen]);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
         onClose();
       }
@@ -144,7 +144,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
             <h4>Follow Us</h4>
             <div className="overlay-socials">
               {SOCIAL_LINKS.map((social) => {
-                const getSocialIcon = (platform) => {
+                const getSocialIcon = (platform: string) => {
                   switch (platform) {
                     case "instagram":
                       return <RiInstagramLine />;

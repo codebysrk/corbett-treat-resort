@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function Counter({ value }) {
-  const elementRef = useRef(null);
+export default function Counter({ value }: { value: string }) {
+  const elementRef = useRef<HTMLSpanElement>(null);
   const getInitialValue = () => {
     const match = value.match(/([\d.]+)(.*)/);
     if (!match) return value;
@@ -28,10 +28,10 @@ export default function Counter({ value }) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            let startTimestamp = null;
+            let startTimestamp: number | null = null;
             const duration = 1800; // 1.8 seconds count up duration
 
-            const step = (timestamp) => {
+            const step = (timestamp: number) => {
               if (!startTimestamp) startTimestamp = timestamp;
               const elapsed = timestamp - startTimestamp;
               const progress = Math.min(elapsed / duration, 1);

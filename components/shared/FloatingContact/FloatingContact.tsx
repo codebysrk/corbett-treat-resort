@@ -9,15 +9,15 @@ import "./FloatingContact.css";
 const FloatingContact = () => {
   const [showCallDropdown, setShowCallDropdown] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
 
   const whatsappUrl = `https://wa.me/${WHATSAPP.number}?text=${encodeURIComponent(WHATSAPP.presetMessage)}`;
 
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setShowCallDropdown(false);
       }
     };

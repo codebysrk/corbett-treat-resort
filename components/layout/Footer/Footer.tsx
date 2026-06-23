@@ -42,7 +42,7 @@ export default function Footer() {
             <p className="footer-brand-desc">{BRAND_DESCRIPTION}</p>
             <div className="footer-socials">
               {SOCIAL_LINKS.map((social) => {
-                const getSocialIcon = (platform) => {
+                const getSocialIcon = (platform: string) => {
                   switch (platform) {
                     case "instagram":
                       return <RiInstagramLine />;

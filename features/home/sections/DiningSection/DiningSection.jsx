@@ -19,7 +19,7 @@ export default function DiningSection() {
           {/* Left Column: Image */}
           <div className="dining-image-pane">
             <Image
-              src="/assets/images/dining/restaurant-interior-2.jpeg"
+              src="/assets/images/Dining/restaurant-interior-2.jpeg"
               alt="In-House Restaurant"
               className="dining-main-image"
               fill

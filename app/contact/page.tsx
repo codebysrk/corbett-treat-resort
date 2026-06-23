@@ -1,4 +1,3 @@
-"use client";
 
 import Image from "next/image";
 import { ClientShell, Footer } from "@/components";

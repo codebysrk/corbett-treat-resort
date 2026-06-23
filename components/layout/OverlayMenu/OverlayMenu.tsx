@@ -29,6 +29,10 @@ export default function OverlayMenu({ isOpen, onClose }: { isOpen: boolean; onCl
   useEffect(() => {
     if (isOpen) {
       document.documentElement.classList.add("menu-open");
+      const closeBtn = overlayMenuRef.current?.querySelector("#overlay-close") as HTMLElement;
+      if (closeBtn) {
+        setTimeout(() => closeBtn.focus(), 50);
+      }
     } else {
       document.documentElement.classList.remove("menu-open");
     }
@@ -39,8 +43,33 @@ export default function OverlayMenu({ isOpen, onClose }: { isOpen: boolean; onCl
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
+      if (!isOpen) return;
+
+      if (e.key === "Escape") {
         onClose();
+        return;
+      }
+
+      if (e.key === "Tab") {
+        const focusableElements = overlayMenuRef.current?.querySelectorAll(
+          'a[href], button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusableElements || focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0] as HTMLElement;
+        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
       }
     };
     document.addEventListener("keydown", handleKeyDown);

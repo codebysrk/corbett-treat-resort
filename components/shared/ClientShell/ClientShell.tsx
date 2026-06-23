@@ -8,12 +8,17 @@ import { Preloader, Navbar, OverlayMenu, FloatingContact } from "@/components";
 
 export default function ClientShell() {
   const [preloaderActive, setPreloaderActive] = useState(true);
+  const [preloaderMounted, setPreloaderMounted] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const timer = setTimeout(() => setPreloaderActive(false), 800);
-    return () => clearTimeout(timer);
+    const unmountTimer = setTimeout(() => setPreloaderMounted(false), 1600);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(unmountTimer);
+    };
   }, []);
 
   // Global GSAP ScrollTrigger Animations Sweep on route changes
@@ -152,7 +157,7 @@ export default function ClientShell() {
 
   return (
     <>
-      <Preloader active={preloaderActive} />
+      {preloaderMounted && <Preloader active={preloaderActive} />}
       <Navbar onMenuOpen={() => setIsMenuOpen(true)} />
       <OverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <FloatingContact />

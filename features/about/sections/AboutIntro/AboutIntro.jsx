@@ -24,21 +24,16 @@ const AboutIntro = () => {
 
         <div className="about-intro-content">
           <h2 className="about-intro-heading">
-            A Sanctuary of Comfort & Wilderness
+            A Beautiful Stay Near the Forest
           </h2>
           <p className="about-intro-text">
-            Established with a vision to connect travelers to the untamed beauty
-            of Jim Corbett National Park, <strong>Corbett Treat Resort</strong>{" "}
-            stands as a premier destination for nature enthusiasts and luxury
-            seekers alike. Nestled in the quiet hamlet of Dhela Village, our
-            resort shares a direct boundary with the reserve, offering an
-            immersive jungle experience right from your balcony.
+            Built to help you enjoy the beauty of Jim Corbett National Park, <strong>Corbett Treat Resort</strong>{" "}
+            is the perfect place for nature lovers. Located in the peaceful Dhela Village, our
+            resort is very close to the safari gate, giving you a real jungle feeling right from your room.
           </p>
           <p className="about-intro-text">
-            Here, we blend modern hospitality with a deep respect for the local
-            ecosystem. Wake up to the melodies of exotic birds, enjoy evenings
-            illuminated by starry skies, and embark on thrilling safaris knowing
-            a luxurious haven awaits your return.
+            We offer modern services while keeping the nature around us safe. Wake up to the sounds of beautiful
+            birds, enjoy starry skies, and go on exciting safaris knowing a comfortable room is ready for you.
           </p>
           <div className="about-intro-action">
             <Button href={whatsappUrl} variant="primary">

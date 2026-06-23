@@ -130,8 +130,10 @@ export default function GalleryGrid() {
   useEffect(() => {
     if (lightboxIndex !== null) {
       document.body.style.overflow = "hidden";
+      document.documentElement.classList.add("menu-open");
     } else {
       document.body.style.overflow = "";
+      document.documentElement.classList.remove("menu-open");
     }
     // Only reset state if they have changed to prevent infinite loops / cascade renders
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -140,6 +142,7 @@ export default function GalleryGrid() {
     setIsDragging((prev) => (prev !== false ? false : prev));
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.classList.remove("menu-open");
     };
   }, [lightboxIndex]);
 
@@ -282,7 +285,7 @@ export default function GalleryGrid() {
 
       
       {lightboxIndex !== null && (
-        <div className="lightbox-overlay" onClick={closeLightbox}>
+        <div className="lightbox-overlay" onClick={closeLightbox} data-lenis-prevent>
           <div className="lightbox-toolbar" onClick={(e) => e.stopPropagation()}>
             <button 
               className="toolbar-btn" 
@@ -363,7 +366,6 @@ export default function GalleryGrid() {
               />
             </div>
             <div className="lightbox-caption">
-              <span>{filteredImages[lightboxIndex].alt}</span>
               <span className="lightbox-counter">
                 {lightboxIndex + 1} / {filteredImages.length}
               </span>

@@ -34,10 +34,10 @@ export default function RoomsShowcase() {
 
         {/* Content Box (Heading + Desc + Button) */}
         <div className="accommodation-left-content">
-          <h2 className="accommodation-title-serif">Elegant Accommodations</h2>
+          <h2 className="accommodation-title-serif">Comfortable Rooms &amp; Cottages</h2>
           <p className="accommodation-desc-text">
-            Make a corner of Jim Corbett your own in exquisite resort accommodations, 
-            from scenic garden-view cottages to luxurious premium family suites.
+            Enjoy your stay in Jim Corbett in our beautiful resort rooms, 
+            from garden-view cottages to premium family suites.
           </p>
           <div className="accommodation-action">
             <Button href="/rooms" variant="outline" className="accommodation-btn-outline">

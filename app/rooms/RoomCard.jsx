@@ -2,14 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Button } from "@/components";
-
-const WHATSAPP_NUMBER = "918057094258";
-
-function getWhatsappUrl(roomName) {
-  const message = `Hello Corbett Treat Resort, I would like to inquire about booking the ${roomName}.`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-}
 
 export default function RoomCard({ room }) {
   const [activeImage, setActiveImage] = useState(room.image);
@@ -18,35 +10,44 @@ export default function RoomCard({ room }) {
     <article className="room-detail-card" id={room.id}>
       {/* Image Pane */}
       <div className="room-card-image-pane">
-        <Image
-          src={activeImage}
-          alt={room.name}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="room-card-main-img"
-          style={{ objectFit: "cover" }}
-        />
-        <div className="room-card-float-img">
-          <Image
-            src="/assets/images/gallery/cottage-exterior-dusk.jpeg"
-            alt="Corbett Treat Resort"
-            fill
-            sizes="120px"
-            style={{ objectFit: "cover" }}
-          />
+        <div className="room-card-main-img-wrapper">
+          <div className="room-card-main-img-container">
+            <Image
+              src={activeImage}
+              alt={room.name}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="room-card-main-img"
+              style={{ objectFit: "cover" }}
+              priority={room.id === "deluxe-room"}
+            />
+          </div>
+          
+          {/* Bottom-Right Floating Exterior Image */}
+          <div className="room-card-bottom-right-img">
+            <Image
+              src="/assets/images/gallery/cottage-exterior-1.jpeg"
+              alt="Corbett Treat Resort Cottage Exterior"
+              fill
+              sizes="150px"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         </div>
-        <div className="room-card-gallery-strip">
+
+        {/* Gallery Strip Below */}
+        <div className="room-card-gallery-strip-below">
           {room.gallery.map((img, i) => (
             <div 
               key={i} 
-              className={`room-card-thumb-wrapper ${activeImage === img ? "active" : ""}`}
+              className={`room-card-thumb-wrapper-below ${activeImage === img ? "active" : ""}`}
               onClick={() => setActiveImage(img)}
             >
               <Image
                 src={img}
                 alt={`${room.name} view ${i + 1}`}
                 fill
-                sizes="60px"
+                sizes="64px"
                 style={{ objectFit: "cover" }}
                 className="room-card-thumb"
               />
@@ -87,16 +88,6 @@ export default function RoomCard({ room }) {
             </span>
           ))}
         </div>
-
-        <Button
-          href={getWhatsappUrl(room.name)}
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="primary"
-          className="room-card-cta"
-        >
-          Book via WhatsApp
-        </Button>
 
       </div>
     </article>

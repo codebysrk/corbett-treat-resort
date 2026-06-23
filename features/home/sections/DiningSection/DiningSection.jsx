@@ -34,7 +34,7 @@ export default function DiningSection() {
             <h2 className="dining-heading-text">In-House Restaurant</h2>
             <p className="dining-subheading-text">Savor Kumaoni &amp; Global Flavors</p>
             <p className="dining-description-text">
-              Bite by bite, journey through Uttarakhand&apos;s rich culinary repertoire at our handpicked on-site restaurant. Framing scenic views of Kumaon&apos;s Sal forests, enjoy fresh multi-cuisine delights, organic regional herbs, and live tandoor specialties crafted by our expert chefs.
+              Enjoy delicious local food and international dishes at our in-house restaurant. With beautiful views of the green forests, we serve fresh multi-cuisine food, local herbs, and hot tandoor dishes prepared by our chefs.
             </p>
 
             <div className="dining-hours-badge">

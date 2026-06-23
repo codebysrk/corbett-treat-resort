@@ -1,4 +1,4 @@
-import { ClientShell, Footer, Button } from "@/components";
+import { ClientShell, Footer } from "@/components";
 import Image from "next/image";
 import RoomCard from "./RoomCard";
 import "./rooms-page.css";
@@ -6,7 +6,7 @@ import "./rooms-page.css";
 export const metadata = {
   title: "Rooms & Suites | Corbett Treat Resort",
   description:
-    "Explore our handpicked collection of Deluxe Rooms, Premium Rooms and Family Cottages at Corbett Treat Resort, nestled in the heart of Jim Corbett National Park.",
+    "Explore our collection of Deluxe Rooms, Premium Rooms and Family Cottages at Corbett Treat Resort, located close to Jim Corbett National Park.",
 };
 
 const ROOMS = [
@@ -15,7 +15,7 @@ const ROOMS = [
     name: "Deluxe Room",
     type: "Deluxe",
     description:
-      "Elegant, cozy, and perfectly appointed for couples or solo travelers seeking a peaceful retreat amidst the Corbett wilderness. Features warm wooden accents, plush bedding, and a private garden-facing balcony.",
+      "Cozy and comfortable room for couples or solo travelers looking for a peaceful stay near Jim Corbett. Features beautiful wooden interiors, soft bedding, and a private balcony facing the garden.",
     image: "/assets/images/gallery/bedroom-suite-1.jpeg",
     gallery: [
       "/assets/images/gallery/bedroom-suite-1.jpeg",
@@ -40,7 +40,7 @@ const ROOMS = [
     name: "Premium Room",
     type: "Premium",
     description:
-      "Spacious layout with premium furniture, modern bathroom amenities, and a beautiful view overlooking the resort pool and manicured gardens. The ideal upgrade for discerning travelers.",
+      "Large room with premium furniture, modern bathroom fittings, and a beautiful view of the resort pool and green gardens. Ideal for families and couples wanting extra comfort.",
     image: "/assets/images/gallery/bedroom-suite-2.jpeg",
     gallery: [
       "/assets/images/gallery/bedroom-suite-2.jpeg",
@@ -65,7 +65,7 @@ const ROOMS = [
     name: "Family Cottage",
     type: "Family & Couple",
     description:
-      "A gorgeous duplex cottage offering maximum space, privacy, and scenic nature views. Ideal for families and groups looking for an immersive forest-lodge experience with all modern comforts.",
+      "A beautiful two-story duplex cottage offering lots of space, privacy, and lovely nature views. Perfect for families and groups looking for a real forest lodge experience with modern comfort.",
     image: "/assets/images/gallery/cottages-numbered-exterior.jpeg",
     gallery: [
       "/assets/images/gallery/cottages-numbered-exterior.jpeg",
@@ -87,12 +87,7 @@ const ROOMS = [
   },
 ];
 
-const WHATSAPP_NUMBER = "918057094258";
 
-function getWhatsappUrl(roomName) {
-  const message = `Hello Corbett Treat Resort, I would like to inquire about booking the ${roomName}.`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-}
 
 export default function RoomsPage() {
   return (

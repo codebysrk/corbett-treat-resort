@@ -5,7 +5,7 @@ import "./experience-page.css";
 export const metadata = {
   title: "Activities & Recreation | Corbett Treat Resort",
   description:
-    "Discover thrilling adventures and relaxing recreation at Corbett Treat Resort. From jungle safari in Jim Corbett National Park to pool table tennis, outdoor games.",
+    "Discover fun outdoor activities and relaxing games at Corbett Treat Resort. Book a jungle safari in Jim Corbett National Park, play pool, table tennis, and more.",
 };
 
 const ACTIVITIES = [
@@ -13,56 +13,56 @@ const ACTIVITIES = [
     id: 1,
     label: "Safari",
     title: "7 Zones of Jungle Safari",
-    desc: "Explore the wild heart of Jim Corbett National Park across 7 unique safari zones. Meet tigers, elephants, leopards, and beautiful wilderness environments.",
+    desc: "Explore Jim Corbett National Park across 7 different safari zones. See tigers, elephants, leopards, and beautiful forests.",
     image: "/assets/images/gallery/safari-gypsy-parked.jpeg",
   },
   {
     id: 2,
     label: "Swimming",
     title: "Luxury Swimming Pool",
-    desc: "Unwind or swim laps in our crystal-clear resort pool surrounded by nature, tall trees, and fresh forest air.",
+    desc: "Relax or swim in our clean resort pool surrounded by tall trees and fresh forest air.",
     image: "/assets/images/gallery/swimming-pool-sunset-view.jpeg",
   },
   {
     id: 3,
     label: "Cricket",
     title: "Lawn Cricket Ground",
-    desc: "Gather your group or family for a friendly match on our spacious green cricket lawn, custom-made for active leisure.",
+    desc: "Play a friendly cricket match with your family or friends on our big green lawn.",
     image: "/assets/images/gallery/garden-lawn-exterior-1.jpeg",
   },
   {
     id: 4,
     label: "Volleyball",
     title: "Volleyball Court",
-    desc: "Spike and serve on our dedicated outdoor volleyball court. Ideal for high-energy group activities and outdoor fun.",
+    desc: "Play volleyball on our outdoor court. It is perfect for group games and outdoor fun.",
     image: "/assets/images/gallery/sports-lawn-volleyball.jpeg",
   },
   {
     id: 5,
     label: "Badminton",
     title: "Badminton Court",
-    desc: "Enjoy a fast-paced game of badminton under the clear skies, set against our beautifully landscaped gardens.",
+    desc: "Enjoy a game of badminton under the clear sky, surrounded by our green gardens.",
     image: "/assets/images/gallery/garden-lawn-exterior-2.jpeg",
   },
   {
     id: 6,
     label: "Indoor Games",
     title: "Table Tennis & Board Games",
-    desc: "Head over to our recreation room for table tennis, carrom, chess, and card games. Perfect for keeping children and adults entertained.",
+    desc: "Visit our indoor games room for table tennis, carrom, chess, and board games. Fun for both kids and adults.",
     image: "/assets/images/gallery/indoor-games-room.jpeg",
   },
   {
     id: 7,
     label: "Play Area",
     title: "Kids&apos; Slides & Play Area",
-    desc: "A safe, fun-filled outdoor play area with slides, swings, and activities, perfect for keeping young adventurers entertained.",
+    desc: "A safe outdoor play area with slides, swings, and fun games to keep your children happy.",
     image: "/assets/images/gallery/garden-kids-play-area.jpeg",
   },
   {
     id: 8,
     label: "Photography",
     title: "Wildlife Photography",
-    desc: "Capture breathtaking frames of Jim Corbett&apos;s rich birdlife, deer, elephants, and rare flora in their pristine natural habitats.",
+    desc: "Take beautiful photos of Jim Corbett&apos;s birds, deer, elephants, and plants in the wild.",
     image: "/assets/images/gallery/safari-gypsy-front.jpeg",
   },
 ];

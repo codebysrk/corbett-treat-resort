@@ -127,33 +127,31 @@ const AboutSection = () => {
           <span className="about-label">About Us</span>
 
           <h2 className="about-heading">
-            A Legendary Welcome,
+            A Warm Welcome,
             <br />
             Every Time
           </h2>
 
           <div className="about-body-text">
             <p>
-              Corbett Treat Resort is a premium nature retreat situated in the
-              peaceful surroundings of Village Dhela, near the renowned Jim
-              Corbett National Park. Designed for travelers seeking both
-              adventure and comfort, the resort combines modern hospitality with
-              the raw beauty of the wilderness.
+              Corbett Treat Resort is a beautiful resort located in the
+              peaceful village Dhela, near the famous Jim
+              Corbett National Park. Designed for guests looking for both
+              fun and comfort, the resort combines modern amenities with
+              the natural beauty of the forest.
             </p>
             <p>
-              Whether you&apos;re planning a family vacation, romantic getaway,
-              wildlife expedition, destination wedding, or corporate retreat,
-              Corbett Treat Resort offers thoughtfully designed accommodations,
-              authentic dining experiences, exciting jungle safaris, and
-              personalized service. Surrounded by forests, open landscapes, and
-              abundant wildlife, every stay provides an opportunity to reconnect
-              with nature while enjoying luxury and relaxation.
+              Whether you are planning a family holiday, romantic trip,
+              wildlife safari, destination wedding, or corporate event,
+              Corbett Treat Resort offers comfortable rooms, delicious food,
+              exciting jungle safaris, and friendly service. Surrounded by green
+              forests and wild animals, you can easily relax and enjoy your
+              stay close to nature.
             </p>
             <p>
-              From early morning bird songs and thrilling safari adventures to
-              relaxing evenings by the pool and bonfire gatherings under the
-              stars, Corbett Treat Resort delivers a memorable experience that
-              captures the true spirit of Corbett.
+              From early morning bird songs and exciting safaris to
+              relaxing evenings by the pool and bonfires under the
+              stars, we make sure you have a wonderful stay in Jim Corbett.
             </p>
           </div>
 

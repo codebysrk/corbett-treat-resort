@@ -7,12 +7,12 @@ const AboutDedication = () => {
       <div className="about-dedication-container">
         
         <div className="about-dedication-content">
-          <span className="about-dedication-subtitle">Unmatched Resort Experience</span>
+          <span className="about-dedication-subtitle">Great Resort Experience</span>
           <h2 className="about-dedication-heading">
-            We are dedicated to crafting unforgettable memories, whether you are here for peaceful reflection or outdoor adventure.
+            We are dedicated to helping you make beautiful memories, whether you want to relax quietly or enjoy outdoor adventures.
           </h2>
           <p className="about-dedication-text">
-            Every detail at Corbett Treat Resort is curated to elevate your holiday. From our nature-inspired architectural layout to the organic ingredients in our dining hall, we commit to premium standards of service. We believe in providing a seamless blend of wild nature and cozy luxury.
+            Every detail at Corbett Treat Resort is planned to make your holiday special. From our green gardens to the fresh ingredients in our kitchen, we commit to high standards of service. We believe in giving you a relaxing stay close to wild nature.
           </p>
         </div>
 

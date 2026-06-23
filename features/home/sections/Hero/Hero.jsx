@@ -127,8 +127,8 @@ export default function Hero() {
             Stay Wrapped In Luxury.
           </h1>
           <p>
-            Nestled beside Jim Corbett National Park, experience premium stays,
-            immersive nature, curated adventures and unforgettable hospitality.
+            Located right next to Jim Corbett National Park, experience comfortable rooms,
+            beautiful nature, exciting safaris, and warm hospitality.
           </p>
         </div>
 

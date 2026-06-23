@@ -9,7 +9,7 @@ const AboutMission = () => {
         <div className="about-mission-block">
           <h3 className="about-mission-heading">Our Mission</h3>
           <p className="about-mission-text">
-            Our mission is to create memorable and meaningful experiences for every guest by offering warm hospitality, comfortable stays, and nature-inspired activities. We aim to provide a perfect blend of relaxation, adventure, and personalized service that connects our guests with the beauty of Corbett.
+            Our mission is to make sure you have a wonderful stay by offering warm hospitality, comfortable rooms, and fun outdoor activities. We aim to provide the perfect mix of rest, adventure, and friendly service that connects you with the beauty of Corbett.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ const AboutMission = () => {
         <div className="about-mission-block">
           <h3 className="about-mission-heading">Our Vision</h3>
           <p className="about-mission-text">
-            Our vision is to be the most loved nature resort in Jim Corbett—known for exceptional service, sustainable practices, and unforgettable guest experiences. We strive to inspire travelers to reconnect with nature while enjoying world-class comfort and care.
+            Our vision is to be the most loved nature resort in Jim Corbett—known for excellent service, green practices, and beautiful guest experiences. We strive to help travelers relax close to nature while enjoying comfortable rooms and care.
           </p>
         </div>
 

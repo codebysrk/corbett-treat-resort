@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BOOK_NOW_URL } from "@/constants";
-import { Button, Counter } from "@/components";
+import { Button} from "@/components";
 import "./AboutSection.css";
 
 /* ─── Decorative Mountain Sketch (SVG sub-component) ─── */
@@ -124,7 +124,7 @@ const AboutSection = () => {
       <div className="about-grid">
         {/* ─── Left: Text Content ─── */}
         <div className="about-text-col">
-          <span className="about-label">About Us</span>
+          {/* <span className="about-label">About Us</span> */}
 
           <h2 className="about-heading">
             A Warm Welcome,
@@ -176,7 +176,7 @@ const AboutSection = () => {
           {/* Back Image (Pool / Resort) */}
           <div className="about-img-back">
             <Image
-              src="/assets/images/gallery/swimming-pool-side-view.jpeg"
+              src="/assets/images/gallery/swimming-pool-sunset-view.jpeg"
               alt="Resort pool with scenic mountain view"
               fill
               sizes="(max-width: 48rem) 60vw, 35vw"
@@ -228,21 +228,7 @@ const AboutSection = () => {
       </div>
 
       {/* ─── Stats Counter Bar ─── */}
-      <div className="about-stats-bar">
-        {[
-          { label: "Guests Served", value: "5.0k+" },
-          { label: "Team Members", value: "50+" },
-          { label: "Rooms & Suites", value: "24+" },
-          { label: "Customer Satisfaction", value: "99%" },
-        ].map((stat) => (
-          <div key={stat.label} className="about-stat-item">
-            <span className="about-stat-label">{stat.label}</span>
-            <span className="about-stat-value">
-              <Counter value={stat.value} />
-            </span>
-          </div>
-        ))}
-      </div>
+
     </section>
   );
 };

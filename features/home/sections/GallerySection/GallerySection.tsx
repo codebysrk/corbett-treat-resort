@@ -21,7 +21,7 @@ const GallerySection = () => {
           {/* Column 1 */}
           <div className="gallery-col col-1">
             <div className="gallery-img-wrapper">
-              <Image src="/assets/images/gallery/resort-pathway-hedges.jpeg" alt="Resort Pathway" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw" className="gallery-img" />
+              <Image src="/assets/images/gallery/swimming-pool.jpeg" alt="Swimming Pool" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw" className="gallery-img" />
             </div>
           </div>
 
@@ -55,7 +55,7 @@ const GallerySection = () => {
           {/* Column 5 */}
           <div className="gallery-col col-5">
             <div className="gallery-img-wrapper">
-              <Image src="/assets/images/gallery/swimming-pool.jpeg" alt="Swimming Pool" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw" className="gallery-img" />
+              <Image src="/assets/images/gallery/resort-pathway-hedges.jpeg" alt="Resort Pathway" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw" className="gallery-img" />
             </div>
           </div>
 

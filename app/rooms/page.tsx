@@ -1,6 +1,4 @@
-import { ClientShell, Footer } from "@/components";
-import Image from "next/image";
-import RoomCard from "./RoomCard";
+import { ClientShell, Footer, RoomsHero, RoomsList } from "@/components";
 import "./rooms-page.css";
 
 export const metadata = {
@@ -98,38 +96,8 @@ export default function RoomsPage() {
       <ClientShell />
 
       <main className="rooms-page-main">
-        {/* Hero */}
-        <section className="rooms-hero">
-          <div className="rooms-hero-bg">
-            <Image
-              src="/assets/images/gallery/bedroom-suite-2.jpeg"
-              alt="Luxury room at Corbett Treat Resort"
-              fill
-              sizes="100vw"
-              priority
-              style={{ objectFit: "cover" }}
-            />
-            <div className="rooms-hero-overlay" />
-          </div>
-          <div className="rooms-hero-content">
-            <span className="rooms-hero-eyebrow">Our Accommodations</span>
-            <h1 className="rooms-hero-title">Rooms &amp; Suites</h1>
-            <p className="rooms-hero-desc">
-              Each stay combines rustic charm with premium comfort — private
-              balconies, lush views, and the sounds of the Corbett wilderness
-              right at your doorstep.
-            </p>
-          </div>
-        </section>
-
-        {/* Room Cards */}
-        <section className="rooms-list-section">
-          <div className="rooms-list-grid">
-            {ROOMS.map((room) => (
-              <RoomCard key={room.id} room={room} />
-            ))}
-          </div>
-        </section>
+        <RoomsHero />
+        <RoomsList rooms={ROOMS} />
       </main>
 
       <Footer />

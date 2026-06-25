@@ -1,4 +1,4 @@
-import { ClientShell, GalleryGrid, Footer } from "@/components";
+import { ClientShell, GalleryGrid, Footer, GalleryHero } from "@/components";
 import "./gallery-page.css";
 
 export const metadata = {
@@ -15,20 +15,7 @@ export default function GalleryPage() {
       <ClientShell />
 
       <main className="gallery-page-main">
-        <section className="gallery-hero-header">
-          <div className="gallery-hero-container">
-            <span className="gallery-hero-subtitle">VISUAL JOURNEY</span>
-            <h1 className="gallery-hero-title">Our Gallery</h1>
-            <div className="gallery-hero-divider">
-              <span className="divider-line"></span>
-              <span className="divider-icon">✿</span>
-              <span className="divider-line"></span>
-            </div>
-            <p className="gallery-hero-desc">
-              Explore the captivating beauty of our resort, standard accommodations, wild safaris, and fine dining experiences in the heart of Corbett.
-            </p>
-          </div>
-        </section>
+        <GalleryHero />
 
         <section className="gallery-grid-section">
           <GalleryGrid />

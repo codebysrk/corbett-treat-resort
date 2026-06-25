@@ -1,5 +1,4 @@
-import { ClientShell, Footer} from "@/components";
-import Image from "next/image";
+import { ClientShell, Footer, ExperienceHero, ExperienceActivities } from "@/components";
 import "./experience-page.css";
 
 export const metadata = {
@@ -78,51 +77,8 @@ export default function ExperiencePage() {
       <ClientShell />
 
       <main className="experience-page-main">
-        {/* Hero */}
-        <section className="experience-hero">
-          <div className="experience-hero-bg">
-            <Image
-              src="/assets/images/gallery/safari-gypsy-parked.jpeg"
-              alt="Jungle Safari Gypsy at Corbett"
-              fill
-              sizes="100vw"
-              priority
-              style={{ objectFit: "cover" }}
-            />
-            <div className="experience-hero-overlay" />
-          </div>
-          <div className="experience-hero-content">
-            <span className="experience-hero-eyebrow">Adventures &amp; Fun</span>
-            <h1 className="experience-hero-title">Activities &amp; Recreation</h1>
-            <p className="experience-hero-desc">
-              From adrenaline-pumping jungle safaris to peaceful outdoor sports and indoor recreation — find your perfect balance of adventure and relaxation.
-            </p>
-          </div>
-        </section>
-
-        {/* Activities List */}
-        <section className="experience-list-section">
-          <div className="experience-grid">
-            {ACTIVITIES.map((act) => (
-              <div className="experience-card" key={act.id}>
-                <div className="experience-img-wrap">
-                  <Image
-                    src={act.image}
-                    alt={act.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <span className="experience-badge">{act.label}</span>
-                </div>
-                <div className="experience-card-body">
-                  <h3 className="experience-card-title">{act.title}</h3>
-                  <p className="experience-card-desc">{act.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </section>
+        <ExperienceHero />
+        <ExperienceActivities activities={ACTIVITIES} />
       </main>
 
       <Footer />

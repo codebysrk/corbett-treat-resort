@@ -17,13 +17,12 @@ export default function Home() {
       <main>
         <Hero />
         <AboutSection />
+        <GallerySection />
         <RoomsShowcase />
         <DiningSection />
         <Amenities />
         <ActivitiesSection />
         <EventsSection />
-        <GallerySection />
-        {/* <PlacesToVisit /> */}
       </main>
 
       <Footer />

@@ -4,12 +4,11 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Preloader, Navbar, OverlayMenu, FloatingContact } from "@/components";
+import { Preloader, Header, FloatingContact } from "@/components";
 
 export default function ClientShell() {
   const [preloaderActive, setPreloaderActive] = useState(true);
   const [preloaderMounted, setPreloaderMounted] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -159,8 +158,7 @@ export default function ClientShell() {
   return (
     <>
       {preloaderMounted && <Preloader active={preloaderActive} />}
-      <Navbar onMenuOpen={() => setIsMenuOpen(true)} />
-      <OverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <Header />
       <FloatingContact />
     </>
   );

@@ -1,4 +1,4 @@
-import { ClientShell, AboutHero, AboutIntro, AboutStats, AboutMission, AboutDedication, Footer } from "@/components";
+import { ClientShell, AboutHero, AboutIntro, AboutMission, AboutDedication, Footer } from "@/components";
 
 export const metadata = {
   title: "About Us | Corbett Treat Resort",
@@ -16,7 +16,6 @@ export default function AboutPage() {
       <main className="about-page-main" style={{ backgroundColor: "#faf8f5", color: "#222222" }}>
         <AboutHero />
         <AboutIntro />
-        <AboutStats />
         <AboutMission />
         <AboutDedication />
       </main>

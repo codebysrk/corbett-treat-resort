@@ -13,7 +13,7 @@ export default function ActivitiesSection() {
           {/* Left Column: Image */}
           <div className="act-image-pane">
             <Image
-              src="/assets/images/activity/playing-kids.jpg"
+              src="/assets/images/activity/playing-kids.jpeg"
               alt="Kids playing in resort garden playground"
               width={650}
               height={450}
@@ -30,15 +30,13 @@ export default function ActivitiesSection() {
               Adventures <em>&amp;</em> Recreation
             </h2>
             <p className="act-body">
-              Enjoy exciting activities for all ages, including Swimming Pool, Volleyball, Cricket, Badminton, Table Tennis, Kids&apos; Slides, Jungle Safari, and Wildlife Photography—perfect for fun, adventure, and relaxation during your stay.
+              Enjoy exciting activities for all ages, including Swimming Pool, Volleyball, Cricket,
+              Badminton, Table Tennis, Kids&apos; Slides, Jungle Safari, and Wildlife
+              Photography—perfect for fun, adventure, and relaxation during your stay.
             </p>
-            
+
             <div className="act-action-btn">
-              <Button
-                href="/experience"
-                variant="primary"
-                size="large"
-              >
+              <Button href="/experience" variant="primary" size="large">
                 Explore All Activities
               </Button>
             </div>

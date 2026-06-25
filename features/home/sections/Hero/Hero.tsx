@@ -15,7 +15,11 @@ export default function Hero() {
   useEffect(() => {
     // Detect mobile device layout
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (!mobile) {
+        setCurrentSlide(1);
+      }
     };
 
     // Run on mount
@@ -62,27 +66,28 @@ export default function Hero() {
   return (
     <header className="hero" ref={containerRef}>
       <div className="video-background">
-        {/* Video Slide (Slide 0) */}
-        <video
-          ref={videoRef}
-          key={isMobile ? "mobile" : "desktop"}
-          autoPlay
-          muted
-          playsInline
-          poster="/assets/images/gallery/hero-poster.png"
-          preload="auto"
-          onEnded={() => setCurrentSlide(1)}
-          className={`hero-media-element ${currentSlide === 0 ? "active" : ""}`}
-        >
-          <source
-            src="/assets/videos/wild-animal.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
+        {/* Video Slide (Slide 0) - Only on mobile */}
+        {isMobile && (
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            playsInline
+            poster="/assets/images/gallery/hero-poster.png"
+            preload="auto"
+            onEnded={() => setCurrentSlide(1)}
+            className={`hero-media-element ${currentSlide === 0 ? "active" : ""}`}
+          >
+            <source
+              src="/assets/videos/wild-animal.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        )}
 
         {/* Image Slide 1: Swimming Pool */}
-        <div className={`hero-media-element image-slide ${currentSlide === 1 ? "active" : ""}`}>
+        <div className={`hero-media-element image-slide ${currentSlide === 1 || (currentSlide === 0 && !isMobile) ? "active" : ""}`}>
           <Image
             src="/assets/images/gallery/swimming-pool.jpeg"
             alt="Natural Swimming Pool"

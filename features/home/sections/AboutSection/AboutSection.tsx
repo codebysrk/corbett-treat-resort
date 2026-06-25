@@ -174,6 +174,7 @@ const AboutSection = () => {
         {/* ─── Right: Image Stack ─── */}
         <div className="about-image-stack">
           {/* Back Image (Pool / Resort) */}
+          {/*
           <div className="about-img-back">
             <Image
               src="/assets/images/gallery/swimming-pool-sunset-view.jpeg"
@@ -184,6 +185,7 @@ const AboutSection = () => {
             />
             <ExperienceBadge />
           </div>
+          */}
 
           {/* Front Video (Jungle / Safari) with Autoplay */}
           <div className="about-img-front">

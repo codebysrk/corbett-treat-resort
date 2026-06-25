@@ -3,8 +3,8 @@
    ============================================= */
 
 .act-section {
-  background-color: #FAF9F6;
-  border-bottom: 1px solid #e5dcc6;
+  background-color: var(--color-bg-warm, #faf8f5);
+  border-bottom: 1px solid var(--border-light, #e8e3d9);
   padding: 6rem 0;
   width: 100%;
 }
@@ -73,7 +73,7 @@
 .act-body {
   font-family: var(--font-poppins), sans-serif;
   font-size: 0.9rem;
-  color: var(--text-body, #555555);
+  color: var(--text-body, #55524c);
   line-height: 1.75;
   font-weight: 300;
   margin-bottom: 2rem;

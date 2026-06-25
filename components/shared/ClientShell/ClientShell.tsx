@@ -34,9 +34,12 @@ export default function ClientShell() {
 
       const ctx = gsap.context(() => {
         // 1. Section Title / Main Heading Reveal
-        const headings = document.querySelectorAll(
-          "h1, h2, .about-heading, .amenities-title, .section-title, .gallery-hero-title, .rooms-hero-title, .dining-hero-title, .experience-hero-title, .events-hero-title"
-        );
+        const headings = Array.from(
+          document.querySelectorAll(
+            "h1, h2, .about-heading, .amenities-title, .section-title, .gallery-hero-title, .rooms-hero-title, .dining-hero-title, .experience-hero-title, .events-hero-title"
+          )
+        ).filter((el) => !el.closest(".act-section"));
+
         headings.forEach((heading) => {
           gsap.fromTo(
             heading,
@@ -56,9 +59,12 @@ export default function ClientShell() {
         });
 
         // 2. Subtitles / Eyebrow Labels
-        const labels = document.querySelectorAll(
-          ".about-label, .amenities-subtitle, .gallery-hero-subtitle, .facilities-hero-eyebrow, .section-eyebrow, .dining-hero-eyebrow, .experience-hero-eyebrow, .rooms-hero-eyebrow"
-        );
+        const labels = Array.from(
+          document.querySelectorAll(
+            ".about-label, .amenities-subtitle, .gallery-hero-subtitle, .facilities-hero-eyebrow, .section-eyebrow, .dining-hero-eyebrow, .experience-hero-eyebrow, .rooms-hero-eyebrow"
+          )
+        ).filter((el) => !el.closest(".act-section"));
+
         labels.forEach((label) => {
           gsap.fromTo(
             label,
@@ -79,9 +85,12 @@ export default function ClientShell() {
         });
 
         // 3. Staggered Grid Cards (Aesthetic reveal)
-        const gridContainers = document.querySelectorAll(
-          ".amenities-grid, .rooms-grid, .facilities-grid, .events-grid, .activities-grid, .dining-grid"
-        );
+        const gridContainers = Array.from(
+          document.querySelectorAll(
+            ".amenities-grid, .rooms-grid, .facilities-grid, .events-grid, .activities-grid, .dining-grid"
+          )
+        ).filter((el) => !el.closest(".act-section"));
+
         gridContainers.forEach((container) => {
           const cards = container.children;
           if (cards.length > 0) {
@@ -106,9 +115,12 @@ export default function ClientShell() {
         });
 
         // 4. Parallax Image scale-down effects
-        const images = document.querySelectorAll(
-          ".about-image-stack img, .dining-img-wrap img, .facility-img-wrap img, .room-image img, .hero-bg img, .accommodation-left-image-wrap img, .accommodation-right-image-wrap img"
-        );
+        const images = Array.from(
+          document.querySelectorAll(
+            ".about-image-stack img, .dining-img-wrap img, .facility-img-wrap img, .room-image img, .hero-bg img, .accommodation-left-image-wrap img, .accommodation-right-image-wrap img"
+          )
+        ).filter((el) => !el.closest(".act-section"));
+
         images.forEach((img) => {
           gsap.fromTo(
             img,
@@ -126,9 +138,12 @@ export default function ClientShell() {
         });
 
         // 5. Description Paragraphs fade
-        const paragraphs = document.querySelectorAll(
-          ".about-body-text p, .amenities-description, .facilities-hero-desc, .dining-hero-desc, .experience-hero-desc, .rooms-hero-desc, .accommodation-desc-text"
-        );
+        const paragraphs = Array.from(
+          document.querySelectorAll(
+            ".about-body-text p, .amenities-description, .facilities-hero-desc, .dining-hero-desc, .experience-hero-desc, .rooms-hero-desc, .accommodation-desc-text"
+          )
+        ).filter((el) => !el.closest(".act-section"));
+
         paragraphs.forEach((p) => {
           gsap.fromTo(
             p,

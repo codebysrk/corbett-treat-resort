@@ -1,13 +1,78 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./ActivitiesSection.css";
 
 export default function ActivitiesSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // Heading reveal
+      gsap.fromTo(
+        ".act-heading",
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".act-heading",
+            start: "top 88%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      // Eyebrow reveal
+      gsap.fromTo(
+        ".act-eyebrow",
+        { opacity: 0, y: -20, letterSpacing: "0.15em" },
+        {
+          opacity: 1,
+          y: 0,
+          letterSpacing: "0.3em",
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".act-eyebrow",
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      // Body text & Button reveal
+      gsap.fromTo(
+        [".act-body", ".act-action-btn"],
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".act-body",
+            start: "top 92%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="act-section" id="experience">
+    <section className="act-section" id="experience" ref={sectionRef}>
       <div className="act-container">
         <div className="act-split-layout">
           {/* Left Column: Image */}

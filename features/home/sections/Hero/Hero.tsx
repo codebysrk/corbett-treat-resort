@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Hero.css";
 import Image from "next/image";
 import { Button } from "@/components";
@@ -28,6 +29,30 @@ export default function Hero() {
     // Listen to viewport changes
     window.addEventListener("resize", checkMobile);
 
+    gsap.registerPlugin(ScrollTrigger);
+
+    const trigger = ScrollTrigger.create({
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      onLeave: () => {
+        if (videoRef.current) {
+          const video = videoRef.current as HTMLVideoElement;
+          video.pause();
+          video.muted = true;
+        }
+      },
+      onEnterBack: () => {
+        if (videoRef.current) {
+          const video = videoRef.current as HTMLVideoElement;
+          if (video.classList.contains("active")) {
+            video.muted = false;
+            video.play().catch((err) => console.log("Autoplay blocked on scroll back:", err));
+          }
+        }
+      },
+    });
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         [".hero-eyebrow", ".hero-title", ".main-text p", ".hero-action"],
@@ -48,6 +73,7 @@ export default function Hero() {
 
     return () => {
       ctx.revert();
+      trigger.kill();
       window.removeEventListener("resize", checkMobile);
     };
   }, []);
@@ -71,7 +97,7 @@ export default function Hero() {
           <video
             ref={videoRef}
             autoPlay
-            muted
+            muted={false}
             playsInline
             poster="/assets/images/gallery/hero-poster.png"
             preload="auto"

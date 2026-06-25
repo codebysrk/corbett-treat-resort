@@ -80,7 +80,7 @@ const ExperienceBadge = () => (
 const AboutSection = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isFading, setIsFading] = useState(false);
-  const [videoSrc, setVideoSrc] = useState("/assets/videos/corbett-vertical-hero-video.mp4");
+  const [videoSrc, setVideoSrc] = useState("/assets/videos/corbett.mp4");
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {

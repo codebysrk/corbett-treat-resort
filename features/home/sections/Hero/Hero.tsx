@@ -86,6 +86,22 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, [currentSlide]);
 
+  // Handle autoplay policies by falling back to muted if unmuted is blocked by browser
+  useEffect(() => {
+    if (videoRef.current && currentSlide === 0) {
+      const video = videoRef.current as HTMLVideoElement;
+      video.muted = false;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log("Autoplay unmuted blocked. Playing muted fallback.", error);
+          video.muted = true;
+          video.play().catch((err) => console.log("Autoplay failed completely:", err));
+        });
+      }
+    }
+  }, [currentSlide]);
+
   return (
     <header className="hero" ref={containerRef}>
       <div className="video-background">

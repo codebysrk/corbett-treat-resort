@@ -80,21 +80,7 @@ const ExperienceBadge = () => (
 const AboutSection = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isFading, setIsFading] = useState(false);
-  const [videoSrc, setVideoSrc] = useState("/assets/videos/corbett.mp4");
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setVideoSrc("/assets/videos/wild-animal.mp4");
-      } else {
-        setVideoSrc("/assets/videos/corbett.mp4");
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   // Fade out slightly before the video ends
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
@@ -204,10 +190,9 @@ const AboutSection = () => {
           {/* Front Video (Jungle / Safari) with Autoplay */}
           <div className="about-img-front">
             <video
-              key={videoSrc}
               ref={videoRef}
               className={`about-video-player ${isFading ? "is-fading" : ""}`}
-              src={videoSrc}
+              src="/assets/videos/corbett.mp4"
               autoPlay
               muted={isMuted}
               playsInline

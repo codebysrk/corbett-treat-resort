@@ -3,19 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-interface Room {
-  id: string;
-  name: string;
-  type: string;
-  description: string;
-  image: string;
-  gallery: string[];
-  bed: string;
-  view: string;
-  size: string;
-  guests: string;
-  amenities: string[];
-}
+import { Room } from "@/lib/types";
 
 export default function RoomCard({ room }: { room: Room }) {
   const [activeImage, setActiveImage] = useState(room.image);

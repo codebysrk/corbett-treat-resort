@@ -100,12 +100,13 @@
   display: flex;
   gap: 1.25rem;
   align-items: flex-start;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s ease-out, box-shadow 0.35s ease-out, border-color 0.35s ease-out;
 }
 
 .facility-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(30, 61, 47, 0.12);
+  border-color: var(--primary-gold, #c8ae86);
 }
 
 .facility-icon-container {
@@ -117,6 +118,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.35s ease-out;
+}
+
+.facility-card:hover .facility-icon-container {
+  background-color: var(--primary-gold, #c8ae86);
 }
 
 .facility-icon {
@@ -125,6 +131,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.5s ease-out;
+}
+
+.facility-card:hover .facility-icon {
+  transform: rotate(360deg) scale(1.25);
+  color: var(--primary-green, #1e3d2f);
 }
 
 .facility-card-body {

@@ -1,7 +1,4 @@
 "use client";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Amenities.css";
 import Image from "next/image";
 import { RiPlantLine, RiMusic2Line } from "react-icons/ri";
@@ -16,58 +13,8 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 const Amenities = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      // Header animations
-      gsap.fromTo(
-        [
-          ".amenities-subtitle",
-          ".amenities-divider",
-          ".amenities-title",
-          ".amenities-title-sub",
-          ".amenities-description",
-        ],
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          stagger: 0.12,
-          scrollTrigger: {
-            trigger: ".amenities-header",
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-
-      // Grid Cards stagger reveal
-      gsap.fromTo(
-        ".amenity-card",
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          stagger: 0.15,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".amenities-grid",
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section className="amenities-section" id="facilities" ref={sectionRef}>
+    <section className="amenities-section" id="facilities">
       <div className="amenities-container">
         
         <div className="amenities-header">

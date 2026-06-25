@@ -12,7 +12,6 @@
 .amenities-title-sub,
 .amenities-description,
 .amenity-card {
-  opacity: 0;
   will-change: transform, opacity;
 }
 

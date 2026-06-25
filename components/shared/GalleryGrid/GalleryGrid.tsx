@@ -13,7 +13,6 @@ import {
 import { ALL_GALLERY_IMAGES } from "@/constants";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import "./GalleryGrid.css";
-import gsap from "gsap";
 
 const CATEGORIES = [
   { id: "all", label: "ALL" },
@@ -46,52 +45,6 @@ export default function GalleryGrid() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(".filter-btn", 
-        { y: 20, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          stagger: 0.05,
-          ease: "power2.out"
-        }
-      );
-      
-      const validItems = itemsRef.current.filter(Boolean);
-      if (validItems.length > 0) {
-        gsap.fromTo(
-          validItems,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            stagger: 0.1,
-            ease: "power2.out"
-          }
-        );
-      }
-    }, containerRef);
-    
-    return () => ctx.revert();
-  }, [mounted]);
-
-  // Animation when category changes
-  useEffect(() => {
-    const validItems = itemsRef.current.filter(Boolean);
-    if (validItems.length > 0) {
-      gsap.fromTo(
-        validItems,
-        { scale: 0.9, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.5, stagger: 0.05, ease: "power2.out", overwrite: true }
-      );
-    }
-  }, [activeCategory, filteredImages.length]);
 
 
   const closeLightbox = () => {

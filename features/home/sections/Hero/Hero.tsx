@@ -1,7 +1,5 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Hero.css";
 import Image from "next/image";
 import { Button } from "@/components";
@@ -26,51 +24,31 @@ export default function Hero() {
     // Listen to viewport changes
     window.addEventListener("resize", checkMobile);
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    const trigger = ScrollTrigger.create({
-      trigger: ".hero",
-      start: "top top",
-      end: "bottom top",
-      onLeave: () => {
-        if (videoRef.current) {
-          const video = videoRef.current as HTMLVideoElement;
-          video.pause();
-          video.muted = true;
-        }
-      },
-      onEnterBack: () => {
-        if (videoRef.current) {
-          const video = videoRef.current as HTMLVideoElement;
-          if (video.classList.contains("active")) {
-            video.muted = false;
-            video.play().catch((err) => console.log("Autoplay blocked on scroll back:", err));
+    // Native IntersectionObserver to pause video when scrolled out of view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (videoRef.current) {
+            const video = videoRef.current as HTMLVideoElement;
+            if (!entry.isIntersecting) {
+              video.pause();
+            } else {
+              if (video.classList.contains("active")) {
+                video.play().catch((err) => console.log("Autoplay blocked on scroll back:", err));
+              }
+            }
           }
-        }
+        });
       },
-    });
+      { threshold: 0.1 }
+    );
 
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        [".hero-eyebrow", ".hero-title", ".main-text p", ".hero-action"],
-        {
-          opacity: 0,
-          y: 40,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          stagger: 0.15,
-          ease: "power3.out",
-          delay: 0.2,
-        }
-      );
-    }, containerRef);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
 
     return () => {
-      ctx.revert();
-      trigger.kill();
+      observer.disconnect();
       window.removeEventListener("resize", checkMobile);
     };
   }, []);
@@ -86,22 +64,6 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, [currentSlide]);
 
-  // Handle autoplay policies by falling back to muted if unmuted is blocked by browser
-  useEffect(() => {
-    if (videoRef.current && currentSlide === 0) {
-      const video = videoRef.current as HTMLVideoElement;
-      video.muted = false;
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.log("Autoplay unmuted blocked. Playing muted fallback.", error);
-          video.muted = true;
-          video.play().catch((err) => console.log("Autoplay failed completely:", err));
-        });
-      }
-    }
-  }, [currentSlide]);
-
   return (
     <header className="hero" ref={containerRef}>
       <div className="video-background">
@@ -109,7 +71,7 @@ export default function Hero() {
         <video
           ref={videoRef}
           autoPlay
-          muted={false}
+          muted
           playsInline
           poster="/assets/images/gallery/hero-poster.png"
           preload="auto"

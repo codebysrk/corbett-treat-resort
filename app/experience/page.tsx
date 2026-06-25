@@ -1,4 +1,4 @@
-import { ClientShell, Footer, ExperienceHero, ExperienceActivities } from "@/components";
+import { ExperienceHero, ExperienceActivities } from "@/components";
 import "./experience-page.css";
 
 export const metadata = {
@@ -74,14 +74,11 @@ export default function ExperiencePage() {
 
   return (
     <>
-      <ClientShell />
-
       <main className="experience-page-main">
         <ExperienceHero />
         <ExperienceActivities activities={ACTIVITIES} />
       </main>
 
-      <Footer />
-    </>
+      </>
   );
 }

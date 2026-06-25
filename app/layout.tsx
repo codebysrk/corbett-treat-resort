@@ -1,5 +1,6 @@
 import { Cormorant_Garamond, Poppins, Playfair_Display } from "next/font/google";
 import SmoothScroll from "@/components/shared/SmoothScroll/SmoothScroll";
+import { ClientShell, Footer } from "@/components";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -109,7 +110,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })
           }}
         />
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <ClientShell />
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import { ClientShell, GalleryGrid, Footer, GalleryHero } from "@/components";
+import { GalleryGrid, GalleryHero } from "@/components";
 import "./gallery-page.css";
 
 export const metadata = {
@@ -12,8 +12,6 @@ export const metadata = {
 export default function GalleryPage() {
   return (
     <>
-      <ClientShell />
-
       <main className="gallery-page-main">
         <GalleryHero />
 
@@ -22,7 +20,6 @@ export default function GalleryPage() {
         </section>
       </main>
 
-      <Footer />
-    </>
+      </>
   );
 }

@@ -1,4 +1,4 @@
-import { ClientShell, Footer, ContactHero, ContactInfoStrip, ContactMapSocial } from "@/components";
+import { ContactHero, ContactInfoStrip, ContactMapSocial } from "@/components";
 import {
   RiInstagramLine,
   RiFacebookCircleLine,
@@ -25,8 +25,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <ClientShell />
-
       <main className="cp-main">
         <ContactHero />
         <ContactInfoStrip
@@ -40,7 +38,6 @@ export default function ContactPage() {
         />
       </main>
 
-      <Footer />
-    </>
+      </>
   );
 }

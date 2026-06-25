@@ -1,4 +1,4 @@
-import { ClientShell, Footer, FacilitiesHero } from "@/components";
+import { FacilitiesHero } from "@/components";
 import FacilitiesClient from "./FacilitiesClient";
 import "./facilities-page.css";
 
@@ -14,15 +14,12 @@ export const metadata = {
 export default function FacilitiesPage() {
   return (
     <>
-      <ClientShell />
-
       <main className="facilities-page-main">
         <FacilitiesHero />
 
         <FacilitiesClient />
       </main>
 
-      <Footer />
-    </>
+      </>
   );
 }

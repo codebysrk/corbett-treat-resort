@@ -1,4 +1,4 @@
-import { ClientShell, Footer, DiningHero, DiningContent } from "@/components";
+import { DiningHero, DiningContent } from "@/components";
 import "./dining-page.css";
 
 export const metadata = {
@@ -15,14 +15,11 @@ export default function DiningPage() {
 
   return (
     <>
-      <ClientShell />
-
       <main className="dining-page-main">
         <DiningHero />
         <DiningContent whatsappUrl={whatsappUrl} />
       </main>
 
-      <Footer />
-    </>
+      </>
   );
 }

@@ -1,4 +1,4 @@
-import { ClientShell, Footer, Button } from "@/components";
+import { Button } from "@/components";
 import Image from "next/image";
 import { RiGroupLine } from "react-icons/ri";
 import "./events-page.css";
@@ -77,8 +77,6 @@ export default function EventsPage() {
 
   return (
     <>
-      <ClientShell />
-
       <main className="events-page-main">
         {/* Hero */}
         <section className="events-hero">
@@ -131,7 +129,6 @@ export default function EventsPage() {
         </section>
       </main>
 
-      <Footer />
-    </>
+      </>
   );
 }

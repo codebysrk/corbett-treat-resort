@@ -1,4 +1,4 @@
-import { ClientShell, Footer, RoomsHero, RoomsList } from "@/components";
+import { RoomsHero, RoomsList } from "@/components";
 import "./rooms-page.css";
 
 export const metadata = {
@@ -93,14 +93,11 @@ const ROOMS = [
 export default function RoomsPage() {
   return (
     <>
-      <ClientShell />
-
       <main className="rooms-page-main">
         <RoomsHero />
         <RoomsList rooms={ROOMS} />
       </main>
 
-      <Footer />
-    </>
+      </>
   );
 }

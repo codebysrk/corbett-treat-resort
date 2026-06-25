@@ -1,5 +1,5 @@
 
-import { ClientShell, Footer } from "@/components";
+
 import Hero from "@/features/home/sections/Hero";
 import AboutSection from "@/features/home/sections/AboutSection";
 import RoomsShowcase from "@/features/home/sections/RoomsShowcase";
@@ -12,8 +12,6 @@ import GallerySection from "@/features/home/sections/GallerySection";
 export default function Home() {
   return (
     <>
-      <ClientShell />
-
       <main>
         <Hero />
         <AboutSection />
@@ -25,7 +23,6 @@ export default function Home() {
         <EventsSection />
       </main>
 
-      <Footer />
-    </>
+      </>
   );
 }

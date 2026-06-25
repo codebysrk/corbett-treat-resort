@@ -88,7 +88,7 @@ const AboutSection = () => {
       if (window.innerWidth <= 768) {
         setVideoSrc("/assets/videos/wild-animal.mp4");
       } else {
-        setVideoSrc("/assets/videos/corbett-vertical-hero-video.mp4");
+        setVideoSrc("/assets/videos/corbett.mp4");
       }
     };
     handleResize();

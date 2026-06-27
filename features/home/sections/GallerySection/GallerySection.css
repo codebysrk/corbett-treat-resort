@@ -1,5 +1,5 @@
 .gallery-section {
-  background-color: var(--bg-color); /* Sand warm cream */
+  background-color: var(--bg-color); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,7 +53,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem; /* Small gap between columns */
+  gap: 0.75rem; 
   width: 100%;
   margin-bottom: 1.875rem;
 }
@@ -65,7 +65,7 @@
   flex: 1;
 }
 
-/* The center column is slightly wider */
+
 .col-3 {
   flex: 1.3;
 }
@@ -87,18 +87,18 @@
   transform: scale(1.05);
 }
 
-/* Staggering and Heights */
 
-/* Far left */
+
+
 .col-1 {
   justify-content: center;
 }
 .col-1 .gallery-img-wrapper {
   aspect-ratio: 1 / 1;
-  transform: translateY(2.5rem); /* shifted down */
+  transform: translateY(2.5rem); 
 }
 
-/* Left middle stacked */
+
 .col-2 .gallery-img-wrapper:first-child {
   aspect-ratio: 4 / 3.5;
 }
@@ -106,12 +106,12 @@
   aspect-ratio: 4 / 3.5;
 }
 
-/* Center tall */
+
 .col-3 .gallery-img-wrapper.tall {
-  aspect-ratio: 3 / 4.2; /* Tall rectangle */
+  aspect-ratio: 3 / 4.2; 
 }
 
-/* Right middle stacked */
+
 .col-4 .gallery-img-wrapper:first-child {
   aspect-ratio: 4 / 3.5;
 }
@@ -119,16 +119,16 @@
   aspect-ratio: 4 / 3.5;
 }
 
-/* Far right */
+
 .col-5 {
   justify-content: center;
 }
 .col-5 .gallery-img-wrapper {
   aspect-ratio: 1 / 1;
-  transform: translateY(-2.5rem); /* shifted up */
+  transform: translateY(-2.5rem); 
 }
 
-/* Decorative Dots */
+
 .gallery-dots {
   display: flex;
   justify-content: center;
@@ -148,7 +148,7 @@
   background-color: var(--primary-gold);
 }
 
-/* See More Button */
+
 .gallery-footer {
   text-align: center;
 }
@@ -176,7 +176,7 @@
   transform: translateY(-0.125rem);
 }
 
-/* Responsive */
+
 @media (max-width: 1024px) {
   .gallery-section {
     padding: 3.75rem 3%;
@@ -185,7 +185,7 @@
     font-size: 2.8rem;
   }
   .gallery-layout {
-    gap: 0.5rem; /* Smaller gaps */
+    gap: 0.5rem; 
   }
   .gallery-col {
     gap: 0.5rem;
@@ -208,7 +208,7 @@
     font-size: 0.92rem;
   }
 
-  /* Convert the 5-column flex layout into a 2-column grid */
+  
   .gallery-layout {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -216,12 +216,12 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Make column wrappers transparent to the grid */
+  
   .gallery-col {
     display: contents;
   }
 
-  /* Reset all desktop transforms and aspect ratios */
+  
   .gallery-img-wrapper {
     position: relative;
     width: 100%;
@@ -230,13 +230,13 @@
     border-radius: 6px;
   }
 
-  /* First image spans full width as a hero banner */
+  
   .col-1 .gallery-img-wrapper {
     grid-column: span 2;
     aspect-ratio: 16 / 9 !important;
   }
 
-  /* Center tall image also spans full width */
+  
   .col-3 .gallery-img-wrapper.tall {
     grid-column: span 2;
     aspect-ratio: 16 / 9 !important;

@@ -10,9 +10,9 @@ export default function ClientShell() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Hide preloader immediately on mount (hydration complete)
+    
     setPreloaderActive(false);
-    // Allow time for CSS fade-out transition (e.g., 800ms) before unmounting
+    
     const unmountTimer = setTimeout(() => setPreloaderMounted(false), 800);
     return () => {
       clearTimeout(unmountTimer);

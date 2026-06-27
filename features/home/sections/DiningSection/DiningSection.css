@@ -1,6 +1,4 @@
-/* ═══════════════════════════════════════════════════════════
-   DINING SECTION — Side-by-side Simple Layout
-   ═══════════════════════════════════════════════════════════ */
+
 
 .dining-section {
   padding: 6rem 0;
@@ -31,7 +29,7 @@
   }
 }
 
-/* Left Column: Image */
+
 .dining-image-pane {
   position: relative;
   overflow: hidden;
@@ -56,7 +54,7 @@
   transform: scale(1.03);
 }
 
-/* Right Column: Info */
+
 .dining-info-pane {
   display: flex;
   flex-direction: column;

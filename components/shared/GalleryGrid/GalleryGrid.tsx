@@ -40,9 +40,9 @@ export default function GalleryGrid() {
     ? ALL_GALLERY_IMAGES 
     : ALL_GALLERY_IMAGES.filter(img => img.category === activeCategory);
 
-  // Set mounted flag on client
+  
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    
     setMounted(true);
   }, []);
 
@@ -88,8 +88,8 @@ export default function GalleryGrid() {
       document.body.style.overflow = "";
       document.documentElement.classList.remove("menu-open");
     }
-    // Only reset state if they have changed to prevent infinite loops / cascade renders
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    
+    
     setScale((prev) => (prev !== 1 ? 1 : prev));
     setPosition((prev) => (prev.x !== 0 || prev.y !== 0 ? { x: 0, y: 0 } : prev));
     setIsDragging((prev) => (prev !== false ? false : prev));

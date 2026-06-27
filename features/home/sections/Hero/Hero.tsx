@@ -9,22 +9,22 @@ export default function Hero() {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0); // 0: video, 1: pool, 2: room, 3: garden
+  const [currentSlide, setCurrentSlide] = useState(0); 
 
   useEffect(() => {
-    // Detect mobile device layout
+    
     const checkMobile = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
     };
 
-    // Run on mount
+    
     checkMobile();
 
-    // Listen to viewport changes
+    
     window.addEventListener("resize", checkMobile);
 
-    // Native IntersectionObserver to pause video when scrolled out of view
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -53,7 +53,7 @@ export default function Hero() {
     };
   }, []);
 
-  // Slide transition effect once video finishes (currentSlide > 0)
+  
   useEffect(() => {
     if (currentSlide === 0) return;
 
@@ -67,7 +67,7 @@ export default function Hero() {
   return (
     <header className="hero" ref={containerRef}>
       <div className="video-background">
-        {/* Video Slide (Slide 0) */}
+        
         <video
           ref={videoRef}
           autoPlay
@@ -85,7 +85,7 @@ export default function Hero() {
           Your browser does not support the video tag.
         </video>
 
-        {/* Image Slide 1: Swimming Pool */}
+        
         <div className={`hero-media-element image-slide ${currentSlide === 1 ? "active" : ""}`}>
           <Image
             src="/assets/images/gallery/swimming-pool.jpeg"
@@ -97,7 +97,7 @@ export default function Hero() {
           />
         </div>
 
-        {/* Image Slide 2: Resort View */}
+        
         <div className={`hero-media-element image-slide ${currentSlide === 2 ? "active" : ""}`}>
           <Image
             src="/assets/images/gallery/main-building-exterior.jpeg"
@@ -108,7 +108,7 @@ export default function Hero() {
           />
         </div>
 
-        {/* Image Slide 3: Outer Green Area */}
+        
         <div className={`hero-media-element image-slide ${currentSlide === 3 ? "active" : ""}`}>
           <Image
             src="/assets/images/gallery/garden-area.jpg"

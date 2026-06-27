@@ -16,7 +16,7 @@ export default function DiningSection() {
     <section id="dining" className="dining-section">
       <div className="dining-container">
         <div className="dining-split-layout">
-          {/* Left Column: Image */}
+          
           <div className="dining-image-pane">
             <Image
               src="/assets/images/Dining/restaurant-interior-2.jpeg"
@@ -28,7 +28,7 @@ export default function DiningSection() {
             />
           </div>
 
-          {/* Right Column: Info Summary */}
+          
           <div className="dining-info-pane">
             <span className="dining-eyebrow">DINING EXPERIENCE</span>
             <h2 className="dining-heading-text">In-House Restaurant</h2>

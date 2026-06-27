@@ -5,7 +5,7 @@ export default function DiningContent({ whatsappUrl }: { whatsappUrl: string }) 
   return (
     <section className="dining-content-section">
       <div className="dining-details-grid">
-        {/* Gallery Pane */}
+        
         <div className="dining-gallery-strip">
           <div className="dining-gallery-image large">
             <Image
@@ -33,7 +33,7 @@ export default function DiningContent({ whatsappUrl }: { whatsappUrl: string }) 
           </div>
         </div>
 
-        {/* Info Pane */}
+        
         <div className="dining-info-block">
           <h2 className="dining-info-title">The In-House Restaurant</h2>
           <p className="dining-info-desc">

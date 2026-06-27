@@ -1,6 +1,4 @@
-/* ============================================================
-   EXPERIENCE PAGE — /experience
-   ============================================================ */
+
 
 .experience-page-main {
   padding-top: 100px;
@@ -8,7 +6,7 @@
   min-height: 100vh;
 }
 
-/* ---- Hero ---- */
+
 .experience-hero {
   position: relative;
   height: clamp(280px, 40vw, 420px);
@@ -79,7 +77,7 @@
   line-height: 1.65;
 }
 
-/* ---- List Section ---- */
+
 .experience-list-section {
   max-width: var(--container-max-width, 1280px);
   margin: 0 auto;

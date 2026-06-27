@@ -18,7 +18,7 @@ export default function ContactMapSocial({
   return (
     <section className="cp-map-social-section">
       <div className="cp-map-social-inner">
-        {/* Social CTA */}
+        
         <div className="cp-social-panel">
           <span className="cp-social-eyebrow">Stay Connected</span>
           <h2 className="cp-social-heading">Follow Us on Social Media</h2>
@@ -49,7 +49,7 @@ export default function ContactMapSocial({
           </div>
         </div>
 
-        {/* Google Map */}
+        
         <div className="cp-map-panel">
           <div className="cp-map-frame">
             <iframe
@@ -63,7 +63,7 @@ export default function ContactMapSocial({
               title="Corbett Treat Resort Location Map"
             />
           </div>
-          {/* Location Chip */}
+          
           <div className="cp-map-chip">
             <RiMapPinLine className="cp-map-chip-icon" />
             <div>

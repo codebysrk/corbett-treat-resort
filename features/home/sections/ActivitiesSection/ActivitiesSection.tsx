@@ -10,7 +10,7 @@ export default function ActivitiesSection() {
     <section className="act-section" id="experience">
       <div className="act-container">
         <div className="act-split-layout">
-          {/* Left Column: Image */}
+          
           <div className="act-image-pane">
             <Image
               src="/assets/images/activity/playing-kids.jpeg"
@@ -23,7 +23,7 @@ export default function ActivitiesSection() {
             />
           </div>
 
-          {/* Right Column: Info & Summary */}
+          
           <div className="act-info-pane">
             <span className="act-eyebrow">Activities &amp; Recreation</span>
             <h2 className="act-heading">

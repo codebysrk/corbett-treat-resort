@@ -1,6 +1,4 @@
-/* ============================================================
-   ROOMS SHOWCASE — Home Page Section Redesign
-   ============================================================ */
+
 
 .accommodation {
   width: 100%;
@@ -17,7 +15,7 @@
   align-items: center;
 }
 
-/* Left Image (Small / Landscape) */
+
 .accommodation-left-image-wrap {
   grid-column: 1;
   grid-row: 1;
@@ -28,7 +26,7 @@
   border: 1px solid var(--border-light, #e8e3d9);
 }
 
-/* Right Image (Tall / Portrait) */
+
 .accommodation-right-image-wrap {
   grid-column: 2;
   grid-row: 1;
@@ -39,7 +37,7 @@
   box-shadow: 0 15px 40px rgba(30, 61, 47, 0.08);
 }
 
-/* Content Box */
+
 .accommodation-left-content {
   grid-column: 1 / span 2;
   grid-row: 2;
@@ -85,7 +83,7 @@
 }
 
 
-/* ---- Desktop View (Split Column Grid Shift) ---- */
+
 @media (min-width: 992px) {
   .accommodation-split-container {
     grid-template-columns: 1.15fr 0.85fr;

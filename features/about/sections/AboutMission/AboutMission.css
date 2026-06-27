@@ -62,6 +62,6 @@
 
   .about-mission-image {
     margin: 0;
-    aspect-ratio: 1; /* Square-ish on desktop */
+    aspect-ratio: 1; 
   }
 }

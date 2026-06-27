@@ -64,7 +64,7 @@ export default function EventsSection() {
   return (
     <section id="events" className="events-section">
       <div className="events-container">
-        {/* Section Header */}
+        
         <div className="events-header">
           <h2 className="events-title">Unforgettable Events</h2>
           <p className="events-intro">
@@ -73,11 +73,11 @@ export default function EventsSection() {
           </p>
         </div>
 
-        {/* Grid */}
+        
         <div className="events-grid">
           {eventTypes.map((event) => (
             <div key={event.id} className="event-simple-card">
-              {/* Image Pane */}
+              
               <div className="event-image-wrap">
                 <Image
                   src={event.image}
@@ -88,7 +88,7 @@ export default function EventsSection() {
                 />
               </div>
 
-              {/* Content */}
+              
               <div className="event-content-wrap">
                 <span className="event-subtitle">{event.subtitle}</span>
                 <h3 className="event-card-heading">{event.title}</h3>

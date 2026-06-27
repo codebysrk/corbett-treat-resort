@@ -18,14 +18,14 @@ const GallerySection = () => {
 
         <div className="gallery-layout">
           
-          {/* Column 1 */}
+          
           <div className="gallery-col col-1">
             <div className="gallery-img-wrapper">
               <Image src="/assets/images/gallery/swimming-pool.jpeg" alt="Swimming Pool" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw" className="gallery-img" />
             </div>
           </div>
 
-          {/* Column 2 */}
+          
           <div className="gallery-col col-2">
             <div className="gallery-img-wrapper">
               <Image src="/assets/images/gallery/bedroom-suite-1.jpeg" alt="Premium Bedroom" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw" className="gallery-img" />
@@ -35,14 +35,14 @@ const GallerySection = () => {
             </div>
           </div>
 
-          {/* Column 3 (Center Tall) */}
+          
           <div className="gallery-col col-3">
             <div className="gallery-img-wrapper tall">
               <Image src="/assets/images/gallery/garden-area.jpg" alt="Resort Garden View" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw" className="gallery-img" />
             </div>
           </div>
 
-          {/* Column 4 */}
+          
           <div className="gallery-col col-4">
             <div className="gallery-img-wrapper">
               <Image src="/assets/images/gallery/safari-gypsy-parked.jpeg" alt="Jungle Safari Gypsy" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw" className="gallery-img" />
@@ -52,7 +52,7 @@ const GallerySection = () => {
             </div>
           </div>
 
-          {/* Column 5 */}
+          
           <div className="gallery-col col-5">
             <div className="gallery-img-wrapper">
               <Image src="/assets/images/gallery/resort-pathway-hedges.jpeg" alt="Resort Pathway" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw" className="gallery-img" />
@@ -61,7 +61,7 @@ const GallerySection = () => {
 
         </div>
 
-        {/* See More Button */}
+        
         <div className="gallery-footer">
           <Link href="/gallery" className="btn-see-more" style={{ textDecoration: "none" }}>
             SEE MORE

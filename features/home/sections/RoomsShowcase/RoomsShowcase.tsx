@@ -9,7 +9,7 @@ export default function RoomsShowcase() {
     <section className="accommodation" id="rooms">
       <div className="accommodation-split-container">
         
-        {/* Left Image (Room Interior) */}
+        
         <div className="accommodation-left-image-wrap">
           <Image
             src="/assets/images/gallery/bedroom-suite-2.jpeg"
@@ -21,7 +21,7 @@ export default function RoomsShowcase() {
           />
         </div>
 
-        {/* Right Image (Balcony/Garden View) */}
+        
         <div className="accommodation-right-image-wrap">
           <Image
             src="/assets/images/gallery/cottage-exterior-1.jpeg"
@@ -32,7 +32,7 @@ export default function RoomsShowcase() {
           />
         </div>
 
-        {/* Content Box (Heading + Desc + Button) */}
+        
         <div className="accommodation-left-content">
           <h2 className="accommodation-title-serif">Comfortable Rooms &amp; Cottages</h2>
           <p className="accommodation-desc-text">

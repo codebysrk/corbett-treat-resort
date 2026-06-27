@@ -39,7 +39,7 @@
   --color-border: #e6e2da;
   --glass-bg: rgba(255, 255, 255, 0.75);       
 
-  /* Variables added from Corbett source project */
+  
   --font-serif: Georgia, serif;
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Times New Roman', Times, serif;
@@ -62,12 +62,12 @@
   --border-radius: 4px;
   --transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-  /* Containers */
+  
   --container-max-width: 1280px;
   --container-max-wide: 1800px;
   --container-padding: clamp(1.25rem, 5vw, 6.5rem);
 
-  /* Centralized rules variables */
+  
   --color-dark-green-bg: #0c1110;
   --color-offwhite-text: #fdfbf7;
   --color-hero-bg: #fcfbfa;
@@ -154,14 +154,14 @@ p {
   line-height: var(--line-height-body);
 }
 
-/* --- ULTRA-WIDE SCREEN RESPONSIVENESS ( > 1400px ) --- */
+
 @media (min-width: 1400px) {
   :root {
-    /* Scale up base fonts slightly so it doesn't look tiny on 4K */
+    
     --font-size-body-reg: clamp(1.05rem, 1.2vw, 1.25rem);
     --font-size-small: clamp(0.85rem, 0.9vw, 1rem);
     
-    /* Scale up spaces */
+    
     --space-md: 32px;
     --space-lg: 48px;
     --space-xl: 64px;
@@ -193,9 +193,7 @@ p {
   }
 }
 
-/* ==========================================================================
-   UNIFIED SECTION PADDING & MARGINS
-   ========================================================================== */
+
 .about-section,
 .rs-section,
 .dining-section,
@@ -209,14 +207,14 @@ p {
   margin-bottom: 0 !important;
 }
 
-/* Ensure no extra padding-bottom in RoomsShowcase sub-elements */
+
 .rs-section-end {
   padding-bottom: 0 !important;
 }
 
-/* ActivitiesSection handles its own spacing internally */
 
-/* Remove border-radius from all images, image wrappers, and cards containing images across the site */
+
+
 img,
 [class*="img-wrapper"],
 [class*="image-wrapper"],

@@ -266,7 +266,7 @@
   }
 }
 
-/* ─── Floating Check Availability Form ─── */
+
 .hero-availability-wrapper {
   width: 100%;
   margin-top: 2rem;
@@ -322,12 +322,12 @@
   background-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Style date picker calendar icon color for dark background */
+
 .availability-input::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
 
-/* Dropdown option background color */
+
 .availability-select option {
   background-color: #1d1d1d;
   color: #ffffff;
@@ -357,7 +357,7 @@
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
 }
 
-/* Desktop Horizontal Form Layout */
+
 @media (min-width: 992px) {
   .hero-availability-wrapper {
     padding: 1.5rem 2rem;

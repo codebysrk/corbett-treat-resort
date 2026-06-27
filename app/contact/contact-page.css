@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* =============================================
-   CONTACT PAGE — PREMIUM LUXURY REDESIGN
-   ============================================= */
+
 
 .cp-main {
   padding-top: 60px;
@@ -10,9 +8,7 @@
   font-family: 'Inter', var(--font-poppins), sans-serif;
 }
 
-/* ────────────────────────────────
-   1. HERO
-   ──────────────────────────────── */
+
 .cp-hero {
   position: relative;
   height: clamp(340px, 45vh, 520px);
@@ -88,9 +84,7 @@
   margin: 0 auto;
 }
 
-/* ────────────────────────────────
-   2. INFO STRIP
-   ──────────────────────────────── */
+
 .cp-info-strip {
   background: #ffffff;
   border-bottom: 1px solid #eee;
@@ -156,9 +150,7 @@
   background: #f0ede8;
 }
 
-/* ────────────────────────────────
-   3. MAP & SOCIAL SECTION
-   ──────────────────────────────── */
+
 .cp-map-social-section {
   background: #f4f1eb;
   padding: clamp(3rem, 7vw, 6rem) 0;
@@ -173,7 +165,7 @@
   gap: 3rem;
 }
 
-/* Social Panel */
+
 .cp-social-panel {
   display: flex;
   flex-direction: column;
@@ -260,7 +252,7 @@
   transform: translate(3px, -3px);
 }
 
-/* Map Panel */
+
 .cp-map-panel {
   position: relative;
 }
@@ -328,9 +320,7 @@
   margin-top: 0.2rem;
 }
 
-/* =============================================
-   RESPONSIVE — TABLET (768px+)
-   ============================================= */
+
 @media (min-width: 768px) {
   .cp-main {
     padding-top: 90px;
@@ -371,9 +361,7 @@
   }
 }
 
-/* =============================================
-   RESPONSIVE — DESKTOP (1024px+)
-   ============================================= */
+
 @media (min-width: 1024px) {
   .cp-main {
     padding-top: 80px;
@@ -417,9 +405,7 @@
   }
 }
 
-/* =============================================
-   RESPONSIVE — WIDE (1400px+)
-   ============================================= */
+
 @media (min-width: 1400px) {
   .cp-info-card {
     padding: 2.75rem 2rem;

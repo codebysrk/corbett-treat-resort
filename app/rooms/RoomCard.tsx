@@ -10,7 +10,7 @@ export default function RoomCard({ room }: { room: Room }) {
 
   return (
     <article className="room-detail-card" id={room.id}>
-      {/* Image Pane */}
+      
       <div className="room-card-image-pane">
         <div className="room-card-main-img-wrapper">
           <div className="room-card-main-img-container">
@@ -25,7 +25,7 @@ export default function RoomCard({ room }: { room: Room }) {
             />
           </div>
           
-          {/* Bottom-Right Floating Exterior Image */}
+          
           <div className="room-card-bottom-right-img">
             <Image
               src="/assets/images/gallery/cottage-exterior-1.jpeg"
@@ -37,7 +37,7 @@ export default function RoomCard({ room }: { room: Room }) {
           </div>
         </div>
 
-        {/* Gallery Strip Below */}
+        
         <div className="room-card-gallery-strip-below" role="group" aria-label="Room image gallery">
           {room.gallery.map((img, i) => (
             <button 
@@ -61,7 +61,7 @@ export default function RoomCard({ room }: { room: Room }) {
         </div>
       </div>
 
-      {/* Info Pane */}
+      
       <div className="room-card-info">
         <span className="room-card-type-badge">{room.type}</span>
         <h2 className="room-card-name">{room.name}</h2>

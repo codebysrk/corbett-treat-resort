@@ -78,7 +78,7 @@ export default function EventsPage() {
   return (
     <>
       <main className="events-page-main">
-        {/* Hero */}
+        
         <section className="events-hero">
           <div className="events-hero-bg">
             <Image
@@ -101,7 +101,7 @@ export default function EventsPage() {
           </div>
         </section>
 
-        {/* Events Grid */}
+        
         <section className="events-list-section">
           <div className="events-page-grid">
             {EVENTS.map((event) => (

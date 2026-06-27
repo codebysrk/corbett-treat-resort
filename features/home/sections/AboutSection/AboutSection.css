@@ -1,9 +1,6 @@
-/* ═══════════════════════════════════════════════════════════
-   ABOUT SECTION — Overlapping Image Stack + Mountain SVG BG
-   Reference: "about section" Vite prototype 
-   ═══════════════════════════════════════════════════════════ */
 
-/* ─── Section Container ─── */
+
+
 .about-section {
   position: relative;
   background-color: var(--bg-color, #FAF8F4);
@@ -12,7 +9,7 @@
   border-bottom: 1px solid var(--border-light, #e8e3d9);
 }
 
-/* ─── Mountain SVG Background ─── */
+
 .about-mountain-svg {
   position: absolute;
   inset: 0 0 0 auto;
@@ -23,7 +20,7 @@
   user-select: none;
 }
 
-/* ─── Bottom Decorative Wash ─── */
+
 .about-bottom-wash {
   position: absolute;
   left: 0;
@@ -34,7 +31,7 @@
   pointer-events: none;
 }
 
-/* ─── Grid Container ─── */
+
 .about-grid {
   position: relative;
   z-index: 2;
@@ -46,7 +43,7 @@
   gap: clamp(2.5rem, 5vw, 3rem);
 }
 
-/* ─── Text Column ─── */
+
 .about-text-col {
   display: flex;
   flex-direction: column;
@@ -99,7 +96,7 @@
   opacity: 0.8;
 }
 
-/* ─── CTA Buttons Row ─── */
+
 .about-cta-row {
   display: flex;
   flex-wrap: wrap;
@@ -153,7 +150,7 @@
   border-bottom-color: var(--primary-green, #1E3D2F);
 }
 
-/* ─── Image Stack Column ─── */
+
 .about-image-stack {
   position: relative;
   width: 100%;
@@ -162,7 +159,7 @@
   height: clamp(20rem, 55vw, 32rem);
 }
 
-/* Back Image (Pool / Villa) */
+
 .about-img-back {
   position: absolute;
   left: 0;
@@ -185,7 +182,7 @@
   transform: scale(1.04);
 }
 
-/* Experience Badge */
+
 .about-experience-badge {
   position: absolute;
   bottom: 0;
@@ -217,7 +214,7 @@
   text-transform: uppercase;
 }
 
-/* Front Image (Jungle) with Play Button */
+
 .about-img-front {
   position: absolute;
   bottom: 0;
@@ -228,7 +225,7 @@
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   z-index: 2;
-  background-color: #000; /* Ensure solid black color for smooth fade-to-black */
+  background-color: #000; 
 }
 
 .about-img-front img {
@@ -243,7 +240,7 @@
   transform: scale(1.04);
 }
 
-/* Dark overlay on front image */
+
 .about-img-overlay {
   position: absolute;
   inset: 0;
@@ -252,7 +249,7 @@
   z-index: 1;
 }
 
-/* Video iframe / player */
+
 .about-video-iframe,
 .about-video-player {
   width: 100%;
@@ -268,7 +265,7 @@
   opacity: 0;
 }
 
-/* ─── Play Button ─── */
+
 .about-play-btn {
   position: absolute;
   left: 50%;
@@ -294,7 +291,7 @@
   transform: translate(-50%, -50%) scale(1.05);
 }
 
-/* Ping animation ring */
+
 .about-play-ping {
   position: absolute;
   inset: 0;
@@ -322,7 +319,7 @@
   margin-left: 2px;
 }
 
-/* ─── Mute Indicator Button ─── */
+
 .about-mute-indicator-btn {
   position: absolute;
   bottom: clamp(0.75rem, 2vw, 1.25rem);
@@ -355,9 +352,7 @@
   display: block;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   RESPONSIVE — Tablet / Desktop (48rem+)
-   ═══════════════════════════════════════════════════════════ */
+
 @media (min-width: 48rem) {
   .about-section {
     padding: clamp(5rem, 8vw, 7rem) 0;
@@ -375,9 +370,7 @@
   }
 }
 
-/* ═══════════════════════════════════════════════════════════
-   RESPONSIVE — Large Desktop (75rem+)
-   ═══════════════════════════════════════════════════════════ */
+
 @media (min-width: 75rem) {
 
   .about-heading {
@@ -401,7 +394,7 @@
   }
 }
 
-/* ─── Stats Counter Bar (blended into About Section) ─── */
+
 .about-stats-bar {
   position: relative;
   z-index: 2;
@@ -451,7 +444,7 @@
   }
 }
 
-/* ─── Entrance Animations ─── */
+
 @keyframes aboutSlideUp {
   from {
     opacity: 0;

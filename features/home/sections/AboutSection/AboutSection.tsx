@@ -7,7 +7,7 @@ import { BOOK_NOW_URL } from "@/constants";
 import { Button} from "@/components";
 import "./AboutSection.css";
 
-/* ─── Decorative Mountain Sketch (SVG sub-component) ─── */
+
 const MountainSketch = () => (
   <svg
     className="about-mountain-svg"
@@ -20,7 +20,7 @@ const MountainSketch = () => (
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
   >
-    {/* Clouds */}
+    
     <g opacity="0.55">
       <path d="M40 90 q30 -25 70 -10 q20 -20 55 -10 q30 -15 60 5" />
       <path d="M180 70 q40 -20 80 -5" />
@@ -29,26 +29,26 @@ const MountainSketch = () => (
       <path d="M820 40 q20 -10 60 0" />
     </g>
 
-    {/* Mountain range */}
+    
     <g opacity="0.7">
       <path d="M0 420 L120 280 L180 340 L260 220 L360 360 L430 290 L520 380 L610 250 L720 360 L820 300 L900 380" />
       <path d="M260 220 L300 270 M280 250 L320 295" opacity="0.6" />
       <path d="M610 250 L640 290 M625 270 L660 300" opacity="0.6" />
-      {/* Secondary range */}
+      
       <path
         d="M0 470 L90 400 L160 440 L240 380 L330 450 L420 400 L500 460 L600 400 L700 470 L800 420 L900 470"
         opacity="0.55"
       />
     </g>
 
-    {/* Foreground brush strokes */}
+    
     <g opacity="0.45">
       <path d="M0 540 q60 -15 130 0 q70 15 150 -5 q80 -20 170 5 q90 25 180 -10 q90 -25 180 5 q40 12 90 0" />
       <path d="M40 580 q80 -10 160 5 q90 20 180 -10 q90 -25 180 5 q90 25 180 -10 q40 -12 90 0" />
       <path d="M0 620 q80 -8 170 6 q100 16 200 -6 q120 -22 230 6 q70 18 130 -2" />
     </g>
 
-    {/* Vertical hatch lines */}
+    
     <g opacity="0.35">
       {Array.from({ length: 14 }).map((_, i) => (
         <path
@@ -60,7 +60,7 @@ const MountainSketch = () => (
   </svg>
 );
 
-/* ─── Experience Badge Sub-Component ─── */
+
 const ExperienceBadge = () => (
   <div className="about-experience-badge">
     <span className="about-badge-number">
@@ -74,34 +74,32 @@ const ExperienceBadge = () => (
   </div>
 );
 
-/* ═══════════════════════════════════════════════════════════
-   MAIN COMPONENT — AboutSection
-   ═══════════════════════════════════════════════════════════ */
+
 const AboutSection = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isFading, setIsFading] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Fade out slightly before the video ends
+  
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.target as HTMLVideoElement;
     if (video.duration) {
       const timeRemaining = video.duration - video.currentTime;
-      // Start fading out when 0.4 seconds remain
+      
       if (timeRemaining < 0.4 && !isFading) {
         setIsFading(true);
       }
     }
   };
 
-  // When video ends, restart from beginning and fade back in
+  
   const handleEnded = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.target as HTMLVideoElement;
     video.currentTime = 0;
     video
       .play()
       .then(() => {
-        // Small delay to ensure the video actually began playing first frame
+        
         setTimeout(() => {
           setIsFading(false);
         }, 50);
@@ -114,17 +112,17 @@ const AboutSection = () => {
 
   return (
     <section className="about-section" id="about">
-      {/* Decorative mountain sketch background */}
+      
       <MountainSketch />
 
-      {/* Bottom decorative wash */}
+      
       <div className="about-bottom-wash" aria-hidden="true" />
 
-      {/* Grid: Text + Images */}
+      
       <div className="about-grid">
-        {/* ─── Left: Text Content ─── */}
+        
         <div className="about-text-col">
-          {/* <span className="about-label">About Us</span> */}
+          
 
           <h2 className="about-heading">
             A Warm Welcome,
@@ -155,7 +153,7 @@ const AboutSection = () => {
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          
           <div className="about-cta-row">
             <Button
               href={BOOK_NOW_URL}
@@ -171,23 +169,12 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* ─── Right: Image Stack ─── */}
+        
         <div className="about-image-stack">
-          {/* Back Image (Pool / Resort) */}
-          {/*
-          <div className="about-img-back">
-            <Image
-              src="/assets/images/gallery/swimming-pool-sunset-view.jpeg"
-              alt="Resort pool with scenic mountain view"
-              fill
-              sizes="(max-width: 48rem) 60vw, 35vw"
-              style={{ objectFit: "cover" }}
-            />
-            <ExperienceBadge />
-          </div>
-          */}
+          
+          
 
-          {/* Front Video (Jungle / Safari) with Autoplay */}
+          
           <div className="about-img-front">
             <video
               ref={videoRef}
@@ -201,7 +188,7 @@ const AboutSection = () => {
               onEnded={handleEnded}
               style={{ cursor: "pointer" }}
             />
-            {/* Small mute/unmute control indicator overlay */}
+            
             <button
               className="about-mute-indicator-btn"
               onClick={() => setIsMuted(!isMuted)}
@@ -229,7 +216,7 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* ─── Stats Counter Bar ─── */}
+      
 
     </section>
   );
